@@ -262,9 +262,9 @@ Apache-2.0 - see [LICENSE](./LICENSE) file for details.
 
 ## Author
 
-**Fred Lackey**
-[fred.lackey@gmail.com](mailto:fred.lackey@gmail.com)
-[http://fredlackey.com](http://fredlackey.com)
+**Fred Lackey**  
+[fred.lackey@gmail.com](mailto:fred.lackey@gmail.com)  
+[http://fredlackey.com](http://fredlackey.com)  
 
 ---
 
