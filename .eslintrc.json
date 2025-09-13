@@ -1,0 +1,88 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
+  },
+  "env": {
+    "node": true,
+    "es2022": true,
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+
+    // Type safety rules - adjust based on your strictness preference
+    "@typescript-eslint/no-explicit-any": "off",
+
+    // For utility libraries, these unsafe operations might be necessary
+    // Set to "off" to disable, "warn" to see them, or "error" to enforce
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
+
+    // Template expression handling - disabled for utility library flexibility
+    "@typescript-eslint/restrict-template-expressions": "off",
+
+    // Ban dangerous types
+    "@typescript-eslint/ban-types": ["error", {
+      "types": {
+        "Function": {
+          "message": "Use a specific function type like `() => void` instead"
+        },
+        "Object": {
+          "message": "Use `object` or a more specific type instead"
+        },
+        "{}": {
+          "message": "Use `Record<string, unknown>` or a more specific type instead"
+        }
+      },
+      "extendDefaults": true
+    }],
+
+    // Unused variables
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+
+    // Function return types
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": ["warn", {
+      "allowArgumentsExplicitlyTypedAsAny": true,
+      "allowDirectConstAssertionInArrowFunctions": true,
+      "allowHigherOrderFunctions": true,
+      "allowTypedFunctionExpressions": true
+    }],
+
+    // Promise handling
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-misused-promises": "error",
+
+    // Additional helpful rules
+    "@typescript-eslint/consistent-type-imports": ["warn", {
+      "prefer": "type-imports",
+      "disallowTypeAnnotations": false
+    }],
+    "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/prefer-optional-chain": "warn"
+  },
+  "ignorePatterns": ["dist", "node_modules", "coverage", "*.js", "*.cjs", "*.mjs"]
+}
