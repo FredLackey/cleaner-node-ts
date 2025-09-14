@@ -32,7 +32,7 @@ npm install cleaner-node-ts
 ### JavaScript (CommonJS)
 
 ```javascript
-const _ = require('cleaner-node-ts');
+const _ = require('cleaner-node-ts').default;
 
 // String manipulation
 const cleaned = _.cleanString('  Hello World!  '); // "Hello World!"
@@ -108,8 +108,8 @@ npm install cleaner-node-ts
 // Before (cleaner-node)
 const _ = require('cleaner-node');
 
-// After (cleaner-node-ts) - No code changes needed!
-const _ = require('cleaner-node-ts');
+// After (cleaner-node-ts) - Updated for correct CommonJS usage
+const _ = require('cleaner-node-ts').default;
 ```
 
 All function signatures and behaviors are identical to the original package. The only difference is that you now get full TypeScript support if you're using TypeScript.
