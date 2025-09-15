@@ -1,7 +1,7 @@
-const os            = require('os');
-const writeFile     = require('./write-file');
-const isValidArray  = require('./is-valid-array');
-const isValidString = require('./is-valid-string');
+import os from 'os';
+import writeFile from './write-file';
+import isValidArray from './is-valid-array';
+import isValidString from './is-valid-string';
 
 /**
  * Writes an array of strings to a file, joining them with the OS-specific end-of-line character.
@@ -21,4 +21,4 @@ const writeLines = async (filePath, lines) => {
   return writeFile(filePath, data);
 };
 
-module.exports = writeLines;
+export default writeLines;

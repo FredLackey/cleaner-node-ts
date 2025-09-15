@@ -1,6 +1,6 @@
-const { SPACE } = require('../constants');
-const getPads = require('./get-pads');
-const isValidString = require('./is-valid-string');
+import { SPACE  } from '../constants';
+import getPads from './get-pads';
+import isValidString from './is-valid-string';
 
 /**
  * Gets the leading whitespace (prefix padding) of a string.
@@ -18,4 +18,4 @@ const getPadPrefix = value => {
   return ''.padStart(pads.prefix, SPACE);
 };
 
-module.exports = getPadPrefix;
+export default getPadPrefix;

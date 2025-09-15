@@ -9,4 +9,4 @@ const isObject = value => (
   value !== null && 
   !(value instanceof Array));
 
-module.exports = isObject;
+export default isObject;

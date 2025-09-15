@@ -1,4 +1,4 @@
-const isNumber = require('./is-number');
+import isNumber from './is-number';
 
 /**
  * Finds the minimum numeric value in an array.
@@ -27,4 +27,4 @@ const getMin = values => {
   return result;
 };
 
-module.exports = getMin;
+export default getMin;

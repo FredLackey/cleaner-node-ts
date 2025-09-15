@@ -1,14 +1,14 @@
-const isValidString = require('../is-valid-string');
-const isObject      = require('../is-object');
-const isDefined     = require('../is-defined');
-const getHeader     = require('./get-header');
-const getHeaders    = require('./get-headers');
-const getSingle     = require('../get-single');
-const getFirst      = require('../get-first');
-const getUrlParam   = require('./get-url-param');
-const getUrlParams  = require('./get-url-params');
-const middleware    = require('./middleware');
-const respond       = require('./respond');
+import isValidString from '../is-valid-string';
+import isObject from '../is-object';
+import isDefined from '../is-defined';
+import getHeader from './get-header';
+import getHeaders from './get-headers';
+import getSingle from '../get-single';
+import getFirst from '../get-first';
+import getUrlParam from './get-url-param';
+import getUrlParams from './get-url-params';
+import middleware from './middleware';
+import respond from './respond';
 
 const HTTP_PORT = 80;
 const HTTPS_PORT = 443;
@@ -115,7 +115,7 @@ const getBody = (req) => {
   return req.body;
 };
 
-module.exports = {
+export default {
 
   middleware,
 

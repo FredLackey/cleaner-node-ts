@@ -1,9 +1,9 @@
 /* eslint-disable no-use-before-define */
-const isObject          = require('./is-object');
-const isValidArray  = require('./is-valid-array');
-const isValidString = require('./is-valid-string');
-const isIsoDate = require('./is-iso-date');
-const isDigits = require('./is-digits');
+import isObject from './is-object';
+import isValidArray from './is-valid-array';
+import isValidString from './is-valid-string';
+import isIsoDate from './is-iso-date';
+import isDigits from './is-digits';
 
 const DEFAULT_PARAMS = {
   id   : '',
@@ -114,4 +114,4 @@ const fromDto = (itemOrItems, params = DEFAULT_PARAMS) => {
   }
 };
 
-module.exports = fromDto;
+export default fromDto;

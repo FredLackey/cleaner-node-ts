@@ -1,5 +1,5 @@
-const parse = require('./parse');
-const isObject = require('../is-object');
+import parse from './parse';
+import isObject from '../is-object';
 
 const MAX_YEAR = (new Date()).getFullYear();
 
@@ -14,4 +14,4 @@ const isBlockDate = (value, maxYear = MAX_YEAR) => {
   return isObject(item);
 };
 
-module.exports = isBlockDate;
+export default isBlockDate;

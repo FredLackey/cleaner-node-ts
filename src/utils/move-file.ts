@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const isFile = require('./is-file');
-const deleteFile = require('./delete-file');
-const makePath = require('./make-path');
+import fs from 'fs';
+import path from 'path';
+import isFile from './is-file';
+import deleteFile from './delete-file';
+import makePath from './make-path';
 
 /**
  * Internal helper function to attempt renaming a file.
@@ -50,4 +50,4 @@ const moveFile = (sourcePath, destinationPath) => {
   return deleteFile(sourcePath);
 };
 
-module.exports = moveFile;
+export default moveFile;

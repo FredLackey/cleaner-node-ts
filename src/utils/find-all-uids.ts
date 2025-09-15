@@ -1,7 +1,7 @@
-const isUidFormat = require('./is-uid-format');
-const isValidArray = require('./is-valid-array');
-const isObject = require('./is-object');
-const isValidString = require('./is-valid-string');
+import isUidFormat from './is-uid-format';
+import isValidArray from './is-valid-array';
+import isObject from './is-object';
+import isValidString from './is-valid-string';
 
 const EMPTY_OK = true;
 
@@ -55,4 +55,4 @@ const findAllUids = itemOrItems => {
   return cache.uids;
 };
 
-module.exports = findAllUids;
+export default findAllUids;

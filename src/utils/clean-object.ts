@@ -1,7 +1,7 @@
-const isValidObject = require('./is-valid-object');
-const isValidArray = require('./is-valid-array');
-const copyObject = require('./copy-object');
-const toResponse = require('./to-response');
+import isValidObject from './is-valid-object';
+import isValidArray from './is-valid-array';
+import copyObject from './copy-object';
+import toResponse from './to-response';
 
 /**
  * Recursively processes a single object, removing properties with `undefined` values.
@@ -106,4 +106,4 @@ const cleanObject = (itemOrItems, copyFirst = false) => {
 
 };
 
-module.exports = cleanObject;
+export default cleanObject;

@@ -1,7 +1,7 @@
-const fs       = require('fs');
-const path     = require('path');
-const makePath = require('./make-path');
-const isFile   = require('./is-file');
+import fs from 'fs';
+import path from 'path';
+import makePath from './make-path';
+import isFile from './is-file';
 
 /**
  * Writes content to a file, creating the necessary directory structure if it doesn't exist.
@@ -25,4 +25,4 @@ const writeFile = (filePath, contents = '') => {
   return isFile(filePath);
 };
 
-module.exports = writeFile;
+export default writeFile;

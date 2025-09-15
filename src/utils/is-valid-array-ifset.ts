@@ -1,5 +1,5 @@
-const isSet = require('./is-set');
-const isValidArray = require('./is-valid-array');
+import isSet from './is-set';
+import isValidArray from './is-valid-array';
 
 /**
  * Checks if a value is either not set (null or undefined) or is a valid array.
@@ -13,4 +13,4 @@ const isValidArrayIfSet = (value, isEmptyOkay) => {
   return !isSet(value) || isValidArray(value, isEmptyOkay);
 };
 
-module.exports = isValidArrayIfSet;
+export default isValidArrayIfSet;

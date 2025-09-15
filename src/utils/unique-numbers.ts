@@ -1,5 +1,5 @@
-const isValidArray = require('./is-valid-array');
-const isNumber         = require('./is-number');
+import isValidArray from './is-valid-array';
+import isNumber from './is-number';
 
 /**
  * Filters an array to contain only unique numbers, preserving the original order.
@@ -25,4 +25,4 @@ const uniqueNumbers = values => {
   return results;
 };
 
-module.exports = uniqueNumbers;
+export default uniqueNumbers;

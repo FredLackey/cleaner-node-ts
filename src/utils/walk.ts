@@ -1,8 +1,8 @@
-const isValidString = require('./is-valid-string');
-const getFolderContents = require('./get-folder-contents');
-const isFile = require('./is-file');
-const isFolder = require('./is-folder');
-const os = require('os');
+import isValidString from './is-valid-string';
+import getFolderContents from './get-folder-contents';
+import isFile from './is-file';
+import isFolder from './is-folder';
+import os from 'os';
 
 /**
  * Recursively walks a folder and collects the paths of files and subfolders relative to the root.
@@ -48,4 +48,4 @@ const walk = (folderPath) => {
   return results;
 };
 
-module.exports = walk;
+export default walk;

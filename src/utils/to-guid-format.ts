@@ -1,5 +1,5 @@
-const isGuidFormat = require('./is-guid-format');
-const isUidFormat  = require('./is-uid-format');
+import isGuidFormat from './is-guid-format';
+import isUidFormat from './is-uid-format';
 
 /**
  * Converts a value (potentially a GUID or UID) into the standard lowercase GUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
@@ -22,4 +22,4 @@ const toGuidFormat = value => {
   ].join('-').toLowerCase();
 };
 
-module.exports = toGuidFormat;
+export default toGuidFormat;

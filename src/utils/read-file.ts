@@ -1,5 +1,5 @@
-const fs = require('fs');
-const isFile = require('./is-file');
+import fs from 'fs';
+import isFile from './is-file';
 
 /**
  * Reads the entire content of a file synchronously.
@@ -25,4 +25,4 @@ const readFile = (filePath) => {
   }
 };
 
-module.exports = readFile;
+export default readFile;

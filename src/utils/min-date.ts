@@ -13,4 +13,4 @@ const minDate = (dates) => {
   return null; // Return null if the array is empty or not an array
 };
 
-module.exports = minDate;
+export default minDate;

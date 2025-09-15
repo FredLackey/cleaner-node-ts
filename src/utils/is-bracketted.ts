@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const getBracket        = require('./get-bracket');
+import isValidString from './is-valid-string';
+import getBracket from './get-bracket';
 
 /**
  * Checks if a string starts with an opening bracket ('(', '[', '{') and ends with the corresponding closing bracket.
@@ -13,4 +13,4 @@ const isBracketted = value => {
   return (bracket && isValidString(value));
 };
 
-module.exports = isBracketted;
+export default isBracketted;

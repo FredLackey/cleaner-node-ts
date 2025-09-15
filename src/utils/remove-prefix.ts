@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Removes a specified prefix from the beginning of a string, potentially multiple times.
@@ -23,4 +23,4 @@ const removePrefix = (value, prefix) => {
   return value;
 };
 
-module.exports = removePrefix;
+export default removePrefix;

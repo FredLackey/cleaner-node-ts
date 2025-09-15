@@ -9,4 +9,4 @@ const toEpoch = (date = new Date()) => {
   return seconds;
 };
 
-module.exports = toEpoch;
+export default toEpoch;

@@ -19,4 +19,4 @@ const parseJson = (rawJson, debugErrors = true) => {
   return obj;
 };
 
-module.exports = parseJson;
+export default parseJson;

@@ -1,5 +1,5 @@
-const crypto = require('crypto');
-const c = require('../constants');
+import crypto from 'crypto';
+import c from '../constants';
 
 /**
  * Generates a cryptographically random salt string.
@@ -12,4 +12,4 @@ const newSalt = (byteCount, saltOption = c.SALT_OPTION) => {
   return crypto.randomBytes(byteCount).toString(saltOption);
 };
 
-module.exports = newSalt;
+export default newSalt;

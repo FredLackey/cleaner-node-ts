@@ -1,5 +1,5 @@
-const cleanString = require('./clean-string');
-const { DIGITS }  = require('../constants');
+import cleanString from './clean-string';
+import { DIGITS  } from '../constants';
 
 /**
  * Removes all non-digit characters from a string.
@@ -10,4 +10,4 @@ const cleanDigits = value => {
   return cleanString(value, DIGITS);
 };
 
-module.exports = cleanDigits;
+export default cleanDigits;

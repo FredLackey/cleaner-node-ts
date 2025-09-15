@@ -1,4 +1,4 @@
-const getUid = require('./get-uid');
+import getUid from './get-uid';
 
 /**
  * Converts an array of items into an array of UIDs (unique identifiers).
@@ -16,4 +16,4 @@ const getUids = (items, strict = false) => {
   return [].concat(items).map(item => getUid(item, strict));
 };
 
-module.exports = getUids;
+export default getUids;

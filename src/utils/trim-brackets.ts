@@ -1,5 +1,5 @@
-const getBracket = require('./get-bracket');
-const isBracketted = require('./is-bracketted');
+import getBracket from './get-bracket';
+import isBracketted from './is-bracketted';
 
 /**
  * Recursively removes matching pairs of brackets ( (), [], {} ) from the start and end of a string.
@@ -20,4 +20,4 @@ const trimBrackets = value => {
   return value;
 };
 
-module.exports = trimBrackets;
+export default trimBrackets;

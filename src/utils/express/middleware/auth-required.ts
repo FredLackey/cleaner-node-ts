@@ -1,4 +1,4 @@
-const c = require('../../../constants');
+import c from '../../../constants';
 const { UNAUTHORIZED } = c.HTTP.STATUS.PHRASES;
 
 /**
@@ -25,4 +25,4 @@ const authRequired = (req, res, next) => {
   return next();
 };
 
-module.exports = authRequired;
+export default authRequired;

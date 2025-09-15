@@ -1,4 +1,4 @@
-const isDate = require('./is-date');
+import isDate from './is-date';
 
 /**
  * Checks if two values are both valid Date objects and represent the exact same point in time.
@@ -14,4 +14,4 @@ const isSameDate = (date1, date2) => {
   return date1.getTime() === date2.getTime();
 };
 
-module.exports = isSameDate;
+export default isSameDate;

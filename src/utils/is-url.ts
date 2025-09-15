@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Checks if a string is a valid URL.
@@ -25,4 +25,4 @@ const isUrl = value => {
   }
 };
 
-module.exports = isUrl;
+export default isUrl;

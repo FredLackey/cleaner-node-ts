@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const toCamelCase = require('./to-camel-case');
+import isValidString from './is-valid-string';
+import toCamelCase from './to-camel-case';
 
 /**
  * Converts a string to PascalCase (also known as UpperCamelCase).
@@ -18,4 +18,4 @@ const toPascalCase = value => {
 
 };
 
-module.exports = toPascalCase;
+export default toPascalCase;

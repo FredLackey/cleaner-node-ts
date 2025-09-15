@@ -13,4 +13,4 @@ const maxDate = (dates) => {
   return null; // Return null if the array is empty or not an array
 };
 
-module.exports = maxDate;
+export default maxDate;

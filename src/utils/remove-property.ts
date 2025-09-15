@@ -1,6 +1,6 @@
-const isObject = require('./is-object');
-const isValidArray = require('./is-valid-array');
-const isDefined = require('./is-defined');
+import isObject from './is-object';
+import isValidArray from './is-valid-array';
+import isDefined from './is-defined';
 
 /**
  * Internal recursive function to remove a specific property from objects within a structure (object or array).
@@ -52,4 +52,4 @@ const removeProperty = (obj, prop) => {
   return obj;
 };
 
-module.exports = removeProperty;
+export default removeProperty;

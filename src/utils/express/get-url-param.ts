@@ -9,4 +9,4 @@ const getUrlParam = (urlText, name) => {
   return url.searchParams.get(name);
 };
 
-module.exports = getUrlParam;
+export default getUrlParam;

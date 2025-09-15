@@ -1,5 +1,5 @@
-const isValidObject = require('./is-valid-object');
-const isValidArray  = require('./is-valid-array');
+import isValidObject from './is-valid-object';
+import isValidArray from './is-valid-array';
 
 /**
  * Formats a response based on the structure of the original input
@@ -43,4 +43,4 @@ const toResponse = (original, response) => {
 
 };
 
-module.exports = toResponse;
+export default toResponse;

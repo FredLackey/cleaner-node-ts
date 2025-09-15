@@ -1,5 +1,5 @@
-const isValidArray = require('./is-valid-array');
-const getFirst = require('./get-first');
+import isValidArray from './is-valid-array';
+import getFirst from './get-first';
 
 const EMPTY_OK = true;
 
@@ -18,4 +18,4 @@ const toResult = (result, sample) => {
     : getFirst(result);
 };
 
-module.exports = toResult;
+export default toResult;

@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const getEmail = require('./get-email');
+import isValidString from './is-valid-string';
+import getEmail from './get-email';
 
 /**
  * Checks if a string is a valid email address format.
@@ -13,4 +13,4 @@ const isEmail = value => {
   return isValidString(email) && value === email;
 };
 
-module.exports = isEmail;
+export default isEmail;

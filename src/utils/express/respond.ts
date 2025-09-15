@@ -1,8 +1,8 @@
-const isDigits = require('../is-digits');
-const isObject = require('../is-object');
-const isNumber = require('../is-number');
-const isValidArray = require('../is-valid-array');
-const trimToUndefined = require('../trim-to-undefined');
+import isDigits from '../is-digits';
+import isObject from '../is-object';
+import isNumber from '../is-number';
+import isValidArray from '../is-valid-array';
+import trimToUndefined from '../trim-to-undefined';
 
 const DEFAULT_STATUS = 200;
 const DEFAULT_CODE = -1;
@@ -37,4 +37,4 @@ const respond = (res, data, httpStatusCode = DEFAULT_STATUS, statusCode = DEFAUL
   return res.status(httpStatus).json(response);
 };
 
-module.exports = respond;
+export default respond;

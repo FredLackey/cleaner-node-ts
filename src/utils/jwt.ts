@@ -1,9 +1,9 @@
-const jwt               = require('jsonwebtoken');
-const isObject          = require('./is-object');
-const isValidString = require('./is-valid-string');
-const isNumber          = require('./is-number');
-const fromEpoch         = require('./from-epoch');
-const toEpoch           = require('./to-epoch');
+import jwt from 'jsonwebtoken';
+import isObject from './is-object';
+import isValidString from './is-valid-string';
+import isNumber from './is-number';
+import fromEpoch from './from-epoch';
+import toEpoch from './to-epoch';
 
 // return {
 //   user     : toId(payload.sub),
@@ -158,7 +158,7 @@ const toClaims = obj => {
 
 };
 
-module.exports = {
+export default {
   verify,
   decode,
   encode,

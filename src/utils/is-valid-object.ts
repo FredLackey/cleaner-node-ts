@@ -1,4 +1,4 @@
-const isObject = require('./is-object');
+import isObject from './is-object';
 
 /**
  * Checks if a value is a non-empty plain JavaScript object (not an array or null).
@@ -14,4 +14,4 @@ const isValidObject = (obj) => {
   return Object.keys(obj).length > 0;
 };
 
-module.exports = isValidObject;
+export default isValidObject;

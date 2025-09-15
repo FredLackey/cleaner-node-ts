@@ -1,5 +1,5 @@
-const c = require('../constants');
-const isValidString = require('./is-valid-string');
+import c from '../constants';
+import isValidString from './is-valid-string';
 
 /**
  * Calculates the duration between two timestamps (or Date objects) and formats it.
@@ -57,4 +57,4 @@ const getDuration = (start, end) => {
 
 };
 
-module.exports = getDuration;
+export default getDuration;

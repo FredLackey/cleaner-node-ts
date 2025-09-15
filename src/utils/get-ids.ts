@@ -1,4 +1,4 @@
-const getId = require('./get-id');
+import getId from './get-id';
 
 /**
  * Converts an array of items or IDs into an array of IDs.
@@ -14,4 +14,4 @@ const getIds = (itemsOrIds) => {
   return [].concat(itemsOrIds).map(x => getId(x));
 };
 
-module.exports = getIds;
+export default getIds;

@@ -11,4 +11,4 @@ const getBody = async (req) => {
   }
 };
 
-module.exports = getBody;
+export default getBody;

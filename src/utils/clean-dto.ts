@@ -1,9 +1,9 @@
 /* eslint-disable no-use-before-define */
-const isDefined         = require('./is-defined');
-const isObject          = require('./is-object');
-const isValidArray  = require('./is-valid-array');
-const isValidString = require('./is-valid-string');
-const removeSuffix      = require('./remove-suffix');
+import isDefined from './is-defined';
+import isObject from './is-object';
+import isValidArray from './is-valid-array';
+import isValidString from './is-valid-string';
+import removeSuffix from './remove-suffix';
 
 const DEFAULT_PARAMS = {
   id   : '',
@@ -190,4 +190,4 @@ const cleanDto = (itemOrItems, params = DEFAULT_PARAMS) => {
   }
 };
 
-module.exports = cleanDto;
+export default cleanDto;

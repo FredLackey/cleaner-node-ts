@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const isValidArray = require('./is-valid-array');
+import isValidString from './is-valid-string';
+import isValidArray from './is-valid-array';
 
 /**
  * Replaces consecutive occurrences of specified target characters within a string with a single instance.
@@ -28,4 +28,4 @@ const undouble = (value, targets) => {
   return value;
 };
 
-module.exports = undouble;
+export default undouble;

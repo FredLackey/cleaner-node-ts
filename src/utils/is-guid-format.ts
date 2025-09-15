@@ -1,7 +1,7 @@
-const { EMPTY_GUID } = require('../constants');
-const isAlphanumeric = require('./is-alphanumeric');
-const isValidChars = require('./is-valid-chars');
-const isValidString = require('./is-valid-string');
+import { EMPTY_GUID  } from '../constants';
+import isAlphanumeric from './is-alphanumeric';
+import isValidChars from './is-valid-chars';
+import isValidString from './is-valid-string';
 
 const GUID_CHARS = '0123456789abcdef';
 
@@ -42,4 +42,4 @@ const isGuidFormat = value => {
   return true;
 };
 
-module.exports = isGuidFormat;
+export default isGuidFormat;

@@ -1,5 +1,5 @@
-const getEmails = require('./get-emails');
-const getSingle = require('./get-single');
+import getEmails from './get-emails';
+import getSingle from './get-single';
 
 /**
  * Extracts the first valid email address found in a string.
@@ -11,4 +11,4 @@ const getEmail = value => {
   return getSingle(items);
 };
 
-module.exports = getEmail;
+export default getEmail;

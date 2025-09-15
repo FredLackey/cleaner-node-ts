@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const toSnakeCase = require('./to-snake-case');
+import isValidString from './is-valid-string';
+import toSnakeCase from './to-snake-case';
 
 /**
  * Checks if a string is in snake_case format.
@@ -12,4 +12,4 @@ const isSnakeCase = value => {
   return isValidString(value) && value === toSnakeCase(value);
 };
 
-module.exports = isSnakeCase;
+export default isSnakeCase;

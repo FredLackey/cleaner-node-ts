@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Checks if a string matches a common phone number format using a regular expression.
@@ -22,7 +22,7 @@ const isPhoneNumber = (value) => {
   return pattern.test(value);
 };
 
-module.exports = isPhoneNumber;
+export default isPhoneNumber;
 
 // Example usage:
 // console.log(validatePhoneNumber("+1 123-456-7890"));  // true

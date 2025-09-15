@@ -1,5 +1,5 @@
-const isSet = require('./is-set');
-const isBoolean = require('./is-boolean');
+import isSet from './is-set';
+import isBoolean from './is-boolean';
 
 /**
  * Checks if a value is either not set (null or undefined) or is a boolean (true or false).
@@ -12,4 +12,4 @@ const isBooleanIfSet = value => {
   return !isSet(value) || isBoolean(value);
 };
 
-module.exports = isBooleanIfSet;
+export default isBooleanIfSet;

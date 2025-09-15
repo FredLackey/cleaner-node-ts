@@ -81,4 +81,4 @@ const toTable = (lines, delimiter) => {
   return cache.lines;
 };
 
-module.exports = toTable;
+export default toTable;

@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Checks if a string contains only alphanumeric characters (a-z, 0-9, case-insensitive).
@@ -14,4 +14,4 @@ const isAlphanumeric = value => {
       .filter(ch => ('abcdefghijklmnopqrstuvwxyz0123456789'.includes(ch))).join('') === value.toLowerCase();
 };
 
-module.exports = isAlphanumeric;
+export default isAlphanumeric;

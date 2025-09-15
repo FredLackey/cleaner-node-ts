@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 /**
  * Synchronously reads the contents of a file.
@@ -17,4 +17,4 @@ const getFileContents = (filePath, options, format = 'utf8') => {
   }
 };
 
-module.exports = getFileContents;
+export default getFileContents;

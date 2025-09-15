@@ -1,5 +1,5 @@
-const path = require('path');
-const isValidString = require('./is-valid-string');
+import path from 'path';
+import isValidString from './is-valid-string';
 
 /**
  * Internal helper to safely get the base name of a path.
@@ -27,4 +27,4 @@ const isValidPath = (value) => {
   return isValidString(getBase(value));
 };
 
-module.exports = isValidPath;
+export default isValidPath;

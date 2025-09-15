@@ -1,4 +1,4 @@
-const c = require('../../../constants');
+import c from '../../../constants';
 const { METHOD_NOT_ALLOWED } = c.HTTP.STATUS.PHRASES;
 
 /**
@@ -18,4 +18,4 @@ const authProhibited = (req, res, next) => {
   return next();
 };
 
-module.exports = authProhibited;
+export default authProhibited;

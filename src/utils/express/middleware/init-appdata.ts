@@ -10,4 +10,4 @@ const initAppData = (req, res, next) => {
   return next();
 };
 
-module.exports = initAppData;
+export default initAppData;

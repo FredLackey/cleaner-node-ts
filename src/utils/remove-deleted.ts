@@ -1,6 +1,6 @@
-const isDeleted        = require('./is-deleted');
-const isObject         = require('./is-object');
-const isValidArray = require('./is-valid-array');
+import isDeleted from './is-deleted';
+import isObject from './is-object';
+import isValidArray from './is-valid-array';
 
 const EMPTY_OK = true;
 
@@ -67,4 +67,4 @@ const removeDeleted = (value, fn, deletedValue = null) => {
   return processItem(value, fn, cache, deletedValue);
 };
 
-module.exports = removeDeleted;
+export default removeDeleted;

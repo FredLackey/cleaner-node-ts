@@ -1,6 +1,6 @@
-const hasString         = require('./has-string');
-const isValidString = require('./is-valid-string');
-const { ALPHANUMERIC }  = require('../constants');
+import hasString from './has-string';
+import isValidString from './is-valid-string';
+import { ALPHANUMERIC  } from '../constants';
 
 const EMPTY_OK = true;
 
@@ -19,4 +19,4 @@ const cleanString = (value, valid = ALPHANUMERIC, invalid = '', isCaseSensitive 
   )).join('');
 };
 
-module.exports = cleanString;
+export default cleanString;

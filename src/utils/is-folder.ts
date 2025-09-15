@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 /**
  * Checks if a given path points to an existing directory (folder).
@@ -15,4 +15,4 @@ const isFolder = filePath => {
   }
 };
 
-module.exports = isFolder;
+export default isFolder;

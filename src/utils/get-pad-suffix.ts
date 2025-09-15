@@ -1,6 +1,6 @@
-const { SPACE } = require('../constants');
-const getPads = require('./get-pads');
-const isValidString = require('./is-valid-string');
+import { SPACE  } from '../constants';
+import getPads from './get-pads';
+import isValidString from './is-valid-string';
 
 /**
  * Gets the trailing whitespace (suffix padding) of a string.
@@ -18,4 +18,4 @@ const getPadSuffix = value => {
   return ''.padStart(pads.suffix, SPACE);
 };
 
-module.exports = getPadSuffix;
+export default getPadSuffix;

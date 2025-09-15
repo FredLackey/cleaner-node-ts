@@ -1,7 +1,7 @@
-const isObject     = require('./is-object');
-const copyObject   = require('./copy-object');
-const isUidFormat  = require('./is-uid-format');
-const isGuidFormat = require('./is-guid-format');
+import isObject from './is-object';
+import copyObject from './copy-object';
+import isUidFormat from './is-uid-format';
+import isGuidFormat from './is-guid-format';
 
 const KEYS = ['uid'];
 
@@ -36,4 +36,4 @@ const getUid = (itemOrId, strict = false) => {
     : undefined;
 };
 
-module.exports = getUid;
+export default getUid;

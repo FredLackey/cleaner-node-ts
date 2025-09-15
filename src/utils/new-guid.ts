@@ -1,4 +1,4 @@
-const { v4: uuidV4 } = require('uuid');
+import { v4: uuidV4  } from 'uuid';
 
 /**
  * Generates a new version 4 UUID (GUID) using the `uuid` library.
@@ -9,4 +9,4 @@ const newGuid = () => {
   return uuidV4();
 };
 
-module.exports = newGuid;
+export default newGuid;

@@ -1,5 +1,5 @@
-const isValidString = require('../is-valid-string');
-const isValidArray  = require('../is-valid-array');
+import isValidString from '../is-valid-string';
+import isValidArray from '../is-valid-array';
 const isString = value => isValidString(value, true);
 
 const QUOTES = [
@@ -96,7 +96,7 @@ const removeComments = lineOrLines => {
   return result;
 };
 
-module.exports = {
+export default {
   getDelimPosition,
   hasDelimeter,
   removeComment,

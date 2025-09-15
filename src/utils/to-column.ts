@@ -1,6 +1,6 @@
-const isValidString = require('./is-valid-string');
-const isNumber = require('./is-number');
-const isBoolean = require('./is-boolean');
+import isValidString from './is-valid-string';
+import isNumber from './is-number';
+import isBoolean from './is-boolean';
 
 /**
  * Formats an array of values (strings, numbers, booleans) into a single column of strings,
@@ -37,4 +37,4 @@ const toColumn = values => {
 
 };
 
-module.exports = toColumn;
+export default toColumn;

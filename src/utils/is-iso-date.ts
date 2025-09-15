@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const removeSuffix = require('./remove-suffix');
+import isValidString from './is-valid-string';
+import removeSuffix from './remove-suffix';
 
 /**
  * Checks if a string represents a valid ISO 8601 date format.
@@ -58,4 +58,4 @@ const isIsoDate = value => {
   return utcString === (new Date(value)).toUTCString();
 };
 
-module.exports = isIsoDate;
+export default isIsoDate;

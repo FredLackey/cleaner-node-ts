@@ -1,4 +1,4 @@
-const isShortDate = require('./is-short-date');
+import isShortDate from './is-short-date';
 
 /**
  * Converts a short date string (YYYY-MM-DD or YYYY/MM/DD) to a JavaScript Date object.
@@ -17,4 +17,4 @@ const fromShortDate = (value, allowFuture, earliestYear) => {
   return new Date(year, month - 1, day);
 };
 
-module.exports = fromShortDate;
+export default fromShortDate;

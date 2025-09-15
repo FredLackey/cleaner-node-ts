@@ -1,7 +1,7 @@
-const isValidArray    = require('./is-valid-array');
-const isObject   = require('./is-object');
-const stringify  = require('./stringify');
-const hashString = require('./hash-string');
+import isValidArray from './is-valid-array';
+import isObject from './is-object';
+import stringify from './stringify';
+import hashString from './hash-string';
 
 /**
  * Generates a hash value for a given object or array by converting it to a string representation
@@ -63,4 +63,4 @@ const hashObject = (obj, strict = false) => {
   return hashString(stringified);
 };
 
-module.exports = hashObject;
+export default hashObject;

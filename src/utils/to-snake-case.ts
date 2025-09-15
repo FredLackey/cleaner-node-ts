@@ -12,4 +12,4 @@ const toSnakeCase = value => {
     .join('_');
 };  
 
-module.exports = toSnakeCase;
+export default toSnakeCase;

@@ -1,10 +1,10 @@
-const isValidArray  = require('./is-valid-array');
-const isNumber          = require('./is-number');
-const isObject          = require('./is-object');
-const isValidString = require('./is-valid-string');
-const uniqueNumbers     = require('./unique-numbers');
-const uniqueObjects     = require('./unique-objects');
-const uniqueStrings     = require('./unique-strings');
+import isValidArray from './is-valid-array';
+import isNumber from './is-number';
+import isObject from './is-object';
+import isValidString from './is-valid-string';
+import uniqueNumbers from './unique-numbers';
+import uniqueObjects from './unique-objects';
+import uniqueStrings from './unique-strings';
 
 const EMPTY_OKAY = true;
 
@@ -43,4 +43,4 @@ const unique = (values, params = {}) => {
   return null;
 };
 
-module.exports = unique;
+export default unique;

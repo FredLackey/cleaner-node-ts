@@ -1,4 +1,4 @@
-const executePromise = require('./execute-promise');
+import executePromise from './execute-promise';
 
 /**
  * Executes a shell command asynchronously and returns an object indicating success or failure.
@@ -21,4 +21,4 @@ const execute = async command => {
   }
 };
 
-module.exports = execute;
+export default execute;

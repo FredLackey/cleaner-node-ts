@@ -1,6 +1,6 @@
-const isValidString = require("./is-valid-string");
-const parseJson = require("./parse-json");
-const isValidArray = require("./is-valid-array");
+import isValidString from './is-valid-string';
+import parseJson from './parse-json';
+import isValidArray from './is-valid-array';
 
 /**
  * Checks if a string is a valid JSON array
@@ -34,4 +34,4 @@ const isJsonArray = str => {
 
 }
 
-module.exports = isJsonArray;
+export default isJsonArray;

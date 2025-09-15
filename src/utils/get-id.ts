@@ -1,8 +1,8 @@
-const isValidString = require('./is-valid-string');
-const isObject          = require('./is-object');
-const isNumber          = require('./is-number');
-const isDefined         = require('./is-defined');
-const copyObject        = require('./copy-object');
+import isValidString from './is-valid-string';
+import isObject from './is-object';
+import isNumber from './is-number';
+import isDefined from './is-defined';
+import copyObject from './copy-object';
 
 const KEYS = ['id', '_id'];
 
@@ -39,4 +39,4 @@ const getId = (itemOrId) => {
     : undefined;
 };
 
-module.exports = getId;
+export default getId;

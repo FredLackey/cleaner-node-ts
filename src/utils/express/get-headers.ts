@@ -16,4 +16,4 @@ const getHeaders = request => {
   }
 };
 
-module.exports = getHeaders;
+export default getHeaders;

@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const isNumber          = require('./is-number');
+import isValidString from './is-valid-string';
+import isNumber from './is-number';
 
 /**
  * Converts various input types (boolean, string, number) into a boolean value.
@@ -35,4 +35,4 @@ const toBoolean = (value, defaultValue) => {
   }
 };
 
-module.exports = toBoolean;
+export default toBoolean;

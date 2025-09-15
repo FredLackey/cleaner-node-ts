@@ -1,5 +1,5 @@
-const isObject = require('./is-object');
-const isFunction = require('./is-function');
+import isObject from './is-object';
+import isFunction from './is-function';
 
 /**
  * Checks if an item is considered "deleted" based on a provided checking function.
@@ -18,4 +18,4 @@ const isDeleted = (item, fn) => {
   return fn(item);
 };
 
-module.exports = isDeleted;
+export default isDeleted;

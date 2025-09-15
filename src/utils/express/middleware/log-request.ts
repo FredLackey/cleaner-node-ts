@@ -22,4 +22,4 @@ const logRequest = (req, res, next) => {
   return next();
 };
 
-module.exports = logRequest;
+export default logRequest;

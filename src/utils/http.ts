@@ -1,8 +1,8 @@
-const removePrefix  = require('./remove-prefix');
-const removeSuffix  = require('./remove-suffix');
-const isValidString = require('./is-valid-string');
-const isObject      = require('./is-object');
-const isValidObject = require('./is-valid-object');
+import removePrefix from './remove-prefix';
+import removeSuffix from './remove-suffix';
+import isValidString from './is-valid-string';
+import isObject from './is-object';
+import isValidObject from './is-valid-object';
 
 const IS_EMPTY_STRING_OKAY = true;
 const DEFAULT_HEADERS = { 'Content-Type': 'application/json' };
@@ -198,7 +198,7 @@ const ping = async (creds = {}, headers = {}) => {
   return response || 'FAILURE';
 };
 
-module.exports = {
+export default {
   ping,
 
   doGet,

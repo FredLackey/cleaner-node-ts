@@ -1,4 +1,4 @@
-const stringify = require('./stringify');
+import stringify from './stringify';
 
 /**
  * Creates a deep copy of an object using JSON stringification and parsing.
@@ -10,4 +10,4 @@ const copyObject = item => {
   return JSON.parse(stringify(item));
 };
 
-module.exports = copyObject;
+export default copyObject;

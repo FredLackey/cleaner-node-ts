@@ -9,4 +9,4 @@ const isAsync = value => (
   value.constructor.name === 'AsyncFunction'
 );
 
-module.exports = isAsync;
+export default isAsync;

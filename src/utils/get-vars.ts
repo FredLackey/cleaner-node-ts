@@ -1,6 +1,6 @@
-const isNumber = require('./is-number');
-const isValidString = require('./is-valid-string');
-const isBoolean = require('./is-boolean');
+import isNumber from './is-number';
+import isValidString from './is-valid-string';
+import isBoolean from './is-boolean';
 
 /**
  * Retrieves environment variables, optionally filtering for proper naming conventions and valid value types.
@@ -25,4 +25,4 @@ const getVars = (proper = true, valid = true) => {
   return result;
 };
 
-module.exports = getVars;
+export default getVars;

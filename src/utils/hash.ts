@@ -1,5 +1,5 @@
-const crypto = require('crypto');
-const c = require('../constants');
+import crypto from 'crypto';
+import c from '../constants';
 
 /**
  * Computes an HMAC hash of a value using a salt.
@@ -14,4 +14,4 @@ const hash = (value, salt, hmacOption = c.HMAC_OPTION, digestOption = c.DIGEST_O
   return hmac.update(value).digest(digestOption);
 };
 
-module.exports = hash;
+export default hash;

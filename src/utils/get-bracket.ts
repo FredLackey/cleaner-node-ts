@@ -1,5 +1,5 @@
-const c = require('../constants');
-const isValidString = require('./is-valid-string');
+import c from '../constants';
+import isValidString from './is-valid-string';
 
 /**
  * Finds the matching bracket pair (e.g., { open: '(', close: ')' }) from a predefined list 
@@ -14,4 +14,4 @@ const getBracket = value => {
   });
 };
 
-module.exports = getBracket;
+export default getBracket;

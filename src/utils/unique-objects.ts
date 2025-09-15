@@ -1,6 +1,6 @@
-const isValidArray = require('./is-valid-array');
-const isObject         = require('./is-object');
-const stringify        = require('./stringify');
+import isValidArray from './is-valid-array';
+import isObject from './is-object';
+import stringify from './stringify';
 
 /**
  * Filters an array to contain only unique objects, preserving the original order.
@@ -28,4 +28,4 @@ const uniqueObjects = (values, strict = true) => {
   return results;
 };
 
-module.exports = uniqueObjects;
+export default uniqueObjects;

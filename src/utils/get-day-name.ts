@@ -1,6 +1,6 @@
-const isDate = require('./is-date');
-const isIsoDate = require('./is-iso-date');
-const fromIso = require('./from-iso-date');
+import isDate from './is-date';
+import isIsoDate from './is-iso-date';
+import fromIso from './from-iso-date';
 
 /**
  * Gets the full name of the day of the week (e.g., 'Sunday', 'Monday') for a given Date object or ISO date string.
@@ -22,4 +22,4 @@ const getDayName = (date) => {
   return daysOfWeek[dayIndex];
 };
 
-module.exports = getDayName;
+export default getDayName;

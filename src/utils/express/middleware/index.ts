@@ -1,11 +1,11 @@
-const authProhibited = require('./auth-prohibited');
-const authRequired   = require('./auth-required');
-const ensureOrigin   = require('./ensure-origin');
-const initAppData    = require('./init-appdata');
-const initSession    = require('./init-session');
-const logRequest     = require('./log-request');
+import authProhibited from './auth-prohibited';
+import authRequired from './auth-required';
+import ensureOrigin from './ensure-origin';
+import initAppData from './init-appdata';
+import initSession from './init-session';
+import logRequest from './log-request';
 
-module.exports = {
+export default {
   authProhibited,
   authRequired,
   ensureOrigin,

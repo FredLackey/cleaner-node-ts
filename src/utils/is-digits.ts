@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Checks if a string contains only numeric digits (0-9).
@@ -14,4 +14,4 @@ const isDigits = value => {
       .filter(ch => ('0123456789'.includes(ch))).join('') === value;
 };
 
-module.exports = isDigits;
+export default isDigits;

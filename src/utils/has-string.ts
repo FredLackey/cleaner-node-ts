@@ -12,4 +12,4 @@ const hasString = (value, target, isCaseSensitive = false) => {
     (value.toUpperCase().indexOf(target.toUpperCase()) >= 0);
 };
 
-module.exports = hasString;
+export default hasString;

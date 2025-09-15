@@ -1,6 +1,6 @@
-const c                 = require('../constants');
-const isValidString = require('./is-valid-string');
-const cleanString       = require('./clean-string');
+import c from '../constants';
+import isValidString from './is-valid-string';
+import cleanString from './clean-string';
 
 const EMPTY_OK = false;
 
@@ -19,4 +19,4 @@ const isValidChars = (value, valid = c.ALPHANUMERIC, invalid = '', isCaseSensiti
   return isValidString(value, EMPTY_OK) && (value === cleanString(value, valid, invalid, isCaseSensitive));
 };
 
-module.exports = isValidChars;
+export default isValidChars;

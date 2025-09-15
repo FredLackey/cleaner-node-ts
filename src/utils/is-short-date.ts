@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const isDigits = require('./is-digits');
+import isValidString from './is-valid-string';
+import isDigits from './is-digits';
 
 const EARLIEST_YEAR = 1900;
 
@@ -37,4 +37,4 @@ const isValidShortDate = (value, allowFuture = false, earliestYear = EARLIEST_YE
   return true;
 };
 
-module.exports = isValidShortDate;
+export default isValidShortDate;

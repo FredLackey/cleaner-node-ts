@@ -1,4 +1,4 @@
-const toSnakeCase = require('./to-snake-case');
+import toSnakeCase from './to-snake-case';
 
 /**
  * Converts a string to camelCase.
@@ -18,4 +18,4 @@ const toCamelCase = value => {
     : `${value.substr(0, 1).toLowerCase()}${value.substr(1)}`;
 };
 
-module.exports = toCamelCase;
+export default toCamelCase;

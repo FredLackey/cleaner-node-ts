@@ -1,6 +1,6 @@
-const isValidObject = require('./is-valid-object');
-const isValidString = require('./is-valid-string');
-const { ENUM_KEYS } = require('../constants');
+import isValidObject from './is-valid-object';
+import isValidString from './is-valid-string';
+import { ENUM_KEYS  } from '../constants';
 
 /**
  * Retrieves the enum value from an object.
@@ -26,4 +26,4 @@ const getEnum = (obj) => {
   return obj[keys[0]];
 };
 
-module.exports = getEnum;
+export default getEnum;

@@ -1,4 +1,4 @@
-const isValidArray = require('./is-valid-array');
+import isValidArray from './is-valid-array';
 
 /**
  * Finds the longest common starting substring among an array of strings.
@@ -34,4 +34,4 @@ const getSubstring = (values, isCaseSensitive = true) => {
   return lastValue;
 };
 
-module.exports = getSubstring;
+export default getSubstring;

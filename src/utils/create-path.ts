@@ -1,6 +1,6 @@
-const fs = require('fs');
-const isFolder = require('./is-folder');
-const isValidString = require('./is-valid-string');
+import fs from 'fs';
+import isFolder from './is-folder';
+import isValidString from './is-valid-string';
 
 /**
  * Creates a directory path recursively if it doesn't already exist.
@@ -20,4 +20,4 @@ const createPath = value => {
   return isFolder(value);
 };
 
-module.exports = createPath;
+export default createPath;

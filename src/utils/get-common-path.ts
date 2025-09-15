@@ -1,7 +1,7 @@
-const path = require('path');
-const isValidArray = require('./is-valid-array');
-const isValidString = require('./is-valid-string');
-const getSubstring = require('./get-substring');
+import path from 'path';
+import isValidArray from './is-valid-array';
+import isValidString from './is-valid-string';
+import getSubstring from './get-substring';
 
 /**
  * Finds the common root path (e.g., 'C:\\' or '/') from an array of file paths.
@@ -74,4 +74,4 @@ const getBaseDir = (values) => {
   return substring;
 };
 
-module.exports = getBaseDir;
+export default getBaseDir;

@@ -1,4 +1,4 @@
-const parse = require('./parse');
+import parse from './parse';
 
 /**
  * Converts a blockdate string (YYYYMMDDHHmmssSSS) into a JavaScript Date object.
@@ -24,4 +24,4 @@ const fromBlockDate = (value) => {
 
 };
 
-module.exports = fromBlockDate;
+export default fromBlockDate;

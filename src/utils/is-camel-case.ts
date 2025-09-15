@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const toCamelCase = require('./to-camel-case');
+import isValidString from './is-valid-string';
+import toCamelCase from './to-camel-case';
 
 /**
  * Checks if a string is in camelCase format.
@@ -12,4 +12,4 @@ const isCamelCase = value => {
   return isValidString(value) && value === toCamelCase(value);
 };
 
-module.exports = isCamelCase;
+export default isCamelCase;

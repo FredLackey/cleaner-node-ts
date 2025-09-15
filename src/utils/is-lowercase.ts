@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Checks if a string is entirely lowercase.
@@ -11,4 +11,4 @@ const isLowerCase = value => {
   return isValidString(value, false) && value === value.toLowerCase();
 };
 
-module.exports = isLowerCase;
+export default isLowerCase;

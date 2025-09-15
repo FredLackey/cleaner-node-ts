@@ -1,6 +1,6 @@
-const isDate = require('./is-date');
-const isNumber = require('./is-number');
-const addMonths = require('./add-months');
+import isDate from './is-date';
+import isNumber from './is-number';
+import addMonths from './add-months';
 
 /**
  * Adds a specified number of years to a date.
@@ -16,4 +16,4 @@ const addYears = (value, quantity) => {
   return addMonths(value, quantity * 12);
 };
 
-module.exports = addYears;
+export default addYears;

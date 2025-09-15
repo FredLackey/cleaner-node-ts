@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 const EMPTY_OK = true;
 
@@ -13,4 +13,4 @@ const getStringSize = (value, encoding = 'utf8') => {
   return Buffer.byteLength(value, encoding);
 };
 
-module.exports = getStringSize;
+export default getStringSize;

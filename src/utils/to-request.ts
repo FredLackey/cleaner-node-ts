@@ -1,6 +1,6 @@
-const copyObject = require('./copy-object');
-const isDigits   = require('./is-digits');
-const isObject   = require('./is-object');
+import copyObject from './copy-object';
+import isDigits from './is-digits';
+import isObject from './is-object';
 
 /**
  * Transforms a raw request object (presumably from an HTTP request) into a standardized request format.
@@ -60,4 +60,4 @@ const toRequest = (req) => {
   };
 };
 
-module.exports = toRequest;
+export default toRequest;

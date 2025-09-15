@@ -1,8 +1,8 @@
-const crypto = require('crypto');
-const c = require('../constants');
+import crypto from 'crypto';
+import c from '../constants';
 
-const isValidString = require('./is-valid-string');
-const trimToUndefined = require('./trim-to-undefined');
+import isValidString from './is-valid-string';
+import trimToUndefined from './trim-to-undefined';
 
 /**
  * Computes a hash (md5/hex by default) of a string after trimming leading/trailing whitespace.
@@ -15,4 +15,4 @@ const hashString = value => {
   return crypto.createHash(c.STRING_HMAC).update(value).digest(c.DIGEST_OPTION);
 };
 
-module.exports = hashString;
+export default hashString;

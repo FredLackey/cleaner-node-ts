@@ -1,5 +1,5 @@
-const cleanString = require('./clean-string');
-const { ALPHANUMERIC }  = require('../constants');
+import cleanString from './clean-string';
+import { ALPHANUMERIC  } from '../constants';
 
 /**
  * Removes all characters from a string except for letters and numbers.
@@ -10,4 +10,4 @@ const cleanAlphanumeric = value => {
   return cleanString(value, ALPHANUMERIC);
 };
 
-module.exports = cleanAlphanumeric;
+export default cleanAlphanumeric;

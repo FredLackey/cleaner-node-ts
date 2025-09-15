@@ -465,77 +465,108 @@ const CLEAR_CODE = 'ACDEFGHJKLMNPRTVWXY0123456789';
 
 const NUMBERS = {
   MS: {
-    PER: {}
+    PER: {
+      SECOND: 1000,
+      MINUTE: 0,
+      HOUR: 0,
+      DAY: 0,
+      WEEK: 0
+    }
   }
 };
-NUMBERS.MS.PER.SECOND = 1000;
 NUMBERS.MS.PER.MINUTE = NUMBERS.MS.PER.SECOND * 60;
 NUMBERS.MS.PER.HOUR   = NUMBERS.MS.PER.MINUTE * 60;
 NUMBERS.MS.PER.DAY    = NUMBERS.MS.PER.HOUR   * 24;
 NUMBERS.MS.PER.WEEK   = NUMBERS.MS.PER.DAY    * 7;
 
-module.exports = {
-  ALPHA       : 'abcdefghijklmnopqrstuvwxyz',
-  ALPHANUMERIC: 'abcdefghijklmnopqrstuvwxyz0123456789',
-  AUDIT_FIELDS: [
-    'createdBy', 'createdAt', 'updatedBy', 'updatedAt', 'deletedBy', 'deletedAt',
-    '_ac', '_av', '_ad', '_au',
-    'ac', 'av', 'ad', 'au',
-  ],
-  BRACKETS    : [
-    { open: '<', close: '/>' },
-    { open: '<', close: '>' },
-    { open: '<%=', close: '%>' },
-    { open: '[', close: ']' },
-    { open: '[%', close: '%]' },
-    { open: '{', close: '}' },
-    { open: '(', close: ')' },
-    { open: '%', close: '%' },
-    { open: '_', close: '_' }
-  ],
+export const ALPHA = 'abcdefghijklmnopqrstuvwxyz';
+export const ALPHANUMERIC = 'abcdefghijklmnopqrstuvwxyz0123456789';
+export const AUDIT_FIELDS = [
+  'createdBy', 'createdAt', 'updatedBy', 'updatedAt', 'deletedBy', 'deletedAt',
+  '_ac', '_av', '_ad', '_au',
+  'ac', 'av', 'ad', 'au',
+];
+export const BRACKETS = [
+  { open: '<', close: '/>' },
+  { open: '<', close: '>' },
+  { open: '<%=', close: '%>' },
+  { open: '[', close: ']' },
+  { open: '[%', close: '%]' },
+  { open: '{', close: '}' },
+  { open: '(', close: ')' },
+  { open: '%', close: '%' },
+  { open: '_', close: '_' }
+];
+export { CLEAR_CODE };
+export const DIGITS = '0123456789';
+export const ENUM_NAME = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
+export const ENUM_KEYS = [
+  'enum',
+  'enum_name',
+  'ENUM',
+  'ENUM_NAME',
+  'enumName',
+];
+export const QUOTE = '"';
+export const SPACE = ' ';
+
+export const EMPTY_GUID = '00000000-0000-0000-0000-000000000000';
+export const EMPTY_UID = '00000000000000000000000000000000';
+export const EMPTY_IP = '0.0.0.0';
+
+export { NUMBERS };
+
+export const HTTP = {
+  STATUS: {
+    CODES  : HTTP_STATUS_CODES,
+    PHRASES: HTTP_STATUS_PHRASES
+  }
+};
+export const TYPES = {
+  OPTION: OPTION_TYPE
+};
+
+export const DEFAULTS = {
+  CODE: {
+    LENGTH: 6,
+    CHARS : CLEAR_CODE,
+  }
+};
+
+export const ZERO_DATE = new Date('1970-01-01Z00:00:00:000');
+
+// INTERNAL
+export const SALT_OPTION = 'base64';
+export const HMAC_OPTION = 'sha1';
+export const DIGEST_OPTION = 'hex';
+export const ENCODE_FORMAT = 'base64';
+export const DECODE_FORMAT = 'ascii';
+export const STRING_HMAC = 'md5';
+
+// Default export for backward compatibility
+export default {
+  ALPHA,
+  ALPHANUMERIC,
+  AUDIT_FIELDS,
+  BRACKETS,
   CLEAR_CODE,
-  DIGITS   : '0123456789',
-  ENUM_NAME: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_',
-  ENUM_KEYS: [
-    'enum',
-    'enum_name',
-    'ENUM',
-    'ENUM_NAME',
-    'enumName',
-  ],
-  QUOTE    : '"',
-  SPACE    : ' ',
-  
-  EMPTY_GUID: '00000000-0000-0000-0000-000000000000',
-  EMPTY_UID : '00000000000000000000000000000000',
-  EMPTY_IP  : '0.0.0.0',
-
+  DIGITS,
+  ENUM_NAME,
+  ENUM_KEYS,
+  QUOTE,
+  SPACE,
+  EMPTY_GUID,
+  EMPTY_UID,
+  EMPTY_IP,
   NUMBERS,
-
-  HTTP: {
-    STATUS: {
-      CODES  : HTTP_STATUS_CODES,
-      PHRASES: HTTP_STATUS_PHRASES
-    }
-  },
-  TYPES: {
-    OPTION: OPTION_TYPE
-  },
-
-  DEFAULTS: {
-    CODE: {
-      LENGTH: 6,
-      CHARS : CLEAR_CODE,
-    }
-  },
-
-  ZERO_DATE: new Date('1970-01-01Z00:00:00:000'),
-
-    // INTERNAL
-  SALT_OPTION  : 'base64',
-  HMAC_OPTION  : 'sha1',
-  DIGEST_OPTION: 'hex',
-  ENCODE_FORMAT: 'base64',
-  DECODE_FORMAT: 'ascii',
-  STRING_HMAC  : 'md5'
+  HTTP,
+  TYPES,
+  DEFAULTS,
+  ZERO_DATE,
+  SALT_OPTION,
+  HMAC_OPTION,
+  DIGEST_OPTION,
+  ENCODE_FORMAT,
+  DECODE_FORMAT,
+  STRING_HMAC
 };

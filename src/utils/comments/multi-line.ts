@@ -1,4 +1,4 @@
-const isValidArray = require('../is-valid-array');
+import isValidArray from '../is-valid-array';
 
 const BEGIN = '/*';
 const END   = '*/';
@@ -66,6 +66,6 @@ const removeComments = lines => {
 };
 
 
-module.exports = {
+export default {
   removeComments,
 };

@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-syntax */
-const fs = require('fs');
-const os = require('os');
-const readline = require('readline');
+import fs from 'fs';
+import os from 'os';
+import readline from 'readline';
 
 /**
  * Asynchronously copies the contents of a source file to a destination file, line by line.
@@ -26,4 +26,4 @@ const copyContents = async (sourceFile, destinationFile) => {
   await outStream.close();
 };
 
-module.exports = copyContents;
+export default copyContents;

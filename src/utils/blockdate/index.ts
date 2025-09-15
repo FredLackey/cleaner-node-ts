@@ -1,8 +1,8 @@
-const isBlockDate    = require('./is');
-const parseBlockDate = require('./parse');
-const fromBlockDate  = require('./from');
+import isBlockDate from './is';
+import parseBlockDate from './parse';
+import fromBlockDate from './from';
 
-module.exports = {
+export default {
   isBlockDate,
   parseBlockDate,
   fromBlockDate,

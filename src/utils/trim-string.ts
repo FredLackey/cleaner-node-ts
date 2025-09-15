@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 const EMPTY_OK = true;
 
@@ -14,4 +14,4 @@ const trimString = value => {
     ? value.trim()
     : '';
 };
-module.exports = trimString;
+export default trimString;

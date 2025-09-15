@@ -20,4 +20,4 @@ const getPads = line => {
   return results;
 };
 
-module.exports = getPads;
+export default getPads;

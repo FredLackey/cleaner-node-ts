@@ -1,5 +1,5 @@
-const isValidArray  = require('./is-valid-array');
-const isValidString = require('./is-valid-string');
+import isValidArray from './is-valid-array';
+import isValidString from './is-valid-string';
 
 /**
  * Filters an array to contain only unique strings, preserving the original order.
@@ -25,4 +25,4 @@ const uniqueString = (values, isCaseSensitive = false, trim = true) => {
   return result;
 };
 
-module.exports = uniqueString;
+export default uniqueString;

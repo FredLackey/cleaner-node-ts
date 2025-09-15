@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 /**
  * Checks if a given path points to an existing file.
@@ -15,4 +15,4 @@ const isFile = filePath => {
   }
 };
 
-module.exports = isFile;
+export default isFile;

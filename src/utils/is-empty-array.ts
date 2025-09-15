@@ -1,4 +1,4 @@
-const isValidArray = require('./is-valid-array');
+import isValidArray from './is-valid-array';
 
 /**
  * Checks if a value is an array that contains no elements.
@@ -21,4 +21,4 @@ const isEmptyArray = (array) => {
   return isValidArray(array, true) && !isValidArray(array, false);
 };
 
-module.exports = isEmptyArray;
+export default isEmptyArray;

@@ -1,6 +1,6 @@
-const isValidString = require('./is-valid-string');
-const getPads       = require('./get-pads');
-const { QUOTE }     = require('../constants');
+import isValidString from './is-valid-string';
+import getPads from './get-pads';
+import { QUOTE  } from '../constants';
 
 /**
  * Removes leading and trailing quote characters (") from a string, preserving any leading/trailing whitespace.
@@ -38,4 +38,4 @@ const unQuote = value => {
   return prefix + result + suffix;
 };
 
-module.exports = unQuote;
+export default unQuote;

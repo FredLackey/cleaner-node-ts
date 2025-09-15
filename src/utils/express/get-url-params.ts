@@ -13,4 +13,4 @@ const getParams = urlText => {
   return result;
 };
 
-module.exports = getParams;
+export default getParams;

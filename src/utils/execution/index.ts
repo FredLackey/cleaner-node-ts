@@ -1,7 +1,7 @@
-const executePromise = require('./execute-promise');
-const execute = require('./execute');
+import executePromise from './execute-promise';
+import execute from './execute';
 
-module.exports = {
+export default {
   executePromise,
   execute
 };

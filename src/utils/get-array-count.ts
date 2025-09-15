@@ -1,4 +1,4 @@
-const isValidArray = require('./is-valid-array');
+import isValidArray from './is-valid-array';
 
 const EMPTY_OK = true;
 
@@ -14,4 +14,4 @@ const getArrayCount = value => {
     : -1;
 };
 
-module.exports = getArrayCount;
+export default getArrayCount;

@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+import crypto from 'crypto';
 
 /**
  * Calculates the MD5 hash of a given string value.
@@ -7,4 +7,4 @@ const crypto = require('crypto');
  */
 const getHash = value => crypto.createHash('md5').update(value).digest('hex');
 
-module.exports = getHash;
+export default getHash;

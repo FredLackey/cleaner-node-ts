@@ -1,4 +1,4 @@
-const isNumber = require('./is-number');
+import isNumber from './is-number';
 
 /**
  * Comparison function for sorting numbers in ascending order.
@@ -41,4 +41,4 @@ const sort = (values, descending = false) => {
   return digits;
 };
 
-module.exports = sort;
+export default sort;

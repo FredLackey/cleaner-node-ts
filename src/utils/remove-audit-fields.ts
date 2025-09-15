@@ -1,7 +1,7 @@
-const copyObject = require('./copy-object');
-const isObject = require('./is-object');
-const isValidArray = require('./is-valid-array');
-const { AUDIT_FIELDS } = require('../constants');
+import copyObject from './copy-object';
+import isObject from './is-object';
+import isValidArray from './is-valid-array';
+import { AUDIT_FIELDS  } from '../constants';
 
 const EMPTY_OK = true;
 
@@ -58,4 +58,4 @@ const removeAuditFields = (itemOrItems, makeCopy = false) => {
   return value;
 };
 
-module.exports = removeAuditFields;
+export default removeAuditFields;

@@ -1,5 +1,5 @@
-const c = require('../constants');
-const isValidString = require('./is-valid-string');
+import c from '../constants';
+import isValidString from './is-valid-string';
 
 /**
  * Extracts segments from a string that are enclosed by specified opening and closing brackets.
@@ -41,4 +41,4 @@ function getTokenizedSegments (str, brackets) {
   return results;
 }
 
-module.exports = getTokenizedSegments;
+export default getTokenizedSegments;

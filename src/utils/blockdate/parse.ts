@@ -1,4 +1,4 @@
-const isDigits = require('../is-digits');
+import isDigits from '../is-digits';
 
 const MAX_YEAR = (new Date()).getFullYear();
 
@@ -133,4 +133,4 @@ const parse = (value, maxYear = MAX_YEAR) => {
   return result;
 };
 
-module.exports = parse;
+export default parse;

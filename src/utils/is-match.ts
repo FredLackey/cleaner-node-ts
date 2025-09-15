@@ -39,4 +39,4 @@ const isMatch = (source, target, caseSensitive, matchWhitespace) => {
 
 };
 
-module.exports = isMatch;
+export default isMatch;

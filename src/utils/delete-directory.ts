@@ -1,5 +1,5 @@
-const rimraf   = require('rimraf');
-const isFolder = require('./is-folder');
+import rimraf from 'rimraf';
+import isFolder from './is-folder';
 
 /**
  * Synchronously deletes a directory and its contents recursively.
@@ -20,4 +20,4 @@ const deleteDirectory = (folderPath) => {
   }
 };
 
-module.exports = deleteDirectory;
+export default deleteDirectory;

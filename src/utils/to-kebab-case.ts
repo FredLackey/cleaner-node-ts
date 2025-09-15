@@ -13,4 +13,4 @@ const toKebabCase = value => {
     .join('-');
 };
 
-module.exports = toKebabCase;
+export default toKebabCase;

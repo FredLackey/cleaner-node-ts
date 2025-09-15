@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Checks if a string is entirely uppercase.
@@ -11,4 +11,4 @@ const isCaps = value => {
   return isValidString(value, false) && value === value.toUpperCase();
 };
 
-module.exports = isCaps;
+export default isCaps;

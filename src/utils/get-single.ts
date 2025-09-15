@@ -1,4 +1,4 @@
-const getArrayCount = require('./get-array-count');
+import getArrayCount from './get-array-count';
 
 /**
  * Returns the first element of an array if it contains exactly one element, otherwise returns undefined.
@@ -11,4 +11,4 @@ const getSingle = value => {
     : undefined;
 };
 
-module.exports = getSingle;
+export default getSingle;

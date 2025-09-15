@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
-const fs = require('fs');
-const readline = require('readline');
+import fs from 'fs';
+import readline from 'readline';
 
 /**
  * Asynchronously reads a file line by line and returns an array of strings.
@@ -26,4 +26,4 @@ const readLines = async (filePath) => {
   }
 };
 
-module.exports = readLines;
+export default readLines;

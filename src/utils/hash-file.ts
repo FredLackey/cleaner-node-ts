@@ -1,9 +1,9 @@
-const crypto = require('crypto');
-const fs = require('fs');
-const c = require('../constants');
+import crypto from 'crypto';
+import fs from 'fs';
+import c from '../constants';
 
-const isFile = require('./is-file');
-const isValidString = require('./is-valid-string');
+import isFile from './is-file';
+import isValidString from './is-valid-string';
 
 const ALGORITHMS = [
   'md5', 'sha1', 'sha256'
@@ -69,4 +69,4 @@ const hashFile = (value, algorithm = DEFAULT_ALGORITHM, digest = DEFAULT_DIGEST)
   return result;
 };
 
-module.exports = hashFile;
+export default hashFile;

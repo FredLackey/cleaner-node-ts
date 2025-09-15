@@ -1,5 +1,5 @@
-const jwt = require('../../jwt');
-const removePrefix = require('../../remove-prefix');
+import jwt from '../../jwt';
+import removePrefix from '../../remove-prefix';
 
 const { JWT_SECRET } = process.env;
 
@@ -42,4 +42,4 @@ const initSession = (req, res, next) => {
 
 };
 
-module.exports = initSession;
+export default initSession;

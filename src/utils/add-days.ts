@@ -1,5 +1,5 @@
-const isDate   = require('./is-date');
-const isNumber = require('./is-number');
+import isDate from './is-date';
+import isNumber from './is-number';
 
 /**
  * Adds a specified number of days to a date.
@@ -13,4 +13,4 @@ const addDays = (value, quantity) => {
     : undefined;
 };
 
-module.exports = addDays;
+export default addDays;

@@ -1,11 +1,11 @@
-const crypto = require('crypto');
-const fs     = require('fs');
-const c      = require('../constants');
+import crypto from 'crypto';
+import fs from 'fs';
+import c from '../constants';
 
-const isFile            = require('./is-file');
-const isValidString = require('./is-valid-string');
-const getFileContents   = require('./get-file-contents');
-const readLines         = require('./read-lines');
+import isFile from './is-file';
+import isValidString from './is-valid-string';
+import getFileContents from './get-file-contents';
+import readLines from './read-lines';
 
 const ALGORITHMS = [
   'md5', 'sha1', 'sha256'
@@ -77,4 +77,4 @@ const hashFileContents = async (value, trim = false, algorithm = DEFAULT_ALGORIT
   return result;
 };
 
-module.exports = hashFileContents;
+export default hashFileContents;

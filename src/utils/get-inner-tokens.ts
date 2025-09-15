@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Extracts the innermost content enclosed by a specified pair of opening and closing brackets/tokens.
@@ -50,4 +50,4 @@ function getInnerTokens (str, bracket) {
   return null;
 }
 
-module.exports = getInnerTokens;
+export default getInnerTokens;

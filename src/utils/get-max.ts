@@ -1,4 +1,4 @@
-const isNumber = require('./is-number');
+import isNumber from './is-number';
 
 /**
  * Finds the maximum numeric value in an array.
@@ -27,4 +27,4 @@ const getMax = values => {
   return result;
 };
 
-module.exports = getMax;
+export default getMax;

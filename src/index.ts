@@ -1,6 +1,6 @@
-const constants = require('./constants');
-const errors    = require('./errors');
-const utils     = require('./utils');
+import * as constants from './constants';
+import * as errors from './errors';
+import * as utils from './utils';
 
 utils.errors = errors;
 utils.status = constants.HTTP.STATUS.CODES;
@@ -21,4 +21,4 @@ utils.DEFAULTS     = constants.DEFAULTS;
 utils.ZERO_DATE    = constants.ZERO_DATE;
 
 
-module.exports = utils;
+export = utils;

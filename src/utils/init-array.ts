@@ -1,4 +1,4 @@
-const isDefined = require('./is-defined');
+import isDefined from './is-defined';
 
 /**
  * Ensures the input value is an array and filters out undefined elements.
@@ -10,4 +10,4 @@ const initArray = (value) => {
   return [].concat(value).filter(isDefined);
 };
 
-module.exports = initArray;
+export default initArray;

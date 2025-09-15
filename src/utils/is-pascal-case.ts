@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const toPascalCase = require('./to-pascal-case');
+import isValidString from './is-valid-string';
+import toPascalCase from './to-pascal-case';
 
 /**
  * Checks if a string is in PascalCase (UpperCamelCase) format.
@@ -12,4 +12,4 @@ const isPascalCase = value => {
   return isValidString(value) && value === toPascalCase(value);
 };
 
-module.exports = isPascalCase;
+export default isPascalCase;

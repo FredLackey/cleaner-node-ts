@@ -1,5 +1,5 @@
-const fs       = require('fs');
-const isFolder = require('./is-folder');
+import fs from 'fs';
+import isFolder from './is-folder';
 
 /**
  * Creates a directory path, including any necessary parent directories.
@@ -19,4 +19,4 @@ const makePath = dirPath => {
   }
 };
 
-module.exports = makePath;
+export default makePath;

@@ -1,6 +1,6 @@
-const isValidString = require("./is-valid-string");
-const parseJson = require("./parse-json");
-const isObject = require("./is-object");
+import isValidString from './is-valid-string';
+import parseJson from './parse-json';
+import isObject from './is-object';
 
 /**
  * Checks if a string is a valid JSON object
@@ -34,4 +34,4 @@ const isJsonObject = str => {
 
 }
 
-module.exports = isJsonObject;
+export default isJsonObject;

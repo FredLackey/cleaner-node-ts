@@ -1,7 +1,7 @@
-const isObject = require('./is-object');
-const isValidArray = require('./is-valid-array');
-const writeFile = require('./write-file');
-const stringify = require('./stringify');
+import isObject from './is-object';
+import isValidArray from './is-valid-array';
+import writeFile from './write-file';
+import stringify from './stringify';
 
 /**
  * Converts an object or array to a JSON string and saves it to a file.
@@ -16,4 +16,4 @@ const saveJson = (data, filePath) => {
     && writeFile(filePath, stringify(data));
 };
 
-module.exports = saveJson;
+export default saveJson;

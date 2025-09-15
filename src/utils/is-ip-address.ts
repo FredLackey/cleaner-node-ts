@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 const ACCEPTABLE_IP_ADDRESS = [
   '0.0.0.0',
@@ -32,4 +32,4 @@ const isIpAddress = value => {
   return Number(parts[0]) !== 0;
 };
 
-module.exports = isIpAddress;
+export default isIpAddress;

@@ -1,5 +1,5 @@
-const isNumber = require('./is-number');
-const isDigits = require('./is-digits');
+import isNumber from './is-number';
+import isDigits from './is-digits';
 
 /**
  * Converts a Unix epoch timestamp (seconds since Jan 1, 1970) to a JavaScript Date object.
@@ -16,4 +16,4 @@ const fromEpoch = (value) => {
   return date;
 };
 
-module.exports = fromEpoch;
+export default fromEpoch;

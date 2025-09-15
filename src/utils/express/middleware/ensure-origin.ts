@@ -22,4 +22,4 @@ const ensureOrigin = (req, res, next) => {
   return next();
 };
 
-module.exports = ensureOrigin;
+export default ensureOrigin;

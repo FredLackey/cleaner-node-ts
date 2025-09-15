@@ -1,4 +1,4 @@
-const newGuid = require('./new-guid');
+import newGuid from './new-guid';
 
 /**
  * Generates a new unique identifier (UID) string.
@@ -11,4 +11,4 @@ const newUid = () => {
   return guid.split('-').join('').toUpperCase();
 };
 
-module.exports = newUid;
+export default newUid;

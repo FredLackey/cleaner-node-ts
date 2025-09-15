@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Extracts all valid email addresses found in a string using a regular expression.
@@ -11,4 +11,4 @@ const getEmails = value => {
     : [];
 };
 
-module.exports = getEmails;
+export default getEmails;

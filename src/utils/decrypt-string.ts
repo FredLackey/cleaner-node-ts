@@ -1,5 +1,5 @@
-const isValidString = require('./is-valid-string');
-const crypto        = require('crypto');
+import isValidString from './is-valid-string';
+import crypto from 'crypto';
 
 const DEFAULT_OPTIONS = {
   algorithm : 'aes-256-cbc',
@@ -44,4 +44,4 @@ function decryptString(encryptedHex, password, options = DEFAULT_OPTIONS) {
   return decrypted;
 }
 
-module.exports = decryptString;
+export default decryptString;

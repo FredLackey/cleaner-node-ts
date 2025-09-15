@@ -28,4 +28,4 @@ const stringify = (item) => {
   return JSON.stringify(item, getCircularReplacer());
 };
 
-module.exports = stringify;
+export default stringify;

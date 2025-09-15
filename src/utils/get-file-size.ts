@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 /**
  * Gets the size of a file in bytes.
@@ -14,4 +14,4 @@ const getFileSize = filePath => {
   }
 };
 
-module.exports = getFileSize;
+export default getFileSize;

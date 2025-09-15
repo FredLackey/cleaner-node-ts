@@ -1,4 +1,4 @@
-const getHeaders = require('./get-headers');
+import getHeaders from './get-headers';
 
 /**
  * Retrieves a specific header value from an Express request object, case-insensitively.
@@ -12,4 +12,4 @@ const getHeader = (request, name) => {
   return key ? headers[key] : undefined;
 };
 
-module.exports = getHeader;
+export default getHeader;

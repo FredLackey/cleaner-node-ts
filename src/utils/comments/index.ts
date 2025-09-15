@@ -1,6 +1,6 @@
-const multiLine  = require('./multi-line');
-const singleLine = require('./single-line');
-const toResult   = require('../to-result');
+import multiLine from './multi-line';
+import singleLine from './single-line';
+import toResult from '../to-result';
 
 /**
  * Checks if a line or array of lines contains single-line or multi-line comments.
@@ -30,7 +30,7 @@ const removeComments = (lineOrLines) => {
 
 };
 
-module.exports = {
+export default {
   multiLine,
   singleLine,
 

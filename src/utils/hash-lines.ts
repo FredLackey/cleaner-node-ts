@@ -1,7 +1,7 @@
-const isValidString = require('./is-valid-string');
-const hashString = require('./hash-string');
-const isNumber = require('./is-number');
-const isBoolean = require('./is-boolean');
+import isValidString from './is-valid-string';
+import hashString from './hash-string';
+import isNumber from './is-number';
+import isBoolean from './is-boolean';
 
 const ALLOW_EMPTY = true;
 
@@ -34,4 +34,4 @@ const hashLines = (lines, trim = true) => {
 
 };
 
-module.exports = hashLines;
+export default hashLines;

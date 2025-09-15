@@ -12,4 +12,4 @@ const fromResult = (item) => {
   return curItem;
 };
 
-module.exports = fromResult;
+export default fromResult;

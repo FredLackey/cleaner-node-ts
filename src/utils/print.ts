@@ -1,5 +1,5 @@
-const isValidArray = require('./is-valid-array');
-const isValidString = require('./is-valid-string');
+import isValidArray from './is-valid-array';
+import isValidString from './is-valid-string';
 
 /**
  * Prints the key-value pairs of an object to the console in a formatted manner.
@@ -38,4 +38,4 @@ const print = obj => {
   });
 }; 
 
-module.exports = print;
+export default print;

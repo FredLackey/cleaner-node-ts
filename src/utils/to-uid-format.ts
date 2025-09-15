@@ -1,7 +1,7 @@
-const { ALPHANUMERIC } = require('../constants');
-const cleanString      = require('./clean-string');
-const isGuidFormat     = require('./is-guid-format');
-const isUidFormat      = require('./is-uid-format');
+import { ALPHANUMERIC  } from '../constants';
+import cleanString from './clean-string';
+import isGuidFormat from './is-guid-format';
+import isUidFormat from './is-uid-format';
 
 /**
  * Converts a value to a standardized UID format (32 uppercase alphanumeric characters).
@@ -18,4 +18,4 @@ const toUidFormat = value => {
     : null;
 };
 
-module.exports = toUidFormat;
+export default toUidFormat;

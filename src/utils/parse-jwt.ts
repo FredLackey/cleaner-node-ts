@@ -1,6 +1,6 @@
-const isValidString = require('./is-valid-string');
-const isObject      = require('./is-object');
-const jwt           = require('./jwt');
+import isValidString from './is-valid-string';
+import isObject from './is-object';
+import jwt from './jwt';
 
 const IGNORE_EXPIRATION = true;
 const ENFORCE_EXPIRATION = false;
@@ -39,4 +39,4 @@ const parseJwt = (token, secret = '') => {
   return result;
 };
 
-module.exports = parseJwt;
+export default parseJwt;

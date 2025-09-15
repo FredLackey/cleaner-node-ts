@@ -1,4 +1,4 @@
-const isAlphanumeric = require('./is-alphanumeric');
+import isAlphanumeric from './is-alphanumeric';
 
 /**
  * Checks if a value is a valid UID format.
@@ -19,4 +19,4 @@ const isUidFormat = value => {
   return true;
 };
 
-module.exports = isUidFormat;
+export default isUidFormat;

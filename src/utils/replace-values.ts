@@ -1,10 +1,10 @@
-const isValidArray = require('./is-valid-array');
-const isValidString = require('./is-valid-string');
-const isNumber = require('./is-number');
-const isDate = require('./is-date');
-const isEqualDate = require('./is-equal-date');
-const copyObject = require('./copy-object');
-const isObject = require('./is-object');
+import isValidArray from './is-valid-array';
+import isValidString from './is-valid-string';
+import isNumber from './is-number';
+import isDate from './is-date';
+import isEqualDate from './is-equal-date';
+import copyObject from './copy-object';
+import isObject from './is-object';
 
 const EMPTY_OK = true;
 
@@ -131,4 +131,4 @@ const replaceValues = (itemOrItems, sources, targets, clone) => {
   return value;
 };
 
-module.exports = replaceValues;
+export default replaceValues;

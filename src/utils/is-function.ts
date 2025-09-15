@@ -6,4 +6,4 @@
  */
 const isFunction = value => (typeof value === 'function');
 
-module.exports = isFunction;
+export default isFunction;

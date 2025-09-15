@@ -1,6 +1,6 @@
-const isDate = require('./is-date');
-const isIsoDate = require('./is-iso-date');
-const { ZERO_DATE } = require('../constants');
+import isDate from './is-date';
+import isIsoDate from './is-iso-date';
+import { ZERO_DATE  } from '../constants';
 
 /**
  * Checks if a value represents the "zero date" (typically epoch time, Jan 1, 1970, or a predefined constant `ZERO_DATE`).
@@ -14,4 +14,4 @@ const isZeroDate = value => {
   return isDate(trueValue) && trueValue.getTime() === ZERO_DATE.getTime();
 };
 
-module.exports = isZeroDate;
+export default isZeroDate;

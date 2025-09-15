@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Removes a specified suffix from the end of a string, potentially multiple times.
@@ -17,4 +17,4 @@ const removeSuffix = (value, suffix) => {
   return value;
 };
 
-module.exports = removeSuffix;
+export default removeSuffix;

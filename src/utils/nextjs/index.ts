@@ -1,5 +1,5 @@
-const getBody = require('./get-body');
+import getBody from './get-body';
 
-module.exports = {
+export default {
   getBody
 };

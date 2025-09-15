@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Splits a string at the first occurrence of a specified separator.
@@ -35,4 +35,4 @@ const splitFirst = (str, separator) => {
 
 };
 
-module.exports = splitFirst;
+export default splitFirst;

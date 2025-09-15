@@ -1,5 +1,5 @@
-const crypto = require('crypto');
-const c      = require('../constants');
+import crypto from 'crypto';
+import c from '../constants';
 
 /**
  * Generates a random code string of a specified length using a given set of characters.
@@ -23,4 +23,4 @@ const newCode = (totalLength = c.DEFAULTS.CODE.LENGTH, chars = c.DEFAULTS.CODE.C
   return value.join('');
 };
 
-module.exports = newCode;
+export default newCode;

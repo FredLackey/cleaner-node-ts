@@ -1,5 +1,5 @@
-const fs = require('fs');
-const isFile = require('./is-file');
+import fs from 'fs';
+import isFile from './is-file';
 
 /**
  * Synchronously deletes a file.
@@ -17,4 +17,4 @@ const deleteFile = (filePath, missingOkay = true) => {
   }
 };
 
-module.exports = deleteFile;
+export default deleteFile;

@@ -1,7 +1,7 @@
-const readFile = require('./read-file');
-const isObject = require('./is-object');
-const isValidArray = require('./is-valid-array');
-const parseJson = require('./parse-json');
+import readFile from './read-file';
+import isObject from './is-object';
+import isValidArray from './is-valid-array';
+import parseJson from './parse-json';
 
 /**
  * Reads a file, parses its content as JSON, and returns the resulting object or array.
@@ -18,4 +18,4 @@ const loadJson = (filePath) => {
 
 };
 
-module.exports = loadJson;
+export default loadJson;

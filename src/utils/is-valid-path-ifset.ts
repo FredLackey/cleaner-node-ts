@@ -1,5 +1,5 @@
-const isSet = require('./is-set');
-const isValidPath = require('./is-valid-path');
+import isSet from './is-set';
+import isValidPath from './is-valid-path';
 
 /**
  * Checks if a value is either not set (null or undefined) or is a valid path (file or folder).
@@ -12,4 +12,4 @@ const isValidPathIfSet = (value) => {
   return !isSet(value) || isValidPath(value);
 };
 
-module.exports = isValidPathIfSet;
+export default isValidPathIfSet;

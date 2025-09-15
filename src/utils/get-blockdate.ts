@@ -22,4 +22,4 @@ const getBlockDate = (value = new Date(), format = DEFAULT_FORMAT) => {
 
 };
 
-module.exports = getBlockDate;
+export default getBlockDate;

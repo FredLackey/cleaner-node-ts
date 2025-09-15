@@ -1,5 +1,5 @@
-// const express = require('./express');
-const nextjs  = require('./nextjs');
+// import express from './express';
+import nextjs from './nextjs';
 
 /**
  * Asynchronously extracts the request body from a request object (req).
@@ -20,4 +20,4 @@ const getBody = async (req) => {
   return body;
 };
 
-module.exports = getBody;
+export default getBody;

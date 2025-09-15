@@ -1,6 +1,6 @@
-const isValidString = require('./is-valid-string');
-// const isDigits = require('./is-digits');
-const semver = require('semver');
+import isValidString from './is-valid-string';
+// import isDigits from './is-digits';
+import semver from 'semver';
 
 // const isSemver = value => {
 //   if (!isValidString(value) || value.length < 5) {
@@ -27,4 +27,4 @@ const isSemver = value => {
   return isValidString(value) && semver.valid(value) !== null;
 };
 
-module.exports = isSemver;
+export default isSemver;

@@ -1,5 +1,5 @@
-const getArrayCount     = require('./get-array-count');
-const isValidString = require('./is-valid-string');
+import getArrayCount from './get-array-count';
+import isValidString from './is-valid-string';
 
 /**
  * Gets the last element of an array or the last character of a string.
@@ -24,4 +24,4 @@ const getLast = (value, trim = false) => {
     : undefined;
 };
 
-module.exports = getLast;
+export default getLast;

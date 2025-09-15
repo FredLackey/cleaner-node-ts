@@ -1,7 +1,7 @@
-const isValidObject = require('./is-valid-object');
-const isValidArray = require('./is-valid-array');
-const isValidString = require('./is-valid-string');
-const getEnum = require('./get-enum');
+import isValidObject from './is-valid-object';
+import isValidArray from './is-valid-array';
+import isValidString from './is-valid-string';
+import getEnum from './get-enum';
 
 /**
  * Extracts enum values from a given object or array of objects.
@@ -39,4 +39,4 @@ const getEnums = (objOrArray) => {
 
 };
 
-module.exports = getEnums;
+export default getEnums;

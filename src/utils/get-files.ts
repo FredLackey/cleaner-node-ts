@@ -1,7 +1,7 @@
-const fs                = require('fs');
-const path              = require('path');
-const isFolder          = require('./is-folder');
-const isValidString = require('./is-valid-string');
+import fs from 'fs';
+import path from 'path';
+import isFolder from './is-folder';
+import isValidString from './is-valid-string';
 
 /**
  * Synchronously reads the contents of a directory and returns an array of full paths for its direct children (files and subdirectories).
@@ -20,4 +20,4 @@ const getFiles = folderPath => {
   }
 };
 
-module.exports = getFiles;
+export default getFiles;

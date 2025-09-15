@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 
 /**
  * Extracts the file name from a file path, optionally including or excluding the extension.
@@ -16,4 +16,4 @@ const getFileName = (filePath, includeExtension = true) => {
   }
 };
 
-module.exports = getFileName;
+export default getFileName;

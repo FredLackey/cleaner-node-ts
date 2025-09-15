@@ -1,4 +1,4 @@
-const isValidString = require('./is-valid-string');
+import isValidString from './is-valid-string';
 
 /**
  * Trims leading elements from an array that are not valid strings (or are empty strings).
@@ -54,7 +54,7 @@ const trim = lines => {
   return trimBottom(trimTop(lines));
 };
 
-module.exports = {
+export default {
   trim,
   trimBottom,
   trimTop

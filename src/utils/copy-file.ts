@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 /**
  * Synchronously copies a file from a source path to a target path.
@@ -15,4 +15,4 @@ const copyFile = (sourcePath, targetPath) => {
   return true;
 };
 
-module.exports = copyFile;
+export default copyFile;

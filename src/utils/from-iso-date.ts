@@ -1,4 +1,4 @@
-const isIsoDate = require('./is-iso-date');
+import isIsoDate from './is-iso-date';
 
 /**
  * Converts an ISO 8601 date string to a JavaScript Date object.
@@ -10,4 +10,4 @@ const fromIsoDate = (value) => {
   return new Date(Date.parse(value));
 };
 
-module.exports = fromIsoDate;
+export default fromIsoDate;

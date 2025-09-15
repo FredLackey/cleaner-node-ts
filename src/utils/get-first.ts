@@ -1,5 +1,5 @@
-const getArrayCount     = require('./get-array-count');
-const isValidString = require('./is-valid-string');
+import getArrayCount from './get-array-count';
+import isValidString from './is-valid-string';
 
 /**
  * Gets the first element of an array or the first character of a string.
@@ -24,4 +24,4 @@ const getFirst = (value, trim = false) => {
     : undefined;
 };
 
-module.exports = getFirst;
+export default getFirst;
