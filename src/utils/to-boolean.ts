@@ -11,7 +11,7 @@ import isNumber from './is-number';
  * @param {boolean} [defaultValue=undefined] - The value to return if the input cannot be converted to boolean.
  * @returns {boolean|*} The boolean representation of the input, or the defaultValue.
  */
-const toBoolean = (value, defaultValue) => {
+const toBoolean = (value: any, defaultValue?: any): boolean | any => {
   if (value === true || value === false) { 
     return value;
   }

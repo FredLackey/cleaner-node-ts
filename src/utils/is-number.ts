@@ -6,7 +6,7 @@
  * @param {*} value - The value to check.
  * @returns {boolean} True if the value is a finite number, false otherwise.
  */
-const isNumber = (value) => {
+const isNumber = (value: any): boolean => {
   return !isNaN(parseFloat(value)) && isFinite(value);
 };
 

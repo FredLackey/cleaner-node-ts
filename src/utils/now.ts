@@ -4,7 +4,7 @@
  *
  * @returns {Date} The current date and time.
  */
-const now = () => {
+const now = (): Date => {
   return new Date();
 };
 

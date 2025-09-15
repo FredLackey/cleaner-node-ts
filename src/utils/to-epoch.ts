@@ -4,7 +4,7 @@
  * @param {Date} [date=new Date()] - The Date object to convert. Defaults to the current date and time.
  * @returns {number} The Unix epoch timestamp in seconds.
  */
-const toEpoch = (date = new Date()) => {
+const toEpoch = (date: Date = new Date()): number => {
   const seconds = Math.floor(date.getTime() / 1000);
   return seconds;
 };

@@ -4,7 +4,7 @@
  * @param {*} value - The value to check.
  * @returns {boolean} True if the value is exactly true or false, false otherwise.
  */
-const isBoolean = value => {
+const isBoolean = (value: any): boolean => {
   return (value === true) || (value === false);
 };
 

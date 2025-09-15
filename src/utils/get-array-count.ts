@@ -8,7 +8,7 @@ const EMPTY_OK = true;
  * @param {any} value The value to check, expected to be an array.
  * @returns {number} The length of the array if it's a valid array (including empty), otherwise -1.
  */
-const getArrayCount = value => {
+const getArrayCount = (value: any): number => {
   return isValidArray(value, EMPTY_OK)
     ? value.length
     : -1;

@@ -12,7 +12,7 @@ const EMPTY_OK = true;
  * @param {boolean} [isCaseSensitive=false] Whether the character matching should be case-sensitive.
  * @returns {string|undefined} The cleaned string, or undefined if the input is not a valid string.
  */
-const cleanString = (value, valid = ALPHANUMERIC, invalid = '', isCaseSensitive = false) => {
+const cleanString = (value: any, valid: string = ALPHANUMERIC, invalid: string = '', isCaseSensitive: boolean = false): string | undefined => {
   if (!isValidString(value, EMPTY_OK)) { return undefined; }
   return value.split('').filter(ch => ((!valid || hasString(valid, ch, isCaseSensitive)) &&
     (!invalid || !hasString(invalid, ch, isCaseSensitive))

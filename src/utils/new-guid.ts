@@ -5,7 +5,7 @@ import { v4: uuidV4  } from 'uuid';
  *
  * @returns {string} A standard v4 UUID string (e.g., 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx').
  */
-const newGuid = () => {
+const newGuid = (): string => {
   return uuidV4();
 };
 

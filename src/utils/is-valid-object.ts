@@ -6,7 +6,7 @@ import isObject from './is-object';
  * @param {*} obj - The value to check.
  * @returns {boolean} True if the value is an object with at least one key, false otherwise.
  */
-const isValidObject = (obj) => {
+const isValidObject = (obj: any): boolean => {
   if (!isObject(obj)) {
     return false;
   }

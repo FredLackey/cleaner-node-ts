@@ -5,7 +5,7 @@
  * @param {boolean} [isCaseSensitive=false] Determines if the search should be case-sensitive.
  * @returns {boolean} True if the target substring is found, false otherwise or if inputs are not strings.
  */
-const hasString = (value, target, isCaseSensitive = false) => {
+const hasString = (value: any, target: any, isCaseSensitive: boolean = false): boolean => {
   if (typeof value !== 'string') { return false; }
   if (typeof target !== 'string') { return false; }
   return (isCaseSensitive && value.indexOf(target) >= 0) ||

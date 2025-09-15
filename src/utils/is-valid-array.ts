@@ -5,7 +5,7 @@
  * @param {boolean} [isEmptyOkay=false] - If true, an empty array is considered valid. If false (default), the array must contain at least one element.
  * @returns {boolean} True if the value is an array and meets the emptiness condition, false otherwise.
  */
-const isValidArray = (value, isEmptyOkay) => {
+const isValidArray = (value: any, isEmptyOkay?: boolean): boolean => {
   return (typeof value === 'object') && (value instanceof Array) && (isEmptyOkay || value.length > 0);
 };
 

@@ -4,9 +4,9 @@
  *
  * @returns {Function} A replacer function suitable for `JSON.stringify`.
  */
-const getCircularReplacer = () => {
+const getCircularReplacer = (): ((key: string, value: any) => any) => {
   const seen = new WeakSet();
-  return (key, value) => {
+  return (key: string, value: any): any => {
     if (typeof value === 'object' && value !== null) {
       if (seen.has(value)) {
         return;
@@ -24,7 +24,7 @@ const getCircularReplacer = () => {
  * @param {*} item - The value to convert to a JSON string.
  * @returns {string} The JSON string representation of the value, handling circular references.
  */
-const stringify = (item) => {
+const stringify = (item: any): string => {
   return JSON.stringify(item, getCircularReplacer());
 };
 

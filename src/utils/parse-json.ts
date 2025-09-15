@@ -6,7 +6,7 @@
  * @param {string} rawJson - The JSON string to parse.
  * @returns {object|undefined} The parsed JavaScript object, or undefined if parsing fails.
  */
-const parseJson = (rawJson, debugErrors = true) => {
+const parseJson = (rawJson: string, debugErrors: boolean = true): any => {
   let obj;
   try {
     obj = JSON.parse(rawJson);

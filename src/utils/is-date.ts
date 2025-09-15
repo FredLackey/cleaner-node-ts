@@ -5,7 +5,7 @@
  * @param {*} value - The value to check.
  * @returns {boolean} True if the value is a valid Date object, false otherwise.
  */
-const isDate = value => {
+const isDate = (value: any): boolean => {
   return (typeof value === 'object' && value instanceof Date && !isNaN(value.getTime()));
 };
 

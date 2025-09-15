@@ -9,7 +9,7 @@ const EMPTY_OK = true;
  * @param {string} value - The string to trim.
  * @returns {string} The trimmed string, or an empty string if the input was invalid.
  */
-const trimString = value => {
+const trimString = (value: any): string => {
   return isValidString(value, EMPTY_OK)
     ? value.trim()
     : '';

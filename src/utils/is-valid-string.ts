@@ -5,7 +5,7 @@
  * @param {boolean} [isEmptyOkay=false] - If true, an empty or whitespace-only string is considered valid. If false (default), the string must contain non-whitespace characters.
  * @returns {boolean} True if the value is a string and meets the emptiness condition, false otherwise.
  */
-const isValidString = (value, isEmptyOkay) => {
+const isValidString = (value: any, isEmptyOkay?: boolean): boolean => {
   return (typeof value === 'string') && (isEmptyOkay || value.trim().length > 0);
 };
 
