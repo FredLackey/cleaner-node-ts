@@ -1,86 +1,24 @@
-/**
- * cleaner-node-ts - TypeScript-first utility library for Node.js
- *
- * Import as: import _ from 'cleaner-node-ts';
- * Usage: _.isValidString(value), _.cleanObject(obj), etc.
- */
+const constants = require('./constants');
+const errors    = require('./errors');
+const utils     = require('./utils');
 
-// Import all constants
-import * as constants from './constants';
+utils.errors = errors;
+utils.status = constants.HTTP.STATUS.CODES;
 
-// Import all validation functions
-import * as validation from './validation';
+utils.a = utils.initArray;
 
-// Import all string functions
-import * as stringFunctions from './string';
+utils.ALPHA        = constants.ALPHA;
+utils.ALPHANUMERIC = constants.ALPHANUMERIC;
+utils.BRACKETS     = constants.BRACKETS;
+utils.CLEAR_CODE   = constants.CLEAR_CODE;
+utils.DIGITS       = constants.DIGITS;
+utils.ENUM_NAME    = constants.ENUM_NAME;
+utils.EMPTY_GUID   = constants.EMPTY_GUID;
+utils.EMPTY_UID    = constants.EMPTY_UID;
+utils.HTTP         = constants.HTTP;
+utils.TYPES        = constants.TYPES;
+utils.DEFAULTS     = constants.DEFAULTS;
+utils.ZERO_DATE    = constants.ZERO_DATE;
 
-// Import all array functions
-import * as arrayFunctions from './array';
 
-// Import all object functions
-import * as objectFunctions from './object';
-
-// Import all utility functions
-import * as utils from './utils';
-
-// Import all file functions
-import * as fileFunctions from './file';
-
-// Import all date functions
-import * as dateFunctions from './date';
-
-// Import all crypto functions
-import * as cryptoFunctions from './crypto';
-
-// Import all HTTP functions
-import * as httpFunctions from './http';
-
-// Import all environment functions
-import * as envFunctions from './env';
-
-// Re-export types
-export * from './types';
-
-/**
- * Main export object containing all utility functions
- */
-const cleanerNode = {
-  // Constants
-  ...constants,
-
-  // Validation functions
-  ...validation,
-
-  // String functions
-  ...stringFunctions,
-
-  // Array functions
-  ...arrayFunctions,
-
-  // Object functions
-  ...objectFunctions,
-
-  // Utility functions
-  ...utils,
-
-  // File functions
-  ...fileFunctions,
-
-  // Date functions
-  ...dateFunctions,
-
-  // Crypto functions
-  ...cryptoFunctions,
-
-  // HTTP functions
-  ...httpFunctions,
-
-  // Environment functions
-  ...envFunctions,
-};
-
-// Default export for underscore pattern
-export default cleanerNode;
-
-// Named export for specific imports
-export const _ = cleanerNode;
+module.exports = utils;
