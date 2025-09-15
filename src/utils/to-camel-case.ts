@@ -8,7 +8,7 @@ import toSnakeCase from './to-snake-case';
  * @param {string} value - The string to convert.
  * @returns {string} The camelCase version of the string.
  */
-const toCamelCase = value => {
+const toCamelCase = (value: any): string => {
   value = toSnakeCase(value);
   value = value.split('_').map(x => (x.length === 1 
     ? x.toUpperCase() 

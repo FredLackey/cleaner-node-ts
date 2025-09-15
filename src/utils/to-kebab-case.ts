@@ -6,7 +6,7 @@
  * @param {string} value - The string to convert.
  * @returns {string} The kebab-case version of the string.
  */
-const toKebabCase = value => {
+const toKebabCase = (value: any): string => {
   return value 
     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     .map(x => x.toLowerCase())

@@ -9,7 +9,7 @@ import isNumber from './is-number';
  * @param {Array<any>} values - The array containing potential numbers.
  * @returns {Array<number|string>} A new array containing only the unique numeric values from the input, preserving their original types (number or string). Returns the original input if it's not a valid array.
  */
-const uniqueNumbers = values => {
+const uniqueNumbers = (values: any): any => {
   if (!isValidArray(values)) { return values; }
   const cache = [];
   const results = [];

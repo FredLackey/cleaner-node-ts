@@ -6,7 +6,7 @@ import { ALPHANUMERIC  } from '../constants';
  * @param {any} value The input value to clean.
  * @returns {string} The cleaned string containing only alphanumeric characters, or an empty string if the input is invalid.
  */
-const cleanAlphanumeric = value => {
+const cleanAlphanumeric = (value: any): string => {
   return cleanString(value, ALPHANUMERIC);
 };
 

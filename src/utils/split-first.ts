@@ -11,7 +11,7 @@ import isValidString from './is-valid-string';
  * @returns {string[]} An array containing one or two parts of the split string.
  * @throws {Error} If `str` or `separator` is not a non-empty valid string.
  */
-const splitFirst = (str, separator) => {
+const splitFirst = (str: any, separator: any): string[] => {
 
   if (!isValidString(str, true) || str.length === 0) {
     throw new Error('Invalid string supplied to splitFirst()');

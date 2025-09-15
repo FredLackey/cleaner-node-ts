@@ -1,4 +1,4 @@
-const getBody = async (req) => {
+const getBody = async (req: any): Promise<any> => {
   if (!req) {
     console.error('Invalid req object for getBody.');
     return {};

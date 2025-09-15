@@ -9,7 +9,7 @@ const { METHOD_NOT_ALLOWED } = c.HTTP.STATUS.PHRASES;
  * @param {Express.Response} res The Express response object.
  * @param {Express.NextFunction} next The next middleware function.
  */
-const authProhibited = (req, res, next) => {
+const authProhibited = (req: any, res: any, next: any): void => {
   if (req.session) {
     if (req.session.valid === true || req.session.expired === false) {
       return res.status(METHOD_NOT_ALLOWED.code).json({ message: 'Not accessible while logged in.' });

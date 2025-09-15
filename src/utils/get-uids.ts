@@ -12,7 +12,7 @@ import getUid from './get-uid';
  *   be more stringent in its UID extraction, potentially throwing errors for ambiguous inputs.
  * @returns {Array<string>} An array of string UIDs.
  */
-const getUids = (items, strict = false) => {
+const getUids = (items: any, strict: boolean = false): string[] => {
   return [].concat(items).map(item => getUid(item, strict));
 };
 

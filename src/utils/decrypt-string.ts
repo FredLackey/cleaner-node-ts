@@ -1,7 +1,14 @@
 import isValidString from './is-valid-string';
 import crypto from 'crypto';
 
-const DEFAULT_OPTIONS = {
+interface DecryptionOptions {
+  algorithm: string;
+  ivLength: number;
+  saltLength: number;
+  keyLength: number;
+}
+
+const DEFAULT_OPTIONS: DecryptionOptions = {
   algorithm : 'aes-256-cbc',
   ivLength  : 16,              // AES block size,
   saltLength: 16,              // For key derivation
@@ -21,7 +28,7 @@ const DEFAULT_OPTIONS = {
  * @returns {string} - The decrypted string
  * @throws {Error} If encryptedHex or password is invalid
  */
-function decryptString(encryptedHex, password, options = DEFAULT_OPTIONS) {
+function decryptString(encryptedHex: string, password: string, options: DecryptionOptions = DEFAULT_OPTIONS): string {
 
   if (!isValidString(encryptedHex) || !isValidString(password)) {
     throw new Error('Invalid input');
@@ -39,7 +46,7 @@ function decryptString(encryptedHex, password, options = DEFAULT_OPTIONS) {
   const key      = crypto.scryptSync(password, salt, keyLength);
   const decipher = crypto.createDecipheriv(algorithm, key, iv);
 
-  let decrypted  = decipher.update(encryptedText, null, 'utf8');
+  let decrypted  = decipher.update(encryptedText, undefined, 'utf8');
       decrypted += decipher.final('utf8');
   return decrypted;
 }

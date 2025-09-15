@@ -6,7 +6,7 @@ import path from 'path';
  * @param {boolean} [includeExtension=true] Whether to include the file extension in the returned name.
  * @returns {string|null} The file name (with or without extension), or null if an error occurs (e.g., invalid path).
  */
-const getFileName = (filePath, includeExtension = true) => {
+const getFileName = (filePath: string, includeExtension: boolean = true): string | null => {
   try {
     return includeExtension
       ? path.basename(filePath)

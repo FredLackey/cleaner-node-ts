@@ -1,7 +1,6 @@
 import isValidString from './is-valid-string';
 import isObject from './is-object';
 import isNumber from './is-number';
-import isDefined from './is-defined';
 import copyObject from './copy-object';
 
 const KEYS = ['id', '_id'];
@@ -15,10 +14,10 @@ const KEYS = ['id', '_id'];
  * @param {object|string|number} itemOrId The item (object) or the ID itself (string or number).
  * @returns {string|number|undefined} The extracted ID, or undefined if no valid ID is found.
  */
-const getId = (itemOrId) => {
+const getId = (itemOrId: object | string | number): string | number | undefined => {
 
   if (isNumber(itemOrId) || isValidString(itemOrId)) {
-    return itemOrId;
+    return itemOrId as string | number;
   }
 
   if (!isObject(itemOrId)) {

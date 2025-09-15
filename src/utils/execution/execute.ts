@@ -6,7 +6,7 @@ import executePromise from './execute-promise';
  * @param {string} command The shell command to execute.
  * @returns {Promise<{success: boolean, output?: {stdout: string}, error?: {error: Error}|{stderr: string}}>} An object indicating the outcome of the command execution.
  */
-const execute = async command => {
+const execute = async (command: string): Promise<any> => {
   try {
     const output = await executePromise(command);
     return {

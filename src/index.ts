@@ -1,24 +1,24 @@
 import * as constants from './constants';
 import * as errors from './errors';
-import * as utils from './utils';
+import utils from './utils';
 
-utils.errors = errors;
-utils.status = constants.HTTP.STATUS.CODES;
+const cleanerNode = {
+  ...utils,
+  errors,
+  status: constants.HTTP.STATUS.CODES,
+  a: utils.initArray,
+  ALPHA: constants.ALPHA,
+  ALPHANUMERIC: constants.ALPHANUMERIC,
+  BRACKETS: constants.BRACKETS,
+  CLEAR_CODE: constants.CLEAR_CODE,
+  DIGITS: constants.DIGITS,
+  ENUM_NAME: constants.ENUM_NAME,
+  EMPTY_GUID: constants.EMPTY_GUID,
+  EMPTY_UID: constants.EMPTY_UID,
+  HTTP: constants.HTTP,
+  TYPES: constants.TYPES,
+  DEFAULTS: constants.DEFAULTS,
+  ZERO_DATE: constants.ZERO_DATE,
+};
 
-utils.a = utils.initArray;
-
-utils.ALPHA        = constants.ALPHA;
-utils.ALPHANUMERIC = constants.ALPHANUMERIC;
-utils.BRACKETS     = constants.BRACKETS;
-utils.CLEAR_CODE   = constants.CLEAR_CODE;
-utils.DIGITS       = constants.DIGITS;
-utils.ENUM_NAME    = constants.ENUM_NAME;
-utils.EMPTY_GUID   = constants.EMPTY_GUID;
-utils.EMPTY_UID    = constants.EMPTY_UID;
-utils.HTTP         = constants.HTTP;
-utils.TYPES        = constants.TYPES;
-utils.DEFAULTS     = constants.DEFAULTS;
-utils.ZERO_DATE    = constants.ZERO_DATE;
-
-
-export = utils;
+export default cleanerNode;

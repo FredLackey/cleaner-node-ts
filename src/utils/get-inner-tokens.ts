@@ -10,7 +10,7 @@ import isValidString from './is-valid-string';
  * @returns {string|null} The innermost content including the enclosing brackets, or null if no matching brackets are found or if the bracket definition is invalid.
  * @throws {Error} If the bracket object or its properties are invalid.
  */
-function getInnerTokens (str, bracket) {
+function getInnerTokens (str: any, bracket: any): string | null {
 
   if (!bracket) {
     throw new Error('Bracket was not supplied.');

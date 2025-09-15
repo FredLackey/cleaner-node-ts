@@ -6,7 +6,7 @@ import isJsonArray from './is-json-array';
  * @param {string} str - The string to check
  * @returns {boolean} True if the string is valid JSON, false otherwise
  */
-const isJson = str => {
+const isJson = (str: any): boolean => {
   return isJsonObject(str) || isJsonArray(str);
 }
 

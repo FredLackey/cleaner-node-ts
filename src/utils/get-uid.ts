@@ -12,13 +12,13 @@ const KEYS = ['uid'];
  * @param {boolean} [strict=false] If true, only accepts the UID format. If false, accepts both UID and GUID formats.
  * @returns {string|undefined} The extracted UID/GUID, or undefined if not found or the input is invalid.
  */
-const getUid = (itemOrId, strict = false) => {
+const getUid = (itemOrId: string | object, strict: boolean = false): string | undefined => {
 
   if (isUidFormat(itemOrId)) {
-    return itemOrId;
+    return itemOrId as string;
   }
   if (!strict && isGuidFormat(itemOrId)) {
-    return itemOrId;
+    return itemOrId as string;
   }
 
   if (!isObject(itemOrId)) {

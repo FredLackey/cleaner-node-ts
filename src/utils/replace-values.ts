@@ -16,7 +16,7 @@ const EMPTY_OK = true;
  * @param {Array<*>} sources - The array of source values to search within.
  * @returns {number} The index of the value in the sources array, or -1 if not found.
  */
-const findPosition = (value, sources) => {
+const findPosition = (value: any, sources: any): number => {
   if (isDate(value)) {
     return sources.findIndex(source => isEqualDate(value, source));
   }
@@ -34,7 +34,7 @@ const findPosition = (value, sources) => {
  * @param {Array<*>} targets - The array of target values.
  * @returns {*} The corresponding target value if found and type-compatible, otherwise the original `curValue`.
  */
-const getValue = (curValue, sources, targets) => {
+const getValue = (curValue: any, sources: any, targets: any): any => {
   const posInSource = findPosition(curValue, sources);
   if (posInSource === -1) {
     return curValue;
@@ -59,7 +59,7 @@ const getValue = (curValue, sources, targets) => {
  * @param {object} cache - An object to track processed items.
  * @param {Array} cache.items - Array storing references to items already processed.
  */
-const replace = (itemOrItems, sources, targets, cache) => {
+const replace = (itemOrItems: any, sources: any, targets: any, cache: any): void => {
 
   if (isValidArray(itemOrItems, EMPTY_OK)) {
     if (isValidArray(itemOrItems)) {
@@ -113,7 +113,7 @@ const replace = (itemOrItems, sources, targets, cache) => {
  * @throws {Error} If `sources` or `targets` are not arrays, or if they have different lengths.
  * @returns {object|Array} The processed structure with values replaced.
  */
-const replaceValues = (itemOrItems, sources, targets, clone) => {
+const replaceValues = (itemOrItems: any, sources: any, targets: any, clone?: any): any => {
   if (!isValidArray(sources)) {
     throw new Error('sources must be an array');
   }

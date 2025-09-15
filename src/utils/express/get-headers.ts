@@ -4,7 +4,7 @@
  * @param {Express.Request} request The Express request object.
  * @returns {object|undefined} An object containing all headers, or undefined if an error occurs.
  */
-const getHeaders = request => {
+const getHeaders = (request: any): object | undefined => {
   try {
     const headers = request.getHeaders();
     return {

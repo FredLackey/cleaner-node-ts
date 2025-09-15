@@ -51,7 +51,7 @@ import hashString from './hash-string';
  * @see {@link isObject} for object validation logic
  * @see {@link isArray} for array validation logic
  */
-const hashObject = (obj, strict = false) => {
+const hashObject = (obj: any, strict: boolean = false): string | undefined => {
 
   if (strict) {
     if (!isObject(obj)) { return undefined; }

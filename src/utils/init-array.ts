@@ -6,7 +6,7 @@ import isDefined from './is-defined';
  * @param {*} value The value to initialize as an array.
  * @returns {Array<*>} An array containing the defined elements from the input value.
  */
-const initArray = (value) => {
+const initArray = (value: any): any[] => {
   return [].concat(value).filter(isDefined);
 };
 

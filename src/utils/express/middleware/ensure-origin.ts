@@ -7,7 +7,7 @@
  * @param {Express.Response} res The Express response object.
  * @param {Express.NextFunction} next The next middleware function.
  */
-const ensureOrigin = (req, res, next) => {
+const ensureOrigin = (req: any, res: any, next: any): void => {
   const value = req.header('Origin');
   if (!value) {
     return res.status(400).json({ message: 'Missing origin.' });

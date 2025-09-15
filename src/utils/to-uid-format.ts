@@ -12,7 +12,7 @@ import isUidFormat from './is-uid-format';
  * @param {string} value - The value to convert (expected to be in UID or GUID format).
  * @returns {string|null} The formatted UID string (32 uppercase alphanumeric chars) or null if the input is invalid.
  */
-const toUidFormat = value => {
+const toUidFormat = (value: any): string | null => {
   return isUidFormat(value) || isGuidFormat(value)
     ? cleanString(value, ALPHANUMERIC).toUpperCase()
     : null;

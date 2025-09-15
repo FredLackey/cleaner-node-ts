@@ -11,7 +11,7 @@ import removeSuffix from './remove-suffix';
  * @param {string} value - The string to validate as an ISO date.
  * @returns {boolean} True if the string is a valid ISO 8601 date format, false otherwise.
  */
-const isIsoDate = value => {
+const isIsoDate = (value: any): boolean => {
   
   if (!isValidString(value)) { return false; }
   

@@ -2,9 +2,8 @@ import isValidString from './is-valid-string';
 import getFolderContents from './get-folder-contents';
 import isFile from './is-file';
 import isFolder from './is-folder';
-import os from 'os';
 
-interface WalkResults {
+export interface WalkResults {
   root: string;
   folders: string[];
   files: string[];

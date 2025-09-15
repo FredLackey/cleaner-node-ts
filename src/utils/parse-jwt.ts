@@ -19,7 +19,7 @@ const ENFORCE_EXPIRATION = false;
  * @returns {boolean} return.isValid - True if the token signature was successfully verified (requires a secret), false otherwise.
  * @returns {boolean} return.isExpired - True if the token signature is valid but the token has passed its expiration time (requires a secret), false otherwise.
  */
-const parseJwt = (token, secret = '') => {
+const parseJwt = (token: any, secret: string = ''): any => {
 
   const claims     = isValidString(token) ? jwt.decode(token) : null;
   const payload    = isObject(claims) ? jwt.fromClaims(claims) : null;

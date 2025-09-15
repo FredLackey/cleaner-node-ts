@@ -5,7 +5,7 @@ import parse from './parse';
  * @param {string} value The blockdate string.
  * @returns {Date|null} The corresponding Date object, or null if the input is invalid.
  */
-const fromBlockDate = (value) => {
+const fromBlockDate = (value: string): Date | null => {
 
   const item = parse(value);
   if (!item) { return null; }

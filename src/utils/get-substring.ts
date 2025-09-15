@@ -6,7 +6,7 @@ import isValidArray from './is-valid-array';
  * @param {boolean} [isCaseSensitive=true] Determines if the comparison should be case-sensitive.
  * @returns {string|null} The longest common starting substring, or null if the input is not a valid array.
  */
-const getSubstring = (values, isCaseSensitive = true) => {
+const getSubstring = (values: any, isCaseSensitive: boolean = true): string | null => {
   if (!isValidArray(values)) { return null; }
   if (values.length === 1) { return values[0]; }
 

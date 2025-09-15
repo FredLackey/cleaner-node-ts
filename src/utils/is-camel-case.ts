@@ -8,7 +8,7 @@ import toCamelCase from './to-camel-case';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string is already in camelCase format, false otherwise.
  */
-const isCamelCase = value => {
+const isCamelCase = (value: any): boolean => {
   return isValidString(value) && value === toCamelCase(value);
 };
 

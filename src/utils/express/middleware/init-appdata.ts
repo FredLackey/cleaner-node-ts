@@ -5,7 +5,7 @@
  * @param {Express.Response} res The Express response object.
  * @param {Express.NextFunction} next The next middleware function.
  */
-const initAppData = (req, res, next) => {
+const initAppData = (req: any, res: any, next: any): void => {
   req.appData = req.appData || {};
   return next();
 };

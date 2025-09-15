@@ -8,7 +8,7 @@ import isValidString from './is-valid-string';
  * @param {Array<any>} lines - The array to trim from the top.
  * @returns {Array<any>} A new array with leading non-valid-string elements removed.
  */
-const trimTop = lines => {
+const trimTop = (lines: any): any[] => {
   const result    = [];
   let lastValid = -1;
   for (let i = 0; i < lines.length; i += 1) {
@@ -35,7 +35,7 @@ const trimTop = lines => {
  * @param {Array<any>} lines - The array to trim from the bottom.
  * @returns {Array<any>} A new array with trailing non-valid-string elements removed.
  */
-const trimBottom = lines => {
+const trimBottom = (lines: any): any[] => {
   let _lines = [].concat(lines);
   _lines.reverse();
   _lines = trimTop(_lines);
@@ -50,7 +50,7 @@ const trimBottom = lines => {
  * @param {Array<any>} lines - The array to trim from both ends.
  * @returns {Array<any>} A new array with leading and trailing non-valid-string elements removed.
  */
-const trim = lines => {
+const trim = (lines: any): any[] => {
   return trimBottom(trimTop(lines));
 };
 

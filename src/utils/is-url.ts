@@ -8,7 +8,7 @@ import isValidString from './is-valid-string';
  * @param {string} value - The string to validate as a URL.
  * @returns {boolean} True if the string is a valid URL according to the criteria, false otherwise.
  */
-const isUrl = value => {
+const isUrl = (value: any): boolean => {
   if (!isValidString(value)) return false;
   value = value.toLowerCase();
   if (value !== value.trim()) {
@@ -18,7 +18,7 @@ const isUrl = value => {
     return false;
   }
   try {
-    const url = new URL(value);
+    new URL(value);
     return true;
   } catch (err) {
     return false;

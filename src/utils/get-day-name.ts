@@ -7,18 +7,25 @@ import fromIso from './from-iso-date';
  * @param {Date|string} date The Date object or ISO 8601 date string.
  * @returns {string|undefined} The full name of the day, or undefined if the input is invalid.
  */
-const getDayName = (date) => {
+const getDayName = (date: Date | string): string | undefined => {
 
   if (!isDate(date) && !isIsoDate(date)) {
     return undefined;
   }
 
+  let dateObj: Date;
   if (isIsoDate(date)) {
-    date = fromIso(date);
+    const convertedDate = fromIso(date as string);
+    if (!convertedDate) {
+      return undefined;
+    }
+    dateObj = convertedDate;
+  } else {
+    dateObj = date as Date;
   }
 
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const dayIndex = date.getDay();
+  const dayIndex = dateObj.getDay();
   return daysOfWeek[dayIndex];
 };
 

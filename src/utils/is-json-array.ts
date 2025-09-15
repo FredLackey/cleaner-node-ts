@@ -13,7 +13,7 @@ import isValidArray from './is-valid-array';
  * 3. Attempts to parse the string as JSON
  * 4. Verifies the parsed result is a valid array
  */
-const isJsonArray = str => {
+const isJsonArray = (str: any): boolean => {
 
   if (!isValidString(str)) {
     return false;

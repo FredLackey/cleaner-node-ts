@@ -12,7 +12,7 @@ const ALLOW_EMPTY = true;
  * @param {boolean} [trim=true] If true, trims whitespace from each valid line before joining.
  * @returns {string} The computed hash string (md5/hex), or an empty string if the input results in no valid content to hash.
  */
-const hashLines = (lines, trim = true) => {
+const hashLines = (lines: any, trim: boolean = true): string => {
 
   const values = [].concat(lines)
     .filter(x => (isValidString(x, ALLOW_EMPTY) || isNumber(x) || isBoolean(x)))

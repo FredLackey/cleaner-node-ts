@@ -5,6 +5,6 @@ import crypto from 'crypto';
  * @param {string} value The string value to hash.
  * @returns {string} The MD5 hash of the value as a hexadecimal string.
  */
-const getHash = value => crypto.createHash('md5').update(value).digest('hex');
+const getHash = (value: any): string => crypto.createHash('md5').update(value).digest('hex');
 
 export default getHash;

@@ -7,7 +7,7 @@ import isValidString from './is-valid-string';
  * @param {string} value The directory path to create.
  * @returns {boolean} True if the path exists or was successfully created, false otherwise.
  */
-const createPath = value => {
+const createPath = (value: string): boolean => {
   if (!isValidString(value)) { return false; }
   if (isFolder(value)) { return true; }
   try {

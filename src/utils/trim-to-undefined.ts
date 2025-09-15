@@ -10,7 +10,7 @@ const EMPTY_OK = false;
  * @param {string} value - The string to trim.
  * @returns {string|undefined} The trimmed string, or undefined if the result is empty or the input was invalid.
  */
-const trimToUndefined = value => {
+const trimToUndefined = (value: any): string | undefined => {
   value = trimString(value);
   return isValidString(value, EMPTY_OK) ? value : undefined;
 };

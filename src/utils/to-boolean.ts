@@ -9,9 +9,9 @@ import isNumber from './is-number';
  *
  * @param {*} value - The value to convert.
  * @param {boolean} [defaultValue=undefined] - The value to return if the input cannot be converted to boolean.
- * @returns {boolean|*} The boolean representation of the input, or the defaultValue.
+ * @returns {any} The boolean representation of the input, or the defaultValue.
  */
-const toBoolean = (value: any, defaultValue?: any): boolean | any => {
+const toBoolean = (value: any, defaultValue?: any): any => {
   if (value === true || value === false) { 
     return value;
   }

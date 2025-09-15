@@ -8,7 +8,7 @@ import c from '../constants';
  * @param {string} [chars=c.DEFAULTS.CODE.CHARS] - The string of characters to use for generating the code. Defaults to the value defined in `c.DEFAULTS.CODE.CHARS`.
  * @returns {string} The generated random code string.
  */
-const newCode = (totalLength = c.DEFAULTS.CODE.LENGTH, chars = c.DEFAULTS.CODE.CHARS) => {
+const newCode = (totalLength: number = c.DEFAULTS.CODE.LENGTH, chars: string = c.DEFAULTS.CODE.CHARS): string => {
 
   const _length = Number(totalLength);
 

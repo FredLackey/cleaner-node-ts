@@ -8,7 +8,7 @@
  * @returns {boolean} True if the strings match according to the specified options, false otherwise.
  * @throws {Error} If an unexpected combination of internal logic states occurs (should not happen).
  */
-const isMatch = (source, target, caseSensitive, matchWhitespace) => {
+const isMatch = (source: string, target: string, caseSensitive: boolean, matchWhitespace: boolean): boolean => {
 
   let result = null;
 

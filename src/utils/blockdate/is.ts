@@ -9,7 +9,7 @@ const MAX_YEAR = (new Date()).getFullYear();
  * @param {number} [maxYear=current year] The maximum allowed year.
  * @returns {boolean} True if the value is a valid blockdate string, false otherwise.
  */
-const isBlockDate = (value, maxYear = MAX_YEAR) => {
+const isBlockDate = (value: string, maxYear: number = MAX_YEAR): boolean => {
   const item = parse(value, maxYear);
   return isObject(item);
 };

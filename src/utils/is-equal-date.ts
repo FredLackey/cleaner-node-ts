@@ -8,7 +8,7 @@ import isDate from './is-date';
  * @param {*} b - The second value to compare.
  * @returns {boolean} True if both are valid Dates and their millisecond timestamps are equal, false otherwise.
  */
-const isEqualDate = (a, b) => {
+const isEqualDate = (a: any, b: any): boolean => {
   return isDate(a) && isDate(b) && a.getTime() === b.getTime();
 };
 

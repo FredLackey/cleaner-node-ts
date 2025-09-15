@@ -12,7 +12,7 @@ import isDefined from './is-defined';
  * @param {object} cache - An object to track processed items.
  * @param {Array} cache.items - Array storing references to items already processed.
  */
-const remove = (obj, prop, cache) => {  
+const remove = (obj: any, prop: any, cache: any): void => {  
   if (isValidArray(obj)) {
     obj.forEach(x => remove(x, prop, cache));
     return;
@@ -30,8 +30,8 @@ const remove = (obj, prop, cache) => {
     .forEach(key => remove(obj[key], prop, cache));
 
   Object.values(obj)
-    .filter(key => (key && isValidArray(key)))
-    .forEach(key => remove(obj[key], prop, cache));
+    .filter(value => (value && isValidArray(value)))
+    .forEach(value => remove(value, prop, cache));
   
 };
 
@@ -44,7 +44,7 @@ const remove = (obj, prop, cache) => {
  * @param {string} prop - The name of the property to remove.
  * @returns {object|Array} The original object or array, modified in place.
  */
-const removeProperty = (obj, prop) => {
+const removeProperty = (obj: any, prop: any): any => {
   const cache = {
     items: []
   };

@@ -6,7 +6,7 @@ import getHeaders from './get-headers';
  * @param {string} name The name of the header to retrieve.
  * @returns {string|undefined} The value of the specified header, or undefined if not found.
  */
-const getHeader = (request, name) => {
+const getHeader = (request: any, name: string): string | undefined => {
   const headers = getHeaders(request);
   const key = Object.keys(headers).find(key => key.toLowerCase() === name.toLowerCase());
   return key ? headers[key] : undefined;

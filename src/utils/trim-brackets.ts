@@ -8,7 +8,7 @@ import isBracketted from './is-bracketted';
  * @param {string} value - The string potentially enclosed in brackets.
  * @returns {string} The string with all outer matching bracket pairs removed.
  */
-const trimBrackets = value => {
+const trimBrackets = (value: any): string => {
   while (isBracketted(value)) {
     const bracket = getBracket(value);
     if (value.length <= (bracket.open.length + bracket.close.length)) {

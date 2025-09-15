@@ -6,7 +6,7 @@ import getSingle from './get-single';
  * @param {string} value The string to search for email addresses.
  * @returns {string|undefined} The first valid email address found, or undefined if none are found or the input is invalid.
  */
-const getEmail = value => {
+const getEmail = (value: string): string | undefined => {
   const items = getEmails(value);
   return getSingle(items);
 };

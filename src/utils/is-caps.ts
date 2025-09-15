@@ -7,7 +7,7 @@ import isValidString from './is-valid-string';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string is valid, non-empty, and entirely uppercase, false otherwise.
  */
-const isCaps = value => {
+const isCaps = (value: any): boolean => {
   return isValidString(value, false) && value === value.toUpperCase();
 };
 

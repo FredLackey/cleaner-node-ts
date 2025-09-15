@@ -8,7 +8,7 @@ import getEmail from './get-email';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string matches the cleaned email format, false otherwise.
  */
-const isEmail = value => {
+const isEmail = (value: any): boolean => {
   const email = getEmail(value);
   return isValidString(email) && value === email;
 };

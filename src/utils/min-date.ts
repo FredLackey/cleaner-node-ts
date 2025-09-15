@@ -4,7 +4,7 @@
  * @param {Date[]} dates - An array of Date objects.
  * @returns {Date|null} The earliest Date object from the array, or null if the input is not a non-empty array.
  */
-const minDate = (dates) => {
+const minDate = (dates: any): Date | null => {
   if (Array.isArray(dates) && dates.length > 0) {
     // Sort the array of dates in ascending order
     dates.sort((a, b) => a - b);

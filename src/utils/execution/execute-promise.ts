@@ -6,7 +6,7 @@ import { exec  } from 'child_process';
  * @param {string} command The shell command to execute.
  * @returns {Promise<{stdout: string}|{error: Error}|{stderr: string}>} A promise that resolves with the stdout or rejects with an error or stderr.
  */
-const executePromise = command => {
+const executePromise = (command: string): Promise<any> => {
   return new Promise((resolve, reject) => {
     exec(command, (error, stdout, stderr) => {
       if (error) {

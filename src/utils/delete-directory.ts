@@ -7,7 +7,7 @@ import isFolder from './is-folder';
  * @param {string} folderPath The path to the directory to delete.
  * @returns {boolean} True if the directory doesn't exist after the operation (or didn't exist initially), false otherwise.
  */
-const deleteDirectory = (folderPath) => {
+const deleteDirectory = (folderPath: string): boolean => {
   if (!isFolder(folderPath)) {
     return true;
   }

@@ -11,7 +11,7 @@ import isBoolean from './is-boolean';
  * @param {Array<any>} values - The array of values to format.
  * @returns {string[]} An array of strings, each padded to the maximum width.
  */
-const toColumn = values => {
+const toColumn = (values: any): string[] => {
 
   const structure = [].concat(values).filter(x => (isNumber(x) || isBoolean(x) || isValidString(x))).map(value => {
 

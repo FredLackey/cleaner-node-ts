@@ -8,7 +8,7 @@ import isBoolean from './is-boolean';
  * @param {boolean} [valid=true] If true, only includes variables whose values are numbers, booleans, or non-empty strings.
  * @returns {object} An object containing the filtered environment variables, sorted alphabetically by key.
  */
-const getVars = (proper = true, valid = true) => {
+const getVars = (proper: boolean = true, valid: boolean = true): any => {
   const result = {};
   Object
     .keys(process.env)

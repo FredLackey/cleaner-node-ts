@@ -7,7 +7,7 @@ import isDigits from './is-digits';
  * @param {number|string} value The epoch timestamp (in seconds).
  * @returns {Date|null} The corresponding Date object, or null if the input is invalid.
  */
-const fromEpoch = (value) => {
+const fromEpoch = (value: number | string): Date | null => {
   if (!isNumber(value) || !isDigits(`${value}`)) {
     return null;
   }

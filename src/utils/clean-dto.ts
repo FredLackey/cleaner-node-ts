@@ -5,12 +5,23 @@ import isValidArray from './is-valid-array';
 import isValidString from './is-valid-string';
 import removeSuffix from './remove-suffix';
 
-const DEFAULT_PARAMS = {
+export interface CleanDtoParams {
+  id: string;
+  uid: string;
+  audit: any[];
+  force: boolean;
+  nulls: boolean;
+  cache?: {
+    items: any[];
+  };
+}
+
+const DEFAULT_PARAMS: CleanDtoParams = {
   id   : '',
   uid  : '',
   audit: [],
   force: false,
-  nulls: false 
+  nulls: false
 };
 const DELIMETERS = ['-', '_'];
 
@@ -19,7 +30,7 @@ const DELIMETERS = ['-', '_'];
  * @param {object} item The object to process.
  * @param {object} params Configuration parameters (id, uid, force).
  */
-const removeId = (item, params) => {
+const removeId = (item: any, params: CleanDtoParams): void => {
   if (!isObject(item) || !isValidString(params.id) || !isDefined(item[params.id])) {
     return;
   }
@@ -39,7 +50,7 @@ const removeId = (item, params) => {
  * @param {object} item The object to process.
  * @param {object} params Configuration parameters (audit).
  */
-const removeAudit = (item, params) => {
+const removeAudit = (item: any, params: CleanDtoParams): void => {
   if (!isObject(item) || !isValidArray(params.audit)) {
     return;
   }
@@ -52,7 +63,7 @@ const removeAudit = (item, params) => {
  * @param {object} item The object to process.
  * @param {object} params Configuration parameters (id, uid).
  */
-const moveUid = (item, params) => {
+const moveUid = (item: any, params: CleanDtoParams): void => {
   if (!item) { return; }
   if (!isValidString(params.uid) || !isValidString(params.id)) {
     return;
@@ -69,7 +80,7 @@ const moveUid = (item, params) => {
  * @param {object} item The object to process.
  * @param {object} params Configuration parameters (id, uid).
  */
-const moveIds = (item, params) => {
+const moveIds = (item: any, params: CleanDtoParams): void => {
   if (!item || !isValidString(params.uid) || !isValidString(params.id)) {
     return;
   }
@@ -93,10 +104,10 @@ const moveIds = (item, params) => {
  * @param {object} item The object to process.
  * @param {object} params Configuration parameters (id, uid).
  */
-const trimIds = (item, params) => {
+const trimIds = (item: any, params: CleanDtoParams): void => {
   if (!item) { return; }
 
-  [params.uid, params.id].filter(isValidString).forEach(idKey => {
+  [params.uid, params.id].filter((x: any) => isValidString(x)).forEach((idKey: string) => {
     DELIMETERS.forEach(delim => {
     const suffix = `${delim}${idKey}`;
     Object.keys(item)
@@ -117,7 +128,7 @@ const trimIds = (item, params) => {
  * @param {object} item The object to process.
  * @param {object} params Configuration parameters (nulls).
  */
-const removeNulls = (item, params) => {
+const removeNulls = (item: any, params: CleanDtoParams): void => {
   if (!isObject(item) || params.nulls === true) {
     return;
   }
@@ -131,7 +142,7 @@ const removeNulls = (item, params) => {
  * @param {Array<object|Array>} items The array of items to process.
  * @param {object} params Configuration parameters passed to processItem.
  */
-const processItems = (items, params) => {
+const processItems = (items: any, params: CleanDtoParams): void => {
   [].concat(items).filter(x => (x && isObject(x))).forEach(item => {
     processItem(item, params);
   });
@@ -144,7 +155,7 @@ const processItems = (items, params) => {
  * @param {object} item The item to process.
  * @param {object} params Configuration parameters (id, uid, audit, force, nulls, cache).
  */
-const processItem = (item, params) => {
+const processItem = (item: any, params: CleanDtoParams): void => {
   if (!isObject(item)) {
     return;
   }
@@ -178,7 +189,7 @@ const processItem = (item, params) => {
  * @param {boolean} [params.force=false] If true, forces removal of the `id` field even if `uid` is not present.
  * @param {boolean} [params.nulls=false] If true, keeps properties with null values; otherwise, they are removed.
  */
-const cleanDto = (itemOrItems, params = DEFAULT_PARAMS) => {
+const cleanDto = (itemOrItems: any, params: CleanDtoParams = DEFAULT_PARAMS): void => {
   params.cache = {
     items: []
   };

@@ -7,7 +7,7 @@ import isDate from './is-date';
  * @param {*} date2 - The second value to compare.
  * @returns {boolean} True if both are Dates and their millisecond timestamps are equal, false otherwise.
  */
-const isSameDate = (date1, date2) => {
+const isSameDate = (date1: any, date2: any): boolean => {
   if (!isDate(date1) || !isDate(date2)) {
     return false;
   }

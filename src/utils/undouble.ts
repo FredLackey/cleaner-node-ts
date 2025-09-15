@@ -10,14 +10,15 @@ import isValidArray from './is-valid-array';
  * @returns {string} The processed string with doubled target characters reduced to one.
  */
 const undouble = (value: string, targets: string | string[]): string => {
+
   if (!isValidString(value)) {
     return value;
   }
   if (!isValidArray(targets) && !isValidString(targets)) {
     return value;
   }
-  targets = isValidArray(targets) ? targets : targets.split('');
-  targets = targets.filter((ch) => isValidString(ch));
+  targets = isValidArray(targets) ? targets : `${targets}`.split('');
+  targets = [].concat(targets).filter((ch) => isValidString(ch));
   targets.forEach((ch) => {
 
     while (value.includes(ch + ch)) {

@@ -4,7 +4,7 @@
  * @param {string} name The name of the query parameter to retrieve.
  * @returns {string|null} The value of the specified query parameter, or null if not found.
  */
-const getUrlParam = (urlText, name) => {
+const getUrlParam = (urlText: string, name: string): string | null => {
   const url = new URL(urlText);
   return url.searchParams.get(name);
 };

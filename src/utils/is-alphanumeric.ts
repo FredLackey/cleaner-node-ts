@@ -6,7 +6,7 @@ import isValidString from './is-valid-string';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string is valid and contains only letters and numbers, false otherwise.
  */
-const isAlphanumeric = value => {
+const isAlphanumeric = (value: any): boolean => {
   return isValidString(value) && 
     value
       .toLowerCase()

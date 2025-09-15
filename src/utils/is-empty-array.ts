@@ -17,7 +17,7 @@ import isValidArray from './is-valid-array';
  * isEmptyArray("string");     // false
  * isEmptyArray({});           // false
  */
-const isEmptyArray = (array) => {
+const isEmptyArray = (array: any): boolean => {
   return isValidArray(array, true) && !isValidArray(array, false);
 };
 

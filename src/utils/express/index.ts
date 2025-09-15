@@ -13,8 +13,8 @@ import respond from './respond';
 const HTTP_PORT = 80;
 const HTTPS_PORT = 443;
 
-const asyncMiddleware = (fn) => {
-  return async (req, res, next) => {
+const asyncMiddleware = (fn: any) => {
+  return async (req: any, res: any, next: any): Promise<void> => {
     try {
       await fn(req, res, next);
     } catch (err) {
@@ -23,7 +23,7 @@ const asyncMiddleware = (fn) => {
   };
 };
 
-const getKeys = (obj, keyOrKeys, isCaseSensitive = false) => {
+const getKeys = (obj: any, keyOrKeys: any, isCaseSensitive = false): string[] => {
   if (!isObject(obj)) { return []; }
   const targetKeys = [].concat(keyOrKeys)
     .filter(key => (isValidString(key)))
@@ -32,19 +32,19 @@ const getKeys = (obj, keyOrKeys, isCaseSensitive = false) => {
     ((isCaseSensitive && targetKeys.includes(key)) ||
     (!isCaseSensitive && targetKeys.includes(key.toLowerCase())))));
 };
-const getValuesFromObject = (obj, keyOrKeys, isCaseSensitive = false) => (
+const getValuesFromObject = (obj: any, keyOrKeys: any, isCaseSensitive = false): any[] => (
   getKeys(obj, keyOrKeys, isCaseSensitive)
     .filter(key => (isValidString(key)))
     .map(key => (obj[key]))
 );
 
 // MULTIPLES
-const getValuesFromBody = (req, keyOrKeys, isCaseSensitive = false) => getValuesFromObject(req.body, keyOrKeys, isCaseSensitive);
-const getValuesFromParams = (req, keyOrKeys, isCaseSensitive = false) => getValuesFromObject(req.params, keyOrKeys, isCaseSensitive);
-const getValuesFromQuery = (req, keyOrKeys, isCaseSensitive = false) => getValuesFromObject(req.query, keyOrKeys, isCaseSensitive);
-const getValuesFromHeaders = (req, keyOrKeys, isCaseSensitive = false) => getValuesFromObject(req.headers, keyOrKeys, isCaseSensitive);
-const getValuesFromCookies = (req, keyOrKeys, isCaseSensitive = false) => getValuesFromObject(req.cookies, keyOrKeys, isCaseSensitive);
-const getValues = (req, keyOrKeys, isCaseSensitive = false) => ([
+const getValuesFromBody = (req: any, keyOrKeys: any, isCaseSensitive = false): any[] => getValuesFromObject(req.body, keyOrKeys, isCaseSensitive);
+const getValuesFromParams = (req: any, keyOrKeys: any, isCaseSensitive = false): any[] => getValuesFromObject(req.params, keyOrKeys, isCaseSensitive);
+const getValuesFromQuery = (req: any, keyOrKeys: any, isCaseSensitive = false): any[] => getValuesFromObject(req.query, keyOrKeys, isCaseSensitive);
+const getValuesFromHeaders = (req: any, keyOrKeys: any, isCaseSensitive = false): any[] => getValuesFromObject(req.headers, keyOrKeys, isCaseSensitive);
+const getValuesFromCookies = (req: any, keyOrKeys: any, isCaseSensitive = false): any[] => getValuesFromObject(req.cookies, keyOrKeys, isCaseSensitive);
+const getValues = (req: any, keyOrKeys: any, isCaseSensitive = false): any[] => ([
   ...getValuesFromBody(req, keyOrKeys, isCaseSensitive),
   ...getValuesFromParams(req, keyOrKeys, isCaseSensitive),
   ...getValuesFromQuery(req, keyOrKeys, isCaseSensitive),
@@ -53,30 +53,30 @@ const getValues = (req, keyOrKeys, isCaseSensitive = false) => ([
 ].filter(x => (isDefined(x))));
 
 // SINGULAR
-const singleValueFromBody = (req, keyOrKeys, isCaseSensitive = false) => getSingle(getValuesFromBody(req, keyOrKeys, isCaseSensitive));
-const singleValueFromParams = (req, keyOrKeys, isCaseSensitive = false) => getSingle(getValuesFromParams(req, keyOrKeys, isCaseSensitive));
-const singleValueFromQuery = (req, keyOrKeys, isCaseSensitive = false) => getSingle(getValuesFromQuery(req, keyOrKeys, isCaseSensitive));
-const singleValueFromHeaders = (req, keyOrKeys, isCaseSensitive = false) => getSingle(getValuesFromHeaders(req, keyOrKeys, isCaseSensitive));
-const singleValueFromCookies = (req, keyOrKeys, isCaseSensitive = false) => getSingle(getValuesFromQuery(req, keyOrKeys, isCaseSensitive));
-const singleValue = (req, keyOrKeys, isCaseSensitive = false) => getSingle(getValues(req, keyOrKeys, isCaseSensitive));
+const singleValueFromBody = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getSingle(getValuesFromBody(req, keyOrKeys, isCaseSensitive));
+const singleValueFromParams = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getSingle(getValuesFromParams(req, keyOrKeys, isCaseSensitive));
+const singleValueFromQuery = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getSingle(getValuesFromQuery(req, keyOrKeys, isCaseSensitive));
+const singleValueFromHeaders = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getSingle(getValuesFromHeaders(req, keyOrKeys, isCaseSensitive));
+const singleValueFromCookies = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getSingle(getValuesFromQuery(req, keyOrKeys, isCaseSensitive));
+const singleValue = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getSingle(getValues(req, keyOrKeys, isCaseSensitive));
 
 // FIRST
-const firstValueFromBody = (req, keyOrKeys, isCaseSensitive = false) => getFirst(getValuesFromBody(req, keyOrKeys, isCaseSensitive));
-const firstValueFromParams = (req, keyOrKeys, isCaseSensitive = false) => getFirst(getValuesFromParams(req, keyOrKeys, isCaseSensitive));
-const firstValueFromQuery = (req, keyOrKeys, isCaseSensitive = false) => getFirst(getValuesFromQuery(req, keyOrKeys, isCaseSensitive));
-const firstValueFromHeaders = (req, keyOrKeys, isCaseSensitive = false) => getFirst(getValuesFromHeaders(req, keyOrKeys, isCaseSensitive));
-const firstValueFromCookies = (req, keyOrKeys, isCaseSensitive = false) => getFirst(getValuesFromQuery(req, keyOrKeys, isCaseSensitive));
-const firstValue = (req, keyOrKeys, isCaseSensitive = false) => getFirst(getValues(req, keyOrKeys, isCaseSensitive));
+const firstValueFromBody = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getFirst(getValuesFromBody(req, keyOrKeys, isCaseSensitive));
+const firstValueFromParams = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getFirst(getValuesFromParams(req, keyOrKeys, isCaseSensitive));
+const firstValueFromQuery = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getFirst(getValuesFromQuery(req, keyOrKeys, isCaseSensitive));
+const firstValueFromHeaders = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getFirst(getValuesFromHeaders(req, keyOrKeys, isCaseSensitive));
+const firstValueFromCookies = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getFirst(getValuesFromQuery(req, keyOrKeys, isCaseSensitive));
+const firstValue = (req: any, keyOrKeys: any, isCaseSensitive = false): any => getFirst(getValues(req, keyOrKeys, isCaseSensitive));
 
-const getJwt = ({ req, key = 'jwt', keys = [], header = 'authorization', headers = [], cookie = 'token', cookies = [] }) => {
+const getJwt = ({ req, key = 'jwt', keys = [], header = 'authorization', headers = [], cookie = 'token', cookies = [] }: { req: any; key?: string; keys?: string[]; header?: string; headers?: string[]; cookie?: string; cookies?: string[] }): any => {
   
   if (!req) { 
     return null;
   }
 
-  keys    = [key, ...[].concat(keys)].filter(isValidString);
-  headers = [header, ...[].concat(headers)].filter(isValidString);
-  cookies = [cookie, ...[].concat(cookies)].filter(isValidString);
+  keys    = [key, ...[].concat(keys)].filter((x: any) => isValidString(x));
+  headers = [header, ...[].concat(headers)].filter((x: any) => isValidString(x));
+  cookies = [cookie, ...[].concat(cookies)].filter((x: any) => isValidString(x));
 
   let result;
 
@@ -87,7 +87,7 @@ const getJwt = ({ req, key = 'jwt', keys = [], header = 'authorization', headers
   return result;
 };
 
-const getUrl = (req) => {
+const getUrl = (req: any): string => {
 
   const protocol = req.protocol.trim().toLowerCase();
   const host = req.hostname.trim().toLowerCase();
@@ -105,12 +105,12 @@ const getUrl = (req) => {
 
 };
 
-const getClientIp = req => {
+const getClientIp = (req: any): string | null => {
   if (!req) { return null; }
   return req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 };
 
-const getBody = (req) => {
+const getBody = (req: any): any => {
   if (!req) { return null; }
   return req.body;
 };

@@ -1,6 +1,5 @@
 import crypto from 'crypto';
 import fs from 'fs';
-import c from '../constants';
 
 import isFile from './is-file';
 import isValidString from './is-valid-string';
@@ -21,7 +20,7 @@ const DEFAULT_ALGORITHM = 'md5';
  * @param {string} [digest='hex'] The encoding for the output hash (e.g., 'hex', 'base64').
  * @returns {string|null|undefined} The hash string, null if the input is not a file, or undefined if an error occurs during file reading or hashing.
  */
-const hashFile = (value, algorithm = DEFAULT_ALGORITHM, digest = DEFAULT_DIGEST) => {
+const hashFile = (value: any, algorithm: string = DEFAULT_ALGORITHM, digest: string = DEFAULT_DIGEST): string | null | undefined => {
 
   if (!isFile(value)) { 
     return null; 

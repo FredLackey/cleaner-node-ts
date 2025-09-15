@@ -1,7 +1,14 @@
 import isValidString from './is-valid-string';
 import crypto from 'crypto';
 
-const DEFAULT_OPTIONS = {
+interface EncryptionOptions {
+  algorithm: string;
+  ivLength: number;
+  saltLength: number;
+  keyLength: number;
+}
+
+const DEFAULT_OPTIONS: EncryptionOptions = {
   algorithm : 'aes-256-cbc',
   ivLength  : 16,              // AES block size,
   saltLength: 16,              // For key derivation
@@ -21,7 +28,7 @@ const DEFAULT_OPTIONS = {
  * @returns {string} - Hex-encoded encrypted string (containing salt + iv + encrypted data)
  * @throws {Error} If text or password is invalid
  */
-function encryptString(text, password, options = DEFAULT_OPTIONS) {
+function encryptString(text: string, password: string, options: EncryptionOptions = DEFAULT_OPTIONS): string {
   
   if (!isValidString(text) || !isValidString(password)) {
     throw new Error('Invalid input');

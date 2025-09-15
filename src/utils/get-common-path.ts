@@ -9,7 +9,7 @@ import getSubstring from './get-substring';
  * @returns {string|null} The common root path if all paths share the same root, otherwise null.
  * @private
  */
-const getRoot = values => {
+const getRoot = (values: string[]): string | null => {
   if (!isValidArray(values)) { 
     return null; 
   }
@@ -34,7 +34,7 @@ const getRoot = values => {
  * @param {string[]} values An array of file path strings.
  * @returns {string|null} The longest common base directory path, or null if paths don't share a common root or if the input is invalid.
  */
-const getBaseDir = (values) => {
+const getBaseDir = (values: string[]): string | null => {
   
   if (!isValidArray(values)) { 
     return null; 
@@ -68,7 +68,7 @@ const getBaseDir = (values) => {
       substring = ''; 
     }
     else {
-      substring = substring(0, substring.length - 1);
+      substring = substring.substring(0, substring.length - 1);
     }
   }
   return substring;

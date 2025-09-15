@@ -9,9 +9,11 @@ import isValidString from './is-valid-string';
  *   - `values`: An object with the duration broken down into `weeks`, `days`, `hours`, `mins`, `seconds`, and `ms`.
  *   - `text`: A string representation of the duration in the format 'WW:DD:HH:MM:SS.sss', omitting leading zero components (e.g., 'HH:MM:SS.sss' or 'MM:SS.sss').
  */
-const getDuration = (start, end) => {
+const getDuration = (start: number | Date, end: number | Date): { values: { weeks: number; days: number; hours: number; mins: number; seconds: number; ms: number }; text: string } => {
 
-  let ms = end - start;
+  const startTime = typeof start === 'number' ? start : start.getTime();
+  const endTime = typeof end === 'number' ? end : end.getTime();
+  let ms = endTime - startTime;
 
   const weeks = Math.floor(ms / c.NUMBERS.MS.PER.WEEK);
   ms %= c.NUMBERS.MS.PER.WEEK;

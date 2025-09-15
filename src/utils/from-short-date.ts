@@ -8,7 +8,7 @@ import isShortDate from './is-short-date';
  * @param {number} [earliestYear] - (Unused) Intended to specify the earliest acceptable year.
  * @returns {Date|null} The corresponding Date object, or null if the input is not a valid short date string.
  */
-const fromShortDate = (value, allowFuture, earliestYear) => {
+const fromShortDate = (value: string, _allowFuture?: boolean, _earliestYear?: number): Date | null => {
   if (!isShortDate(value)) {
     return null;
   }

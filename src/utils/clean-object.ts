@@ -11,7 +11,7 @@ import toResponse from './to-response';
  * @param {Array} data.cache - Cache to track processed objects and prevent infinite loops.
  * @returns {Object} The cleaned item.
  */
-const cleanItem = (item, data) => {
+const cleanItem = (item: any, data: { cache: any[] }): any => {
 
   if (!isValidObject(item)) {
     return item;
@@ -44,7 +44,7 @@ const cleanItem = (item, data) => {
  * @param {Array} data.cache - Cache to track processed objects and prevent infinite loops.
  * @returns {Array} The cleaned array.
  */
-const cleanArray = (items, data) => {
+const cleanArray = (items: any[], data: { cache: any[] }): any[] => {
 
   if (!isValidArray(items)) {
     return items;
@@ -83,7 +83,7 @@ const cleanArray = (items, data) => {
  * const cleanedArray = cleanObject(myArray, true);
  * // cleanedArray will be [{ id: 1 }, { value: 'test' }]
  */
-const cleanObject = (itemOrItems, copyFirst = false) => {
+const cleanObject = (itemOrItems: any, copyFirst: boolean = false): any => {
 
   if (!isValidObject(itemOrItems) && !isValidArray(itemOrItems)) {
     return itemOrItems;

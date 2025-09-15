@@ -8,7 +8,7 @@ import isNumber from './is-number';
  * @param {Array<number|string|any>} values - An array containing potential numbers.
  * @returns {number|string|null} The maximum numeric value found (preserving its original type), or null if the array contains no numbers.
  */
-const getMax = values => {
+const getMax = (values: any): number | string | null => {
   let result = null;
   [].concat(values).filter(isNumber).forEach(value => {
 

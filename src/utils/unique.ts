@@ -6,7 +6,7 @@ import uniqueNumbers from './unique-numbers';
 import uniqueObjects from './unique-objects';
 import uniqueStrings from './unique-strings';
 
-interface UniqueParams {
+export interface UniqueParams {
   strict?: boolean;
   isCaseSensitive?: boolean;
   trim?: boolean;

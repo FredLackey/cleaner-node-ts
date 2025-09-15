@@ -79,7 +79,7 @@
     }],
     "@typescript-eslint/no-unnecessary-type-assertion": "warn",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
-    "@typescript-eslint/prefer-optional-chain": "warn"
+    "@typescript-eslint/prefer-optional-chain": "off"
   },
   "ignorePatterns": ["dist", "node_modules", "coverage", "*.js", "*.cjs", "*.mjs"]
 }

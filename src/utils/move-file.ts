@@ -12,7 +12,7 @@ import makePath from './make-path';
  * @param {string} destinationPath - The desired new path for the file.
  * @returns {boolean} True if the rename was successful and the destination file exists, false otherwise.
  */
-const rename = (sourcePath, destinationPath) => {
+const rename = (sourcePath: string, destinationPath: string): boolean => {
   try {
     fs.renameSync(sourcePath, destinationPath);
   } catch (ex) {
@@ -32,7 +32,7 @@ const rename = (sourcePath, destinationPath) => {
  * @param {string} destinationPath - The target path to move the file to.
  * @returns {boolean} True if the file was successfully moved (either by rename or copy+delete), false otherwise.
  */
-const moveFile = (sourcePath, destinationPath) => {
+const moveFile = (sourcePath: string, destinationPath: string): boolean => {
   
   if (!makePath(path.dirname(destinationPath))) { return false; }
 

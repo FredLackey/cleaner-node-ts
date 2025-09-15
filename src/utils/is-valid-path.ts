@@ -8,7 +8,7 @@ import isValidString from './is-valid-string';
  * @param {string} value - The path string.
  * @returns {string|undefined} The base name or undefined if an error occurred.
  */
-const getBase = value => {
+const getBase = (value: any): string | undefined => {
   try {
     return path.basename(value);
   } catch (ex) {
@@ -23,7 +23,7 @@ const getBase = value => {
  * @param {string} value - The path string to check.
  * @returns {boolean} True if the basename of the path is a non-empty string, false otherwise.
  */
-const isValidPath = (value) => {
+const isValidPath = (value: any): boolean => {
   return isValidString(getBase(value));
 };
 

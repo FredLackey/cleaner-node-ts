@@ -157,7 +157,7 @@ import toResult from './to-result';
 import toSnakeCase from './to-snake-case';
 import toTable from './to-table';
 import toUidFormat from './to-uid-format';
-import trimArray from './trim-array';.trim;
+import trimArray from './trim-array';
 import trimString from './trim-string';
 import trimToNull from './trim-to-null';
 import trimToUndefined from './trim-to-undefined';
@@ -384,7 +384,7 @@ export default {
    * @param {object} req The request object (either Express req or Next.js NextApiRequest).
    * @returns {*} The parsed body of the request.
    */
-  getBody: (req) => {
+  getBody: (req: any): any => {
     return isAsync(req) ? nextjs.getBody(req) : express.getBody(req);
   },
   body

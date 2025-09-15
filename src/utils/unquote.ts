@@ -9,7 +9,7 @@ import { QUOTE  } from '../constants';
  * @param {string} value - The string to unquote.
  * @returns {string} The unquoted string or the original value if unquoting is not applicable.
  */
-const unQuote = value => {
+const unQuote = (value: any): string => {
 
   if (!isValidString(value)) {
     return value;

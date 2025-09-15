@@ -14,7 +14,7 @@ import getEnum from './get-enum';
  * @param {object|Array<object>} objOrArray The object or array of objects to extract enums from.
  * @returns {Array<string>} An array of valid enum strings found.
  */
-const getEnums = (objOrArray) => {
+const getEnums = (objOrArray: any): string[] => {
 
   let values = [];
 

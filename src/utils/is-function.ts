@@ -4,6 +4,6 @@
  * @param {*} value - The value to check.
  * @returns {boolean} True if the value is of type 'function', false otherwise.
  */
-const isFunction = value => (typeof value === 'function');
+const isFunction = (value: any): boolean => (typeof value === 'function');
 
 export default isFunction;

@@ -13,7 +13,7 @@ import isObject from './is-object';
  * 3. Attempts to parse the string as JSON
  * 4. Verifies the parsed result is a valid object
  */
-const isJsonObject = str => {
+const isJsonObject = (str: any): boolean => {
 
   if (!isValidString(str)) {
     return false;

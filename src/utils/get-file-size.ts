@@ -5,7 +5,7 @@ import fs from 'fs';
  * @param {string} filePath The path to the file.
  * @returns {number} The file size in bytes, or -1 if the path does not point to a file or an error occurs.
  */
-const getFileSize = filePath => {
+const getFileSize = (filePath: any): number => {
   try {
     const info = fs.lstatSync(filePath);
     return info.isFile() ? info.size : -1;

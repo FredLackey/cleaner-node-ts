@@ -8,7 +8,7 @@ const EMPTY_OK = true;
  * @param {string} [encoding='utf8'] The encoding to use for byte length calculation.
  * @returns {number} The byte size of the string, or -1 if the input is not a valid string.
  */
-const getStringSize = (value, encoding = 'utf8') => {
+const getStringSize = (value: any, encoding: BufferEncoding = 'utf8'): number => {
   if (!isValidString(value, EMPTY_OK)) { return -1; }
   return Buffer.byteLength(value, encoding);
 };

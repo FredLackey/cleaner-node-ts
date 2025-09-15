@@ -6,7 +6,7 @@ import stringify from './stringify';
  * @param {object} item The object to copy.
  * @returns {object} A deep copy of the input object.
  */
-const copyObject = item => {
+const copyObject = (item: any): any => {
   return JSON.parse(stringify(item));
 };
 

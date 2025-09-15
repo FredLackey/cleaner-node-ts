@@ -11,7 +11,7 @@ import isValidString from './is-valid-string';
  * @param {string} value - The string to analyze.
  * @returns {string|null} The leading whitespace as a string of spaces, or an empty string, or null.
  */
-const getPadPrefix = value => {
+const getPadPrefix = (value: any): string | null => {
   if (!isValidString(value, true)) { return null; }
   const pads = getPads(value);
   if (pads.prefix === 0) { return ''; }

@@ -13,7 +13,7 @@ const EARLIEST_YEAR = 1900;
  * @param {number} [earliestYear=1900] - The minimum acceptable year. Defaults to 1900.
  * @returns {boolean} True if the string is a valid short date according to the criteria, false otherwise.
  */
-const isValidShortDate = (value, allowFuture = false, earliestYear = EARLIEST_YEAR) => {
+const isValidShortDate = (value: any, allowFuture: boolean = false, earliestYear: number = EARLIEST_YEAR): boolean => {
   if (!isValidString(value)) {
     return false;
   }

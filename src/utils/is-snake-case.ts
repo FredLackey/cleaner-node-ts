@@ -8,7 +8,7 @@ import toSnakeCase from './to-snake-case';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string is already in snake_case format, false otherwise.
  */
-const isSnakeCase = value => {
+const isSnakeCase = (value: any): boolean => {
   return isValidString(value) && value === toSnakeCase(value);
 };
 

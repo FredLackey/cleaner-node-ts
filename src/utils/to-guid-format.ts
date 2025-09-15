@@ -10,7 +10,7 @@ import isUidFormat from './is-uid-format';
  * @param {string} value - The string value to convert (expected GUID or UID format).
  * @returns {string|undefined} The formatted lowercase GUID string, or undefined if conversion is not possible.
  */
-const toGuidFormat = value => {
+const toGuidFormat = (value: any): string | undefined => {
   if (isGuidFormat(value)) { return value.toLowerCase(); }
   if (!isUidFormat(value)) { return undefined; }
   return [

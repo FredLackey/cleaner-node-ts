@@ -1,5 +1,4 @@
 import { EMPTY_GUID  } from '../constants';
-import isAlphanumeric from './is-alphanumeric';
 import isValidChars from './is-valid-chars';
 import isValidString from './is-valid-string';
 
@@ -13,7 +12,7 @@ const GUID_CHARS = '0123456789abcdef';
  * @param {string} value - The string value to check.
  * @returns {boolean} True if the value is in a valid GUID format, false otherwise.
  */
-const isGuidFormat = value => {
+const isGuidFormat = (value: any): boolean => {
   if (!isValidString(value)) {
     console.debug('isGuidFormat: value is not a valid string');
     return false;

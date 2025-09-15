@@ -11,7 +11,7 @@ import stringify from './stringify';
  * @param {string} filePath - The full path of the file to save the JSON data to.
  * @returns {boolean} True if the data was a valid object/array and the file was written successfully, false otherwise.
  */
-const saveJson = (data, filePath) => {
+const saveJson = (data: any, filePath: any): boolean => {
   return (isObject(data) || isValidArray(data, true)) 
     && writeFile(filePath, stringify(data));
 };

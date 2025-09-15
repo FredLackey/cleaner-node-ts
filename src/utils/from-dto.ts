@@ -5,12 +5,23 @@ import isValidString from './is-valid-string';
 import isIsoDate from './is-iso-date';
 import isDigits from './is-digits';
 
-const DEFAULT_PARAMS = {
+export interface FromDtoParams {
+  id: string;
+  uid: string;
+  audit: any[];
+  force: boolean;
+  nulls: boolean;
+  cache?: {
+    items: any[];
+  };
+}
+
+const DEFAULT_PARAMS: FromDtoParams = {
   id   : '',
   uid  : '',
   audit: [],
   force: false,
-  nulls: false 
+  nulls: false
 };
 
 /**
@@ -20,7 +31,7 @@ const DEFAULT_PARAMS = {
  * @param {object} params Configuration parameters (currently unused in this function).
  * @private
  */
-const makeDates = (item, params) => {
+const makeDates = (item: any, _params: FromDtoParams): void => {
   if (!isObject(item)) {
     return;
   }
@@ -44,14 +55,14 @@ const makeDates = (item, params) => {
  * @param {object} params Configuration parameters (currently unused in this function).
  * @private
  */
-const makeIntegers = (item, params) => {
+const makeIntegers = (item: any, _params: FromDtoParams): void => {
   if (!isObject(item)) {
     return;
   }
   Object.keys(item).filter(x => (x && 
     isValidString(item[x]) && isDigits(item[x]) && !item[x].startsWith('0')))
     .forEach(key => {
-      item[key] = Date(item[key]);
+      item[key] = new Date(item[key]);
     });
 };
 
@@ -61,7 +72,7 @@ const makeIntegers = (item, params) => {
  * @param {object} params Configuration parameters passed to processItem.
  * @private
  */
-const processItems = (items, params) => {
+const processItems = (items: any[], params: FromDtoParams): void => {
   [].concat(items).filter(x => (x && isObject(x))).forEach(item => {
     processItem(item, params);
   });
@@ -76,7 +87,7 @@ const processItems = (items, params) => {
  * @param {object} params Configuration parameters and cache.
  * @private
  */
-const processItem = (item, params) => {
+const processItem = (item: any, params: FromDtoParams): void => {
   if (!isObject(item)) {
     return;
   }
@@ -102,7 +113,7 @@ const processItem = (item, params) => {
  * @param {object|Array<object>} itemOrItems The DTO or array of DTOs to process.
  * @param {object} [params=DEFAULT_PARAMS] Configuration options (currently unused beyond cache initialization).
  */
-const fromDto = (itemOrItems, params = DEFAULT_PARAMS) => {
+const fromDto = (itemOrItems: any, params: FromDtoParams = DEFAULT_PARAMS): void => {
   params.cache = {
     items: []
   };

@@ -8,7 +8,7 @@ import toPascalCase from './to-pascal-case';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string is already in PascalCase format, false otherwise.
  */
-const isPascalCase = value => {
+const isPascalCase = (value: any): boolean => {
   return isValidString(value) && value === toPascalCase(value);
 };
 

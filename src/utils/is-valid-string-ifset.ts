@@ -9,7 +9,7 @@ import isValidString from './is-valid-string';
  * @param {boolean} [isEmptyOkay=false] - Passed to `isValidString`. If true, an empty string is considered valid.
  * @returns {boolean} True if the value is not set or is a valid string (considering `isEmptyOkay`), false otherwise.
  */
-const isValidStringIfSet = (value, isEmptyOkay) => {
+const isValidStringIfSet = (value: any, isEmptyOkay?: boolean): boolean => {
   return !isSet(value) || isValidString(value, isEmptyOkay);
 };
 

@@ -15,7 +15,7 @@ const EMPTY_OK = false;
  * @param {boolean} [isCaseSensitive=false] - If true, validation is case-sensitive. Defaults to false.
  * @returns {boolean} True if the string is valid (non-empty) and contains only allowed characters, false otherwise.
  */
-const isValidChars = (value, valid = c.ALPHANUMERIC, invalid = '', isCaseSensitive = false) => {
+const isValidChars = (value: any, valid: string = c.ALPHANUMERIC, invalid: string = '', isCaseSensitive: boolean = false): boolean => {
   return isValidString(value, EMPTY_OK) && (value === cleanString(value, valid, invalid, isCaseSensitive));
 };
 

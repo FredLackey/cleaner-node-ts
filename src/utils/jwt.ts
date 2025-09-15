@@ -20,7 +20,7 @@ import toEpoch from './to-epoch';
  * @param {*} value - The value to convert.
  * @returns {number|string|undefined} The converted ID or undefined.
  */
-const toId = value => {
+const toId = (value: any): number | string | undefined => {
   if (typeof value === 'undefined') { return undefined; }
   if (isNumber(value)) { return Number(value); }
   if (isValidString(value)) { return value; }
@@ -71,7 +71,7 @@ const CLAIMS = [
  * @param {boolean} [ignoreExpiration=true] - If true, bypasses expiration check. Defaults to true.
  * @returns {object|undefined} The decoded payload if verification is successful, otherwise undefined.
  */
-const verify = (token, secret, ignoreExpiration = true) => {
+const verify = (token: any, secret: any, ignoreExpiration: boolean = true): any => {
   try {
     const result = jwt.verify(token, secret, { ignoreExpiration });
     return result;
@@ -86,7 +86,7 @@ const verify = (token, secret, ignoreExpiration = true) => {
  * @param {string} token - The JWT token string.
  * @returns {object|null} The decoded payload, or null if decoding fails.
  */
-const decode = token => {
+const decode = (token: any): any => {
   return jwt.decode(token);
 };
 /**
@@ -97,7 +97,7 @@ const decode = token => {
  * @param {object} [options] - Options for `jsonwebtoken.sign` (e.g., algorithm, expiresIn).
  * @returns {string} The generated JWT token string.
  */
-const encode = (payload, certOrSecret, options) => {
+const encode = (payload: any, certOrSecret: any, options?: any): string => {
   return jwt.sign(payload, certOrSecret, options);
 };
 
@@ -109,7 +109,7 @@ const encode = (payload, certOrSecret, options) => {
  * @param {object} obj - The JWT claims object.
  * @returns {object|undefined} The transformed application payload object, or undefined if input is not an object.
  */
-const fromClaims = obj => {
+const fromClaims = (obj: any): any => {
 
   if (!isObject(obj)) {
     return undefined;
@@ -137,7 +137,7 @@ const fromClaims = obj => {
  * @param {object} obj - The application payload object.
  * @returns {object|undefined} The transformed JWT claims object, or undefined if input is not an object.
  */
-const toClaims = obj => {
+const toClaims = (obj: any): any => {
 
   if (!isObject(obj)) {
     return undefined;

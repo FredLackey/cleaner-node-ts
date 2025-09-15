@@ -9,7 +9,7 @@ import isValidArray from './is-valid-array';
  * @param {boolean} [isEmptyOkay=false] - Passed to `isValidArray`. If true, an empty array is considered valid.
  * @returns {boolean} True if the value is not set or is a valid array (considering `isEmptyOkay`), false otherwise.
  */
-const isValidArrayIfSet = (value, isEmptyOkay) => {
+const isValidArrayIfSet = (value: any, isEmptyOkay?: boolean): boolean => {
   return !isSet(value) || isValidArray(value, isEmptyOkay);
 };
 

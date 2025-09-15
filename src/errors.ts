@@ -39,7 +39,7 @@ class ApiError extends Error {
  * @param {string|object} [details=''] - Additional error details.
  * @returns {ApiError} A new ApiError instance.
  */
-const init = (status: any = '', number: any = '', message: any = '', details: any = '') => {
+const init = (status: any = '', number: any = '', message: any = '', details: any = ''): ApiError => {
   return new ApiError({ status, number, message, details });
 };
 
@@ -52,7 +52,7 @@ const init = (status: any = '', number: any = '', message: any = '', details: an
  * @param {string|object} [params.details] - Additional error details.
  * @returns {ApiError} A new ApiError instance.
  */
-const status = (value: number, params: { number?: string | number; message?: string; details?: string | object } = {}) => {
+const status = (value: number, params: { number?: string | number; message?: string; details?: string | object } = {}): ApiError => {
   const { number, message, details } = params;
   return new ApiError({ status: value, number, message, details });
 };
@@ -66,7 +66,7 @@ const status = (value: number, params: { number?: string | number; message?: str
  * @param {string|object} [params.details] - Additional error details.
  * @returns {ApiError} A new ApiError instance.
  */
-const number = (value: string | number, params: { status?: number; message?: string; details?: string | object } = {}) => {
+const number = (value: string | number, params: { status?: number; message?: string; details?: string | object } = {}): ApiError => {
   const { status, message, details } = params;
   return new ApiError({ status, number: value, message, details });
 };
@@ -80,7 +80,7 @@ const number = (value: string | number, params: { status?: number; message?: str
  * @param {string|object} [params.details] - Additional error details.
  * @returns {ApiError} A new ApiError instance.
  */
-const message = (value: string, params: { status?: number; number?: string | number; details?: string | object } = {}) => {
+const message = (value: string, params: { status?: number; number?: string | number; details?: string | object } = {}): ApiError => {
   const { status, number, details } = params;
   return new ApiError({ status, number, message: value, details });
 };
@@ -94,7 +94,7 @@ const message = (value: string, params: { status?: number; number?: string | num
  * @param {string} [params.message] - The error message.
  * @returns {ApiError} A new ApiError instance.
  */
-const details = (value: string | object, params: { status?: number; number?: string | number; message?: string } = {}) => {
+const details = (value: string | object, params: { status?: number; number?: string | number; message?: string } = {}): ApiError => {
   const { message, number, status } = params;
   return new ApiError({ status, number, message, details: value });
 };
@@ -105,7 +105,7 @@ const details = (value: string | object, params: { status?: number; number?: str
  * @param {boolean} [strict=false] - If true, checks if the value is strictly an instance of Error. If false, checks for common error properties (stack, message).
  * @returns {boolean} True if the value is considered an error, false otherwise.
  */
-const isError = (value: any, strict = false) => {
+const isError = (value: any, strict = false): boolean => {
   return (strict === true)
     ? (value && value instanceof Error)
     : (value && value.stack && value.message);
@@ -117,7 +117,7 @@ const isError = (value: any, strict = false) => {
  * @param {boolean} [strict=true] - If true, checks specifically for status code 200. If false, checks for any status code between 200 and 299 (inclusive).
  * @returns {boolean} True if the status code is considered OK, false otherwise.
  */
-const isOK = (value: any, strict = true) => {
+const isOK = (value: any, strict = true): boolean => {
   if (!value || !utils.isNumber(value.status)) {
     return false;
   }
@@ -133,7 +133,7 @@ const isOK = (value: any, strict = true) => {
  * @param {*} value - The value containing the status code.
  * @returns {boolean} True if the status code is between 200 and 299 (inclusive), false otherwise.
  */
-const isOKish = (value: any) => isOK(value, false);
+const isOKish = (value: any): boolean => isOK(value, false);
 
 export {
   ApiError,

@@ -7,7 +7,7 @@ import isFile from './is-file';
  * @param {boolean} [missingOkay=true] If true, returns true even if the file doesn't exist. If false, returns false if the file doesn't exist.
  * @returns {boolean} True if the file is successfully deleted (or didn't exist and missingOkay is true), false otherwise.
  */
-const deleteFile = (filePath, missingOkay = true) => {
+const deleteFile = (filePath: string, missingOkay = true): boolean => {
   if (!isFile(filePath)) { return (missingOkay === true); }
   try {
     fs.unlinkSync(filePath);

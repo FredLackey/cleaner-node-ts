@@ -10,7 +10,7 @@ import { ENUM_KEYS  } from '../constants';
  * @param {object} obj The object to search for an enum value.
  * @returns {string|null} The enum value if found and valid, otherwise null.
  */
-const getEnum = (obj) => {
+const getEnum = (obj: any): string | null => {
 
   if (!isValidObject(obj)) {
     return null;

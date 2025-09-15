@@ -8,22 +8,22 @@ import readline from 'readline';
  * Uses OS-specific end-of-line characters.
  * @param {string} sourceFile The path to the source file.
  * @param {string} destinationFile The path to the destination file. It will be created or overwritten.
- * @returns {Promise<void>} A promise that resolves when the copy operation is complete.
+ * @returns {void} The copy operation is complete.
  */
-const copyContents = async (sourceFile, destinationFile) => {
+const copyContents = async (sourceFile: string, destinationFile: string): Promise<void> => {
   const inStream  = fs.createReadStream(sourceFile);
-  const inFile    = await readline.createInterface({
+  const inFile    = readline.createInterface({
     input: inStream,
     crlfDelay: Infinity
   });
   const outStream = fs.createWriteStream(destinationFile);
 
   for await (const line of inFile) {
-    await outStream.write(line + os.EOL);
+    outStream.write(line + os.EOL);
   }
 
-  await outStream.end();
-  await outStream.close();
+  outStream.end();
+  outStream.close();
 };
 
 export default copyContents;

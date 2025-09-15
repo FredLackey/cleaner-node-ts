@@ -1,6 +1,6 @@
 import isValidString from '../is-valid-string';
 import isValidArray from '../is-valid-array';
-const isString = value => isValidString(value, true);
+const isString = (value: any): boolean => isValidString(value, true);
 
 const QUOTES = [
   '"',
@@ -10,7 +10,7 @@ const DELIMITERS = [
   '#',
   '//',
 ];
-const TYPES = {
+const _TYPES = {
   QUOTE: 'quote',
   DELIMITER: 'delimiter',
 };
@@ -21,7 +21,7 @@ const TYPES = {
  * @param {string} line The line of text to search.
  * @returns {number} The 0-based index of the start of the comment, or -1 if no comment delimiter is found.
  */
-const getDelimPosition = line => {
+const getDelimPosition = (line: string): number => {
   
   if (!isString(line)) {
     return -1;
@@ -70,13 +70,13 @@ const getDelimPosition = line => {
  * @param {string} line The line to check.
  * @returns {boolean} True if a delimiter is found, false otherwise.
  */
-const hasDelimeter = line => getDelimPosition(line) >= 0;
+const hasDelimeter = (line: string): boolean => getDelimPosition(line) >= 0;
 /**
  * Removes the single-line comment (and subsequent text) from a string, ignoring delimiters within quotes.
  * @param {string} line The line to process.
  * @returns {string} The line with the comment removed.
  */
-const removeComment = line => {
+const removeComment = (line: string): string => {
   const pos = getDelimPosition(line);
   if (pos < 0) { return line; }
   const trimmed = line.substring(0, pos);
@@ -87,8 +87,8 @@ const removeComment = line => {
  * @param {string|string[]} lineOrLines The input string or array of strings.
  * @returns {string|string[]|undefined} The processed string or array with comments removed, or undefined if the input type is invalid.
  */
-const removeComments = lineOrLines => {
-  const result = isString(lineOrLines)
+const removeComments = (lineOrLines: string | string[]): string | string[] | undefined => {
+  const result = typeof lineOrLines === 'string'
     ? removeComment(lineOrLines)
     : isValidArray(lineOrLines, true)
       ? lineOrLines.map(x => removeComment(x))

@@ -7,7 +7,7 @@ import isNumber from './is-number';
  * @param {number} quantity The number of minutes to add.
  * @returns {Date|undefined} A new Date object with the minutes added, or undefined if inputs are invalid.
  */
-const addMinutes = (value, quantity) => {
+const addMinutes = (value: Date, quantity: number): Date | undefined => {
   return (isDate(value) && isNumber(quantity))
     ? new Date(value.getTime() + quantity * 60000)
     : undefined;

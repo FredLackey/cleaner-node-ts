@@ -50,13 +50,29 @@ const FORMATS = [
   YYYYMMDDHHmmssSSS
 ];
 
+export interface BlockDateComponent {
+  raw: number;
+  value: number;
+  validator: (value: any) => boolean;
+}
+
+export interface ParsedBlockDate {
+  year: BlockDateComponent;
+  month: BlockDateComponent;
+  day: BlockDateComponent;
+  hour: BlockDateComponent;
+  minute: BlockDateComponent;
+  second: BlockDateComponent;
+  millisecond: BlockDateComponent;
+}
+
 /**
  * Parses a blockdate string (YYYYMMDD, YYYYMMDDHHmm, YYYYMMDDHHmmss, or YYYYMMDDHHmmssSSS) into its components.
  * @param {string} value The blockdate string to parse.
  * @param {number} [maxYear=current year] The maximum allowed year.
- * @returns {object|null} An object containing the parsed date components (year, month, day, hour, minute, second, millisecond) with raw and validated values, or null if the input is invalid.
+ * @returns {ParsedBlockDate|null} An object containing the parsed date components (year, month, day, hour, minute, second, millisecond) with raw and validated values, or null if the input is invalid.
  */
-const parse = (value, maxYear = MAX_YEAR) => {
+const parse = (value: string, maxYear = MAX_YEAR): ParsedBlockDate | null => {
   
   if (!isDigits(value)) {
     return null;
@@ -70,62 +86,62 @@ const parse = (value, maxYear = MAX_YEAR) => {
     return null;
   }
 
-  const result = {
+  const result: ParsedBlockDate = {
     year: {
       raw: (value.length > 4) ? Number(value.substring(0, 4)) : -1,
       value: -1,
-      validator: (value) => {
+      validator: (value: any) => {
         return (Number(value) >= 1700 && Number(value) <= maxYear);
       }
     },
     month: {
       raw: (value.length > 6) ? Number(value.substring(4, 6)) - 1 : -1,
       value: -1,
-      validator: (value) => {
+      validator: (value: any) => {
         return (Number(value) >= 0 && Number(value) <= 11);
       }
     },
     day: {
       raw: (value.length >= 8) ? Number(value.substring(6, 8)) : -1,
       value: -1,
-      validator: (value) => {
+      validator: (value: any) => {
         return (Number(value) >= 1 && Number(value) <= 31);
       }
     },
     hour: {
       raw: (value.length >= 10) ? Number(value.substring(8, 10)) : -1,
       value: -1,
-      validator: (value) => {
+      validator: (value: any) => {
         return (Number(value) >= 0 && Number(value) <= 24);
       }
     },
     minute: {
       raw: (value.length >= 12) ? Number(value.substring(10, 12)) : -1,
       value: -1,
-      validator: (value) => {
+      validator: (value: any) => {
         return (Number(value) >= 0 && Number(value) <= 59);
       }
     },
     second: {
       raw: (value.length >= 14) ? Number(value.substring(12, 14)) : -1,
       value: -1,
-      validator: (value) => {
+      validator: (value: any) => {
         return (Number(value) >= 0 && Number(value) <= 59);
       }
     },
     millisecond: {
       raw: (value.length >= 17) ? Number(value.substring(14)) : -1,
       value: -1,
-      validator: (value) => {
+      validator: (value: any) => {
         return (Number(value) >= 0 && Number(value) <= 999);
       }
     }
   };
   Object.keys(result).forEach(key => {
-    const { raw } = result[key];
-    result[key].value = result[key].validator(raw) ? raw : -1;
+    const { raw } = result[key as keyof ParsedBlockDate];
+    result[key as keyof ParsedBlockDate].value = result[key as keyof ParsedBlockDate].validator(raw) ? raw : -1;
   });
-  const invalidFields = format.fields.filter(field => result[field].value < 0);
+  const invalidFields = format.fields.filter(field => result[field as keyof ParsedBlockDate].value < 0);
   if (invalidFields.length > 0) { 
     return null;
   }

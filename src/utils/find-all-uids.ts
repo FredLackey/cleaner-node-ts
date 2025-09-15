@@ -1,7 +1,6 @@
 import isUidFormat from './is-uid-format';
 import isValidArray from './is-valid-array';
 import isObject from './is-object';
-import isValidString from './is-valid-string';
 
 const EMPTY_OK = true;
 
@@ -11,7 +10,7 @@ const EMPTY_OK = true;
  * @param {object} cache An object to keep track of visited items ({items: Array}) and found UIDs ({uids: Array}).
  * @private
  */
-const findAll = (itemOrItems, cache) => {
+const findAll = (itemOrItems: any, cache: { items: any[]; uids: string[] }): void => {
   if (isValidArray(itemOrItems, EMPTY_OK)) {
     if (isValidArray(itemOrItems)) {
       for (let i = 0; i < itemOrItems.length; i += 1) {
@@ -46,7 +45,7 @@ const findAll = (itemOrItems, cache) => {
  * @param {object|Array} itemOrItems The object or array to search.
  * @returns {string[]} An array of unique UID strings found.
  */
-const findAllUids = itemOrItems => {
+const findAllUids = (itemOrItems: any): string[] => {
   const cache = {
     items: [],
     uids: []

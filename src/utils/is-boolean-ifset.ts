@@ -8,7 +8,7 @@ import isBoolean from './is-boolean';
  * @param {*} value - The value to check.
  * @returns {boolean} True if the value is not set or is a boolean, false otherwise.
  */
-const isBooleanIfSet = value => {
+const isBooleanIfSet = (value: any): boolean => {
   return !isSet(value) || isBoolean(value);
 };
 

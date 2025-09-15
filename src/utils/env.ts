@@ -8,7 +8,7 @@ import isBoolean from './is-boolean';
  * Sorts the keys alphabetically.
  * @returns {object} An object containing the filtered and sorted environment variables.
  */
-const getVars = () => {
+const getVars = (): object => {
 
   if (!process || !process.env) {
     return {};

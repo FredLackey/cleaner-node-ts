@@ -8,7 +8,7 @@ import toKebabCase from './to-kebab-case';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string is already in kebab-case format, false otherwise.
  */
-const isKebabCase = value => {
+const isKebabCase = (value: any): boolean => {
   return isValidString(value) && value === toKebabCase(value);
 };
 

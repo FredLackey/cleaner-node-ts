@@ -6,7 +6,7 @@ import isNumber from './is-number';
  * @param {number} b - Second number.
  * @returns {number} Negative if a < b, positive if a > b, zero if a === b.
  */
-const sortAscending = (a, b) => {
+const sortAscending = (a: any, b: any): number => {
   return (a - b);
 };
 /**
@@ -15,7 +15,7 @@ const sortAscending = (a, b) => {
  * @param {number} b - Second number.
  * @returns {number} Negative if b < a, positive if b > a, zero if a === b.
  */
-const sortDescending = (a, b) => {
+const sortDescending = (a: any, b: any): number => {
   return (b - a);
 };
 
@@ -28,7 +28,7 @@ const sortDescending = (a, b) => {
  * @param {boolean} [descending=false] - If true, sorts in descending order. Defaults to false (ascending).
  * @returns {number[]} A new array containing the sorted numbers.
  */
-const sort = (values, descending = false) => {
+const sort = (values: any, descending: boolean = false): number[] => {
 
   const digits = [].concat(values).filter(x => (isNumber(x))).map(x => (Number(x)));
   

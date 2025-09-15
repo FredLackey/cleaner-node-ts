@@ -6,7 +6,7 @@ const DEFAULT_FORMAT = 'YYYYMMDDHHmmSS:SSS';
  * @param {string} [format=DEFAULT_FORMAT] A string indicating the desired length/precision (e.g., 'YYYYMMDD', 'YYYYMMDDHHmm'). The output string will be truncated to the length of this format string.
  * @returns {string} The formatted blockdate string.
  */
-const getBlockDate = (value = new Date(), format = DEFAULT_FORMAT) => {
+const getBlockDate = (value: Date = new Date(), format: string = DEFAULT_FORMAT): string => {
 
   const result = [
     `${value.getFullYear()}`,

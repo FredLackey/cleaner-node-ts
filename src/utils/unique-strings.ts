@@ -15,7 +15,7 @@ const uniqueString = (values: any[], isCaseSensitive: boolean = false, trim: boo
   if (!isValidArray(values)) { return values; }
   const result: string[] = [];
   const lower: string[] = [];
-  values.filter(v => isValidString(v)).forEach(v => {
+  values.filter((v: any) => isValidString(v)).forEach((v: string) => {
     const value = (trim ? v.trim() : v);
     if ((isCaseSensitive && result.indexOf(value) < 0) || (!isCaseSensitive && lower.indexOf(value.toLowerCase()) < 0)) {
       result.push(value);

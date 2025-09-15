@@ -11,7 +11,7 @@ const { JWT_SECRET } = process.env;
  * @param {Express.Response} res The Express response object.
  * @param {Express.NextFunction} next The next middleware function.
  */
-const initSession = (req, res, next) => {
+const initSession = (req: any, res: any, next: any): void => {
 
   const key    = Object.keys(req.headers).find(key => key.toLowerCase() === 'authorization');
   console.log('initSession', key);

@@ -12,7 +12,7 @@ import isFunction from './is-function';
  * @returns {boolean} The result of the checker function `fn`, or false if the item isn't an object.
  * @throws {Error} If `fn` is not a function.
  */
-const isDeleted = (item, fn) => {
+const isDeleted = (item: any, fn: any): boolean => {
   if (!isFunction) { throw new Error('isDeleted fn is not a function!'); }
   if (!isObject) { return false; }
   return fn(item);

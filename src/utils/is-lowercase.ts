@@ -7,7 +7,7 @@ import isValidString from './is-valid-string';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string is valid, non-empty, and entirely lowercase, false otherwise.
  */
-const isLowerCase = value => {
+const isLowerCase = (value: any): boolean => {
   return isValidString(value, false) && value === value.toLowerCase();
 };
 

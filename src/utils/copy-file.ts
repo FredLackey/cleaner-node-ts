@@ -6,7 +6,7 @@ import fs from 'fs';
  * @param {string} targetPath The path to the destination file. It will be created or overwritten.
  * @returns {boolean} True if the copy was successful, false otherwise.
  */
-const copyFile = (sourcePath, targetPath) => {
+const copyFile = (sourcePath: string, targetPath: string): boolean => {
   try {
     fs.copyFileSync(sourcePath, targetPath);
   } catch (e) {

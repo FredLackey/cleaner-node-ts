@@ -6,7 +6,7 @@
  * @returns {number} return.prefix - The number of leading whitespace characters.
  * @returns {number} return.suffix - The number of trailing whitespace characters.
  */
-const getPads = line => {
+const getPads = (line: any): { prefix: number; suffix: number } => {
   const results = { prefix: 0, suffix: 0 };
   if (typeof line !== 'string') { return results; }
   const chars = line.split('');

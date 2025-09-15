@@ -23,7 +23,7 @@ import semver from 'semver';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the value is a valid SemVer string, false otherwise.
  */
-const isSemver = value => {
+const isSemver = (value: any): boolean => {
   return isValidString(value) && semver.valid(value) !== null;
 };
 

@@ -8,7 +8,7 @@ const { NODE_ENV } = process.env;
  * @param {Express.Response} res The Express response object.
  * @param {Express.NextFunction} next The next middleware function.
  */
-const logRequest = (req, res, next) => {
+const logRequest = (req: any, res: any, next: any): void => {
   
   if (NODE_ENV === 'development') {
     console.log(JSON.stringify({

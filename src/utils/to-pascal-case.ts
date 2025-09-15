@@ -9,7 +9,7 @@ import toCamelCase from './to-camel-case';
  * @param {string} value - The string to convert.
  * @returns {string} The PascalCase version of the string, or an empty string if the input was invalid.
  */
-const toPascalCase = value => {
+const toPascalCase = (value: any): string => {
 
   if (!isValidString(value)) { return ''; }
 

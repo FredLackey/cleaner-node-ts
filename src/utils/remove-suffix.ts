@@ -8,7 +8,7 @@ import isValidString from './is-valid-string';
  * @param {string} suffix - The suffix to remove.
  * @returns {string} The string with the suffix removed, or the original string if conditions aren't met.
  */
-const removeSuffix = (value, suffix) => {
+const removeSuffix = (value: any, suffix: any): string => {
   if (!isValidString(value, true)) { return value; }
   if (!isValidString(suffix, true)) { return value; }
   while (value.length >= suffix.length && value.endsWith(suffix)) {

@@ -6,13 +6,13 @@ import isValidString from './is-valid-string';
  * Optionally trims the string before extracting the first character.
  * @param {Array|string} value The array or string.
  * @param {boolean} [trim=false] If true and the input is a string, trim whitespace before getting the first character.
- * @returns {any|string|undefined} The first element of the array, the first character of the string (or empty string if trimmed input is empty), or undefined if the input is not a non-empty array or a valid string.
+ * @returns {string|undefined} The first element of the array, the first character of the string (or empty string if trimmed input is empty), or undefined if the input is not a non-empty array or a valid string.
  */
-const getFirst = (value, trim = false) => {
+const getFirst = (value: any[] | string, trim: boolean = false): string | undefined => {
 
   if (isValidString(value, true)) {
     if (trim) {
-      value = value.trim();
+      value = `${value}`.trim();
     }
     return value.length > 0
       ? value[0]

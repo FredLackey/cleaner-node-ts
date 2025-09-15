@@ -9,13 +9,13 @@ interface RequestHeaders {
   'RestUtils-Request'?: string;
 }
 
-interface RawRequest {
+export interface RawRequest {
   _headers?: RequestHeaders;
   _path?: string;
   [key: string]: any;
 }
 
-interface StandardizedRequest {
+export interface StandardizedRequest {
   path?: string;
   request: {
     id?: string;
@@ -55,7 +55,7 @@ const toRequest = (req: RawRequest): StandardizedRequest | undefined => {
   const session = head['RestUtils-Session'];
 
   const time = head['RestUtils-Time'];
-  const date = isDigits(time) ? new Date(time) : undefined;
+  const date = isDigits(time) ? new Date(time as string) : undefined;
 
   const body = copyObject(req);
   if (body._headers) {

@@ -14,7 +14,7 @@ const ACCEPTABLE_IP_ADDRESS = [
  * @param {string} value - The string to validate as an IP address.
  * @returns {boolean} True if the string is a valid IPv4 address or an acceptable special case, false otherwise.
  */
-const isIpAddress = value => {
+const isIpAddress = (value: any): boolean => {
   if (!isValidString(value) || value.length > 15) {
     return false;
   }

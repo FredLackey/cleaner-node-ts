@@ -9,7 +9,7 @@ import isValidString from './is-valid-string';
  * @param {string} prefix - The prefix to remove.
  * @returns {string} The string with the prefix removed, or the original string if conditions aren't met.
  */
-const removePrefix = (value, prefix) => {
+const removePrefix = (value: any, prefix: any): string => {
   if (!isValidString(value, true)) { return value; }
   if (!isValidString(prefix, true)) { return value; }
   while (value.length >= prefix.length && value.startsWith(prefix)) {

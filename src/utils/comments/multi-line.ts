@@ -9,7 +9,7 @@ const END   = '*/';
  * @param {string[]} lines An array of strings representing lines of code.
  * @returns {string[]} A new array of strings with multi-line comments removed.
  */
-const removeComments = lines => {
+const removeComments = (lines: string[]): string[] => {
   
   if (!isValidArray(lines)) {
     return lines;

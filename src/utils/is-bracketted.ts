@@ -8,7 +8,7 @@ import getBracket from './get-bracket';
  * @param {string} value - The string to check.
  * @returns {boolean} True if the string is valid and enclosed in matching brackets, false otherwise.
  */
-const isBracketted = value => {
+const isBracketted = (value: any): boolean => {
   const bracket = getBracket(value);
   return (bracket && isValidString(value));
 };

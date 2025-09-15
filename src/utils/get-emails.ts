@@ -5,9 +5,9 @@ import isValidString from './is-valid-string';
  * @param {string} value The string to search for email addresses.
  * @returns {string[]} An array of all valid email addresses found, or an empty array if none are found or the input is invalid.
  */
-const getEmails = value => {
+const getEmails = (value: string): string[] => {
   return isValidString(value)
-    ? value.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi)
+    ? value.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi) || []
     : [];
 };
 

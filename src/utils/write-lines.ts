@@ -9,9 +9,9 @@ import isValidString from './is-valid-string';
  *
  * @param {string} filePath - The full path of the file to write to.
  * @param {Array<string|any>} lines - An array of lines to write. Non-string elements will be ignored.
- * @returns {Promise<boolean>} A promise that resolves to true if the file was written successfully, false otherwise.
+ * @returns {boolean} True if the file was written successfully, false otherwise.
  */
-const writeLines = async (filePath, lines) => {
+const writeLines = (filePath: any, lines: any): boolean => {
 
   if (!isValidString(lines) && !isValidArray(lines)) {
     return false;

@@ -11,8 +11,8 @@ import isValidString from './is-valid-string';
  *
  * @param {object} obj - The object to print.
  */
-const print = obj => {
-  const keys = Object.keys(obj).filter(isValidString);
+const print = (obj: any): void => {
+  const keys = Object.keys(obj).filter((x: any) => isValidString(x));
   let pad  = 0;
   keys.forEach(key => { if (key.length > pad) { pad = key.length; } });
   keys.sort();

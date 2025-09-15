@@ -9,7 +9,7 @@ import c from '../constants';
  * @param {string} [digestOption=c.DIGEST_OPTION] The encoding for the output hash (e.g., 'hex', 'base64'). Defaults to constant `DIGEST_OPTION`.
  * @returns {string} The computed HMAC hash.
  */
-const hash = (value: string | Buffer | DataView, salt: string | Buffer | NodeJS.TypedArray | DataView | crypto.KeyObject, hmacOption: string = c.HMAC_OPTION, digestOption: string = c.DIGEST_OPTION): string => {
+const hash = (value: string | Buffer | DataView, salt: string | Buffer | NodeJS.TypedArray | DataView | crypto.KeyObject, hmacOption: string = c.HMAC_OPTION, digestOption: crypto.BinaryToTextEncoding = c.DIGEST_OPTION as crypto.BinaryToTextEncoding): string => {
   const hmac = crypto.createHmac(hmacOption, salt);
   return hmac.update(value).digest(digestOption);
 };

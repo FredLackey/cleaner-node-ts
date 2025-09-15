@@ -8,7 +8,7 @@ import isValidPath from './is-valid-path';
  * @param {string} value - The path string to check.
  * @returns {boolean} True if the value is not set or is a valid path, false otherwise.
  */
-const isValidPathIfSet = (value) => {
+const isValidPathIfSet = (value: any): boolean => {
   return !isSet(value) || isValidPath(value);
 };
 

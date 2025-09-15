@@ -7,7 +7,7 @@ import isAlphanumeric from './is-alphanumeric';
  * @param {string} value - The value to check.
  * @returns {boolean} True if the value is a valid UID format, false otherwise.
  */
-const isUidFormat = value => {
+const isUidFormat = (value: any): boolean => {
   if (!isAlphanumeric(value)) {
     console.debug(`isUidFormat: value is not alphanumeric: "${value}"`);
     return false;

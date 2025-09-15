@@ -14,7 +14,7 @@ const EMPTY_OK = true;
  * @param {object} cache - An object to track processed items and prevent infinite loops.
  * @param {Array} cache.items - An array storing references to items already processed.
  */
-const remove = (itemOrItems, cache) => {
+const remove = (itemOrItems: any, cache: any): void => {
 
   if (isValidArray(itemOrItems, EMPTY_OK)) {
     if (isValidArray(itemOrItems)) {
@@ -49,7 +49,7 @@ const remove = (itemOrItems, cache) => {
  * @param {boolean} [makeCopy=false] - If true, creates a deep copy before removing fields. Otherwise, modifies the original.
  * @returns {object|Array} The processed object or array with audit fields removed.
  */
-const removeAuditFields = (itemOrItems, makeCopy = false) => {
+const removeAuditFields = (itemOrItems: any, makeCopy: boolean = false): any => {
   const cache = {
     items: []
   };

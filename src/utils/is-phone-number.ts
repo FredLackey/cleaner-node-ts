@@ -7,7 +7,7 @@ import isValidString from './is-valid-string';
  * @param {string} value - The string to validate as a phone number.
  * @returns {boolean} True if the string matches the phone number pattern, false otherwise.
  */
-const isPhoneNumber = (value) => {
+const isPhoneNumber = (value: string): boolean => {
 
   if (!isValidString(value)) {
     return false;

@@ -10,7 +10,7 @@ const { UNAUTHORIZED } = c.HTTP.STATUS.PHRASES;
  * @param {Express.Response} res The Express response object.
  * @param {Express.NextFunction} next The next middleware function.
  */
-const authRequired = (req, res, next) => {
+const authRequired = (req: any, res: any, next: any): void => {
   console.log('authRequired', req.session);
   if (!req.session) {
     return res.status(UNAUTHORIZED.code).json({ message: 'Login required.' });

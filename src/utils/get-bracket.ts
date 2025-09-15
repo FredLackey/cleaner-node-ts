@@ -7,7 +7,7 @@ import isValidString from './is-valid-string';
  * @param {string} value The string to check for enclosing brackets.
  * @returns {object|undefined} The matching bracket pair object if found, otherwise undefined.
  */
-const getBracket = value => {
+const getBracket = (value: string): any => {
   if (!isValidString(value)) { return false; }
   return c.BRACKETS.find(b => {
     return value.startsWith(b.open) && value.endsWith(b.close);

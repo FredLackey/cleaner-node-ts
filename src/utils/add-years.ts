@@ -8,7 +8,7 @@ import addMonths from './add-months';
  * @param {number} quantity The number of years to add.
  * @returns {Date|undefined} A new Date object with the years added, or undefined if inputs are invalid.
  */
-const addYears = (value, quantity) => {
+const addYears = (value: Date, quantity: number): Date | undefined => {
   if (!isDate(value) || !isNumber(quantity)) {
     return undefined;
   }

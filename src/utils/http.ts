@@ -4,7 +4,7 @@ import isValidString from './is-valid-string';
 import isObject from './is-object';
 import isValidObject from './is-valid-object';
 
-interface Credentials {
+export interface Credentials {
   user?: string;
   pass?: string;
   password?: string;

@@ -4,6 +4,11 @@ import isNumber from '../is-number';
 import isValidArray from '../is-valid-array';
 import trimToUndefined from '../trim-to-undefined';
 
+export interface ExpressResponse {
+  status(code: number): ExpressResponse;
+  json(obj: any): ExpressResponse;
+}
+
 const DEFAULT_STATUS = 200;
 const DEFAULT_CODE = -1;
 const EMPTY_OK = true;
@@ -18,7 +23,7 @@ const EMPTY_OK = true;
  * @param {number} [statusCode=-1] An optional custom status code to include within the JSON response body under the 'status' key. Defaults to undefined if not provided or set to -1.
  * @returns {Express.Response} The Express response object, after sending the response.
  */
-const respond = (res, data, httpStatusCode = DEFAULT_STATUS, statusCode = DEFAULT_CODE) => {
+const respond = (res: ExpressResponse, data: any, httpStatusCode: number = DEFAULT_STATUS, statusCode: number = DEFAULT_CODE): ExpressResponse => {
 
   const status = (isNumber(statusCode) || isDigits(statusCode)) && Number(statusCode) !== DEFAULT_CODE
     ? Number(statusCode)

@@ -4,7 +4,7 @@
  * @param {*} value - The value to check.
  * @returns {boolean} True if the value is not null and not undefined, false otherwise.
  */
-const isSet = value => {
+const isSet = (value: any): boolean => {
   return (value !== null && (typeof value !== 'undefined'));
 };
 

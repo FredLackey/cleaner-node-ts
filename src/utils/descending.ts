@@ -3,7 +3,7 @@
  * @param {number[]} numbers The array of numbers to sort.
  * @returns {number[]} The sorted array.
  */
-const sortDescending = numbers => {
+const sortDescending = (numbers: number[]): number[] => {
   return numbers.sort((a, b) => b - a);
 };
 

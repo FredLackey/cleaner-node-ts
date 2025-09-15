@@ -8,7 +8,7 @@ import nextjs from './nextjs';
  * @param {object} req The request object (e.g., from an HTTP request).
  * @returns {Promise<object>} A promise that resolves to the request body object.
  */
-const getBody = async (req) => {
+const getBody = async (req: any): Promise<any> => {
   if (!req) {
     console.error('Invalid req object for getBody.');
     return {};

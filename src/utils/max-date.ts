@@ -4,7 +4,7 @@
  * @param {Date[]} dates - An array of Date objects.
  * @returns {Date|null} The latest Date object from the array, or null if the input is not a non-empty array.
  */
-const maxDate = (dates) => {
+const maxDate = (dates: any): Date | null => {
   if (Array.isArray(dates) && dates.length > 0) {
     // Sort the array of dates in descending order
     dates.sort((a, b) => b - a);

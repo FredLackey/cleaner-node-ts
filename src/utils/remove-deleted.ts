@@ -15,7 +15,7 @@ const EMPTY_OK = true;
  * @param {*} deletedValue - The value to return for items identified as deleted at the object level.
  * @returns {*} The processed value, with deleted items removed or replaced.
  */
-const processItem = (value, fn, cache, deletedValue) => {
+const processItem = (value: any, fn: any, cache: any, deletedValue: any): any => {
 
   if (!isValidArray(value, EMPTY_OK) && !isObject(value)) {
     return value;
@@ -58,7 +58,7 @@ const processItem = (value, fn, cache, deletedValue) => {
  * @param {*} [deletedValue=null] - The value to replace objects that are identified as deleted. Defaults to null.
  * @returns {*} The processed structure with deleted items removed or replaced.
  */
-const removeDeleted = (value, fn, deletedValue = null) => {
+const removeDeleted = (value: any, fn: any, deletedValue: any = null): any => {
 
   const cache = {
     items: []

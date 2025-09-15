@@ -7,7 +7,7 @@ import isNumber from './is-number';
  * @param {number} quantity The number of months to add.
  * @returns {Date|undefined} A new Date object with the months added, or undefined if inputs are invalid.
  */
-const addMonths = (value, quantity) => {
+const addMonths = (value: Date, quantity: number): Date | undefined => {
   if (!isDate(value) || !isNumber(quantity)) {
     return undefined;
   }

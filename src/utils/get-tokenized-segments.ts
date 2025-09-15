@@ -1,4 +1,3 @@
-import c from '../constants';
 import isValidString from './is-valid-string';
 
 /**
@@ -9,7 +8,7 @@ import isValidString from './is-valid-string';
  * Each object should have `open` and `close` properties containing the opening and closing bracket strings.
  * @returns {string[]} An array of extracted segments (including the brackets).
  */
-function getTokenizedSegments (str, brackets) {
+function getTokenizedSegments (str: any, brackets: any): string[] {
 
   brackets = [].concat(brackets).filter(x => (x && isValidString(x.open) && isValidString(x.close)));
 

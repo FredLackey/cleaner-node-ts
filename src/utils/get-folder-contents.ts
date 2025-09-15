@@ -8,7 +8,7 @@ import isValidString from './is-valid-string';
  * @param {string} folderPath The path to the directory.
  * @returns {string[]|undefined} An array of full paths of items within the directory, or undefined if the path is invalid or an error occurs.
  */
-const getFolderContents = folderPath => {
+const getFolderContents = (folderPath: any): string[] | undefined => {
   if (!isValidString(folderPath)) { return undefined; }
   try {
     const names = fs.readdirSync(folderPath);

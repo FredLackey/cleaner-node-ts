@@ -10,7 +10,7 @@ import getId from './get-id';
  * @param {Array<Object|string>} itemsOrIds - An array containing objects or string IDs.
  * @returns {Array<string>} An array of string IDs.
  */
-const getIds = (itemsOrIds) => {
+const getIds = (itemsOrIds: (object | string | number)[]): (string | number | undefined)[] => {
   return [].concat(itemsOrIds).map(x => getId(x));
 };
 
