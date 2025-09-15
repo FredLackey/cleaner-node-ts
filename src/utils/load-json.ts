@@ -10,7 +10,7 @@ import parseJson from './parse-json';
  * @param {string} filePath - The path to the JSON file.
  * @returns {object|Array|null} The parsed JSON object or array, or null on failure.
  */
-const loadJson = (filePath) => {
+const loadJson = (filePath: string): object | Array<any> | null => {
 
   const data = readFile(filePath);
   const obj  = parseJson(data);

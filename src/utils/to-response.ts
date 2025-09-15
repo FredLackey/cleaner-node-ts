@@ -22,7 +22,7 @@ import isValidArray from './is-valid-array';
  * // If original is an object and response is a single-item array, returns first item
  * const result = toResponse({id:1}, [{name:'A'}]); // Returns {name:'A'}
  */
-const toResponse = (original, response) => {
+const toResponse = (original: any, response: any): any => {
 
   const ALLOW_EMPTY = true;
 

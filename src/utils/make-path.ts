@@ -9,7 +9,7 @@ import isFolder from './is-folder';
  * @param {string} dirPath - The directory path to create.
  * @returns {boolean} True if the directory exists or was successfully created, false otherwise.
  */
-const makePath = dirPath => {
+const makePath = (dirPath: string): boolean => {
   if (isFolder(dirPath)) { return true; }
   try {
     fs.mkdirSync(dirPath, { recursive: true });

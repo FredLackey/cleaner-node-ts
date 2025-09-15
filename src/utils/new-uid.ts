@@ -6,7 +6,7 @@ import newGuid from './new-guid';
  *
  * @returns {string} A 32-character uppercase alphanumeric UID string.
  */
-const newUid = () => {
+const newUid = (): string => {
   const guid = newGuid();
   return guid.split('-').join('').toUpperCase();
 };

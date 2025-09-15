@@ -4,6 +4,12 @@ import isFile from './is-file';
 import isFolder from './is-folder';
 import os from 'os';
 
+interface WalkResults {
+  root: string;
+  folders: string[];
+  files: string[];
+}
+
 /**
  * Recursively walks a folder and collects the paths of files and subfolders relative to the root.
  * This is an internal helper function for `walk`.
@@ -14,7 +20,7 @@ import os from 'os';
  * @param {string[]} results.files - An array to store relative file paths.
  * @param {string[]} results.folders - An array to store relative folder paths.
  */
-const walkFolder = (folderPath, results) => {
+const walkFolder = (folderPath: string, results: WalkResults): void => {
   if (!isValidString(folderPath)) { return; }
   const paths = getFolderContents(folderPath) || [];
   paths.forEach(p => {
@@ -37,7 +43,7 @@ const walkFolder = (folderPath, results) => {
  * @returns {string[]} return.folders - An array of folder paths relative to the root.
  * @returns {string[]} return.files - An array of file paths relative to the root.
  */
-const walk = (folderPath) => {
+const walk = (folderPath: string): WalkResults | undefined => {
   if (!isFolder(folderPath)) { return undefined; }
   const results = {
     root    : folderPath,

@@ -5,7 +5,7 @@
  * @param {string} value - The string to convert.
  * @returns {string} The snake_case version of the string.
  */
-const toSnakeCase = value => {
+const toSnakeCase = (value: string): string => {
   return value
     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     .map(x => x.toLowerCase())

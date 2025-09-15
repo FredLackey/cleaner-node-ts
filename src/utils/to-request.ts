@@ -2,6 +2,30 @@ import copyObject from './copy-object';
 import isDigits from './is-digits';
 import isObject from './is-object';
 
+interface RequestHeaders {
+  'RestUtils-Token'?: string;
+  'RestUtils-Session'?: any;
+  'RestUtils-Time'?: string;
+  'RestUtils-Request'?: string;
+}
+
+interface RawRequest {
+  _headers?: RequestHeaders;
+  _path?: string;
+  [key: string]: any;
+}
+
+interface StandardizedRequest {
+  path?: string;
+  request: {
+    id?: string;
+    date?: Date;
+  };
+  token?: string;
+  session?: any;
+  body: any;
+}
+
 /**
  * Transforms a raw request object (presumably from an HTTP request) into a standardized request format.
  * Extracts path, request metadata (ID, date), token, session information, and the request body.
@@ -19,7 +43,7 @@ import isObject from './is-object';
  * @returns {object|undefined} return.session - The session object, potentially transformed.
  * @returns {object} return.body - A copy of the request body with internal properties removed.
  */
-const toRequest = (req) => {
+const toRequest = (req: RawRequest): StandardizedRequest | undefined => {
   
   if (!isObject(req)) {
     return undefined;

@@ -4,6 +4,21 @@ import isValidString from './is-valid-string';
 import isObject from './is-object';
 import isValidObject from './is-valid-object';
 
+interface Credentials {
+  user?: string;
+  pass?: string;
+  password?: string;
+  token?: string;
+}
+
+interface RequestOptions {
+  method?: string;
+  url: string;
+  data?: any;
+  creds?: Credentials;
+  headers?: Record<string, any>;
+}
+
 const IS_EMPTY_STRING_OKAY = true;
 const DEFAULT_HEADERS = { 'Content-Type': 'application/json' };
 
@@ -12,7 +27,7 @@ const DEFAULT_HEADERS = { 'Content-Type': 'application/json' };
  * Modifies the headers object in place.
  * @param {object} headers The headers object.
  */
-const removeBlankContentType = headers => {
+const removeBlankContentType = (headers: Record<string, any>): void => {
   const keys = Object.keys(headers);
   const key = keys.find(key => key.toLowerCase() === 'content-type');
   if (!key) {
@@ -29,7 +44,7 @@ const removeBlankContentType = headers => {
  * @param {string} [value='/'] The value to convert to a URL. Defaults to '/'.
  * @returns {string} The formatted URL string.
  */
-const toUrl = (value = '/') => {
+const toUrl = (value: string = '/'): string => {
 
   let url = value;
       url = removePrefix(url, '/');
@@ -46,7 +61,7 @@ const toUrl = (value = '/') => {
  * @param {*} value The value to convert.
  * @returns {string|undefined} The stringified body or undefined.
  */
-const toBody = (value) => {
+const toBody = (value: any): string | undefined => {
   if (isObject(value)) {
     return JSON.stringify(value);
   }
@@ -63,11 +78,11 @@ const toBody = (value) => {
  * @param {object} [headers={}] Additional headers to include.
  * @returns {object} The combined headers object.
  */
-const addHeaders = (creds = {}, headers = {}) => {
+const addHeaders = (creds: Credentials = {}, headers: Record<string, any> = {}): Record<string, any> => {
 
   const { user, pass, password, token } = creds;
 
-  const result = isValidObject(headers) ? headers : DEFAULT_HEADERS;
+  const result: Record<string, any> = isValidObject(headers) ? { ...headers } : { ...DEFAULT_HEADERS };
   removeBlankContentType(result);
   
   if (Object.keys(result).some(key => key.toLowerCase() === 'content-type') && !result['Content-Type']) {
@@ -100,7 +115,7 @@ const addHeaders = (creds = {}, headers = {}) => {
  * @param {object} [options.headers={}] Additional request headers.
  * @returns {Promise<*>} A promise that resolves with the JSON response, or logs an error on failure.
  */
-const doPromise = ({ method = 'GET', url, data, creds = {}, headers = {} }) => {
+const doPromise = ({ method = 'GET', url, data, creds = {}, headers = {} }: RequestOptions): Promise<any> => {
   return fetch(toUrl(url), {
     // credentials: 'same-origin', // 'include', default: 'omit'
     method,
@@ -119,7 +134,7 @@ const doPromise = ({ method = 'GET', url, data, creds = {}, headers = {} }) => {
  * @param {object} [headers={}] Additional request headers.
  * @returns {Promise<*|null>} A promise that resolves with the JSON response, or null on error.
  */
-const doGet = async (url, creds = {}, headers = {}) => {
+const doGet = async (url: string, creds: Credentials = {}, headers: Record<string, any> = {}): Promise<any> => {
   try {
     const response = await doPromise({ url, creds, headers });
     return response;
@@ -138,7 +153,7 @@ const doGet = async (url, creds = {}, headers = {}) => {
  * @param {object} [headers={}] Additional request headers.
  * @returns {Promise<*|null>} A promise that resolves with the JSON response, or null on error.
  */
-const doPost = async (url, data, creds = {}, headers = {}) => {
+const doPost = async (url: string, data: any, creds: Credentials = {}, headers: Record<string, any> = {}): Promise<any> => {
   try {
     const response = await doPromise({ method: 'POST', url, data, creds, headers });
     return response;
@@ -157,7 +172,7 @@ const doPost = async (url, data, creds = {}, headers = {}) => {
  * @param {object} [headers={}] Additional request headers.
  * @returns {Promise<*|null>} A promise that resolves with the JSON response, or null on error.
  */
-const doPut = async (url, data, creds = {}, headers = {}) => {
+const doPut = async (url: string, data: any, creds: Credentials = {}, headers: Record<string, any> = {}): Promise<any> => {
   try {
     const response = await doPromise({ method: 'PUT', url, data, creds, headers });
     return response;
@@ -176,7 +191,7 @@ const doPut = async (url, data, creds = {}, headers = {}) => {
  * @param {object} [headers={}] Additional request headers.
  * @returns {Promise<*|null>} A promise that resolves with the JSON response, or null on error.
  */
-const doDelete = async (url, data, creds = {}, headers = {}) => {
+const doDelete = async (url: string, data?: any, creds: Credentials = {}, headers: Record<string, any> = {}): Promise<any> => {
   try {
     const response = await doPromise({ method: 'DELETE', url, data, creds, headers });
     return response;
@@ -193,7 +208,7 @@ const doDelete = async (url, data, creds = {}, headers = {}) => {
  * @param {object} [headers={}] Additional request headers.
  * @returns {Promise<*|string>} A promise that resolves with the response or 'FAILURE'.
  */
-const ping = async (creds = {}, headers = {}) => {
+const ping = async (creds: Credentials = {}, headers: Record<string, any> = {}): Promise<any> => {
   const response = await doGet('/', creds, headers);
   return response || 'FAILURE';
 };

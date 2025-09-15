@@ -1,4 +1,4 @@
-import { v4: uuidV4  } from 'uuid';
+import { v4 as uuidV4 } from 'uuid';
 
 /**
  * Generates a new version 4 UUID (GUID) using the `uuid` library.

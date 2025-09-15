@@ -6,6 +6,12 @@ import uniqueNumbers from './unique-numbers';
 import uniqueObjects from './unique-objects';
 import uniqueStrings from './unique-strings';
 
+interface UniqueParams {
+  strict?: boolean;
+  isCaseSensitive?: boolean;
+  trim?: boolean;
+}
+
 const EMPTY_OKAY = true;
 
 /**
@@ -21,7 +27,7 @@ const EMPTY_OKAY = true;
  * @param {boolean} [params.trim=true] - Used by `uniqueStrings`: If true, trims whitespace from strings before comparison.
  * @returns {Array<any>|null} A new array with unique values of the predominant type, or the original array if not valid, or null if no relevant types are found.
  */
-const unique = (values, params = {}) => {
+const unique = (values: any[], params: UniqueParams = {}): any[] | null => {
 
   if (!isValidArray(values)) { return values; }
 

@@ -10,7 +10,7 @@ const EMPTY_OK = false;
  * @param {string} value - The string to trim.
  * @returns {string|null} The trimmed string, or null if the result is empty or the input was invalid.
  */
-const trimToNull = value => {
+const trimToNull = (value: any): string | null => {
   value = trimString(value);
   return isValidString(value, EMPTY_OK) ? value : null;
 };

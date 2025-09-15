@@ -10,7 +10,7 @@ import isFile from './is-file';
  * @param {string} [contents=''] - The content to write to the file. Defaults to an empty string.
  * @returns {boolean} True if the file was written successfully, false otherwise.
  */
-const writeFile = (filePath, contents = '') => {
+const writeFile = (filePath: string, contents: string = ''): boolean => {
 
   if (!makePath(path.dirname(filePath))) {
     return false;

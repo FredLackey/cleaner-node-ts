@@ -9,7 +9,7 @@ import isValidArray from './is-valid-array';
  * @param {string|string[]} targets - A string or array of single characters to "undouble".
  * @returns {string} The processed string with doubled target characters reduced to one.
  */
-const undouble = (value, targets) => {
+const undouble = (value: string, targets: string | string[]): string => {
   if (!isValidString(value)) {
     return value;
   }

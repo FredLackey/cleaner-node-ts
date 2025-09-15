@@ -9,8 +9,8 @@ import readline from 'readline';
  * @param {string} filePath - The path to the file to read.
  * @returns {Promise<string[]|undefined>} A promise that resolves to an array of strings (each representing a line), or undefined on failure.
  */
-const readLines = async (filePath) => {
-  const lines = [];
+const readLines = async (filePath: string): Promise<string[] | undefined> => {
+  const lines: string[] = [];
   try {
     const stream  = fs.createReadStream(filePath);
     const file    = readline.createInterface({

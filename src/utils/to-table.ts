@@ -1,6 +1,11 @@
 const COL_DELIM = '|';
 const LINE_CHAR = '-';
 
+interface TableCache {
+  widths: number[];
+  lines: string[];
+}
+
 /**
  * Calculates the maximum width needed for each column based on the content in the lines.
  *
@@ -8,8 +13,8 @@ const LINE_CHAR = '-';
  * @param {string} delimiter - The character used to delimit columns within each line.
  * @returns {number[]} An array of numbers representing the maximum width of each column.
  */
-const getColumnWidths = (lines, delimiter) => {
-  const results = [];
+const getColumnWidths = (lines: string[], delimiter: string): number[] => {
+  const results: number[] = [];
   lines.forEach(line => {
     const parts = line.split(delimiter);
     for (let i = 0; i < parts.length; i += 1) {
@@ -31,8 +36,8 @@ const getColumnWidths = (lines, delimiter) => {
  * @param {number[]} cache.widths - Array of maximum column widths.
  * @param {string[]} cache.lines - Array storing the formatted lines of the table.
  */
-const addHeader = cache => {
-  const parts = [];
+const addHeader = (cache: TableCache): void => {
+  const parts: string[] = [];
   cache.widths.forEach(width => {
     parts.push(''.padEnd(width + 2, LINE_CHAR));
   });
@@ -49,8 +54,8 @@ const addHeader = cache => {
  * @param {string[]} cache.lines - Array storing the formatted lines of the table.
  * @param {string[]} lineParts - An array of strings representing the parts of the current row.
  */
-const addLine = (cache, lineParts) => {
-  const parts = [];
+const addLine = (cache: TableCache, lineParts: string[]): void => {
+  const parts: string[] = [];
   for (let i = 0; i < lineParts.length; i += 1) {
     const value = lineParts[i].trim().padEnd(cache.widths[i]);
     parts.push(` ${value} `);
@@ -66,8 +71,8 @@ const addLine = (cache, lineParts) => {
  * @param {string} delimiter - The character used to delimit columns.
  * @returns {string[]} An array of strings, representing the formatted lines of the text table.
  */
-const toTable = (lines, delimiter) => {
-  const cache = {
+const toTable = (lines: string[], delimiter: string): string[] => {
+  const cache: TableCache = {
     widths  : getColumnWidths(lines, delimiter),
     lines   : []
   };

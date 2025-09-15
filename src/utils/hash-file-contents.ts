@@ -1,6 +1,4 @@
 import crypto from 'crypto';
-import fs from 'fs';
-import c from '../constants';
 
 import isFile from './is-file';
 import isValidString from './is-valid-string';
@@ -24,7 +22,7 @@ const DEFAULT_ALGORITHM = 'md5';
  * @param {string} [digest='hex'] The encoding for the output hash (e.g., 'hex', 'base64').
  * @returns {Promise<string|null|undefined>} A promise that resolves with the hash string, null if the input is not a file, or undefined if an error occurs during file reading or hashing.
  */
-const hashFileContents = async (value, trim = false, algorithm = DEFAULT_ALGORITHM, digest = DEFAULT_DIGEST) => {
+const hashFileContents = async (value: string, trim: boolean = false, algorithm: string = DEFAULT_ALGORITHM, digest: string = DEFAULT_DIGEST): Promise<string | null | undefined> => {
 
   if (!isFile(value)) { 
     return null; 
@@ -38,13 +36,21 @@ const hashFileContents = async (value, trim = false, algorithm = DEFAULT_ALGORIT
     return undefined;
   }
 
-  let fileBuffer;
+  let fileBuffer: string | Buffer;
   try {
     if (!trim) {
-      fileBuffer = getFileContents(value);
+      const contents = getFileContents(value);
+      if (contents === undefined) {
+        return undefined;
+      }
+      fileBuffer = contents;
     } else {
-      fileBuffer = await readLines(value);
-      fileBuffer = [].concat(fileBuffer).filter(x => (isValidString(x))).map(x => x.trim()).join('\n');
+      const lines = await readLines(value);
+      if (lines && Array.isArray(lines)) {
+        fileBuffer = lines.filter(x => (isValidString(x))).map(x => x.trim()).join('\n');
+      } else {
+        fileBuffer = '';
+      }
     }
   } catch (ex) {
     console.error(`Failure reading file: ${value}`);
@@ -60,7 +66,11 @@ const hashFileContents = async (value, trim = false, algorithm = DEFAULT_ALGORIT
   }
 
   try {
-    hashSum.update(fileBuffer);
+    if (fileBuffer !== undefined) {
+      hashSum.update(fileBuffer);
+    } else {
+      return undefined;
+    }
   } catch (ex) {
     console.error(`Failure updating hash: ${value}`);
     return undefined;
@@ -68,7 +78,7 @@ const hashFileContents = async (value, trim = false, algorithm = DEFAULT_ALGORIT
 
   let result;
   try {
-    result = hashSum.digest(digest.trim().toLowerCase());
+    result = hashSum.digest(digest.trim().toLowerCase() as crypto.BinaryToTextEncoding);
   } catch (ex) {
     console.error(`Failure digesting hash: ${digest}`);
     return undefined;

@@ -7,7 +7,7 @@ import fs from 'fs';
  * @param {string} filePath - The path to check.
  * @returns {boolean} True if the path exists and is a directory, false otherwise.
  */
-const isFolder = filePath => {
+const isFolder = (filePath: string): boolean => {
   try {
     return fs.lstatSync(filePath).isDirectory();
   } catch (e) {

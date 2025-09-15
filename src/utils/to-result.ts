@@ -9,7 +9,7 @@ const EMPTY_OK = true;
  * @param {Array} sample - The sample array
  * @returns {Array} The result array
  */
-const toResult = (result, sample) => {
+const toResult = (result: any, sample: any): any => {
   if (isValidArray(sample, EMPTY_OK) === isValidArray(result, EMPTY_OK)) {
     return result;
   }

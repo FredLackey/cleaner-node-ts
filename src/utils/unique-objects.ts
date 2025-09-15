@@ -11,10 +11,10 @@ import stringify from './stringify';
  * @param {boolean} [strict=true] - If true, uses strict equality for comparison. If false, compares based on JSON stringification.
  * @returns {Array<object>} A new array containing only the unique objects from the input. Returns the original input if it's not a valid array.
  */
-const uniqueObjects = (values, strict = true) => {
+const uniqueObjects = (values: any[], strict: boolean = true): object[] | any[] => {
   if (!isValidArray(values)) { return values; }
-  const cache = [];
-  const results = [];
+  const cache: (object | string)[] = [];
+  const results: object[] = [];
   [].concat(values).filter(isObject).forEach(x => {
 
     const cacheValue = strict ? x : stringify(x);

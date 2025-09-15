@@ -9,7 +9,7 @@ import isFile from './is-file';
  * @param {string} filePath - The path to the file to read.
  * @returns {string|null} The content of the file as a string, or null on failure.
  */
-const readFile = (filePath) => {
+const readFile = (filePath: string): string | null => {
 
   if (!isFile(filePath)) {
     return null;

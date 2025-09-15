@@ -8,7 +8,7 @@ import c from '../constants';
  * @param {string} [saltOption=c.SALT_OPTION] - The encoding format for the output string (e.g., 'hex', 'base64'). Defaults to `c.SALT_OPTION`.
  * @returns {string} The generated salt string in the specified encoding.
  */
-const newSalt = (byteCount, saltOption = c.SALT_OPTION) => {
+const newSalt = (byteCount: number, saltOption: BufferEncoding = c.SALT_OPTION as BufferEncoding): string => {
   return crypto.randomBytes(byteCount).toString(saltOption);
 };
 

@@ -7,7 +7,7 @@ import fs from 'fs';
  * @param {string} filePath - The path to check.
  * @returns {boolean} True if the path exists and is a file, false otherwise.
  */
-const isFile = filePath => {
+const isFile = (filePath: string): boolean => {
   try {
     return fs.lstatSync(filePath).isFile();
   } catch (e) {

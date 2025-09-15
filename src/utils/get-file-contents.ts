@@ -7,7 +7,7 @@ import fs from 'fs';
  * @param {string} [format='utf8'] The encoding format to use when converting the buffer to a string.
  * @returns {string|undefined} The file contents as a string, or undefined if an error occurs during reading.
  */
-const getFileContents = (filePath, options, format = 'utf8') => {
+const getFileContents = (filePath: string, options?: any, format: string = 'utf8'): string | undefined => {
   try {
     let contents = fs.readFileSync(filePath, options);
         contents = contents.toString(format);
