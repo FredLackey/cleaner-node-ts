@@ -4,28 +4,81 @@
 
 import { AUDIT_FIELDS } from '../constants';
 import { isObject, isSet } from '../validation';
+import { isValidObject, isValidArray } from '../validation/value-checks';
+import { copyObject } from './copy';
+import { toResponse } from './transform';
 
 /**
- * Recursively cleans an object or array by removing properties with undefined values
+ * Recursively processes a single object, removing properties with `undefined` values.
+ * @private
  */
-export function cleanObject<T>(obj: T): T {
-  if (obj === null || obj === undefined) return obj;
+const cleanItem = <T>(item: T, data: { cache: any[] }): T => {
+  if (!isValidObject(item)) {
+    return item;
+  }
+  if (data.cache.includes(item)) {
+    return item;
+  }
+  data.cache.push(item);
 
-  if (Array.isArray(obj)) {
-    return obj.map((item) => cleanObject(item)) as unknown as T;
+  const obj = item as any;
+  const keys = Object.keys(obj);
+  const deleteKeys = keys.filter(x => (x && typeof obj[x] === 'undefined'));
+  deleteKeys.forEach(x => delete obj[x]);
+
+  const objects = keys.filter(x => (x && isValidObject(obj[x])));
+  objects.forEach(x => cleanItem(obj[x], data));
+
+  const arrays = keys.filter(x => (x && isValidArray(obj[x], false)));
+  arrays.forEach(x => cleanArray(obj[x], data));
+
+  return item;
+};
+
+/**
+ * Recursively processes an array, cleaning each object or nested array within it.
+ * @private
+ */
+const cleanArray = <T>(items: T, data: { cache: any[] }): T => {
+  if (!isValidArray(items)) {
+    return items;
   }
 
-  if (typeof obj === 'object' && obj !== null && !(obj instanceof Date)) {
-    const cleaned: any = {};
-    for (const [key, value] of Object.entries(obj)) {
-      if (value !== undefined) {
-        cleaned[key] = cleanObject(value);
-      }
+  // Child items may be objects or arrays
+  [].concat(items as any).forEach(x => {
+    if (isValidObject(x)) {
+      cleanItem(x, data);
     }
-    return cleaned;
+    if (isValidArray(x)) {
+      cleanArray(x, data);
+    }
+  });
+
+  return items;
+};
+
+/**
+ * Recursively cleans an object or array by removing properties with `undefined` values
+ */
+export function cleanObject<T>(itemOrItems: T, copyFirst: boolean = false): T {
+  if (!isValidObject(itemOrItems) && !isValidArray(itemOrItems)) {
+    return itemOrItems;
   }
 
-  return obj;
+  const data = {
+    items: copyFirst ? copyObject(itemOrItems) : itemOrItems,
+    cache: []
+  };
+  
+  if (isValidArray(data.items)) {
+    cleanArray(data.items, data);
+  }
+
+  if (isValidObject(data.items)) {
+    cleanItem(data.items, data);
+  }
+
+  return toResponse(itemOrItems, data.items) as T;
 }
 
 /**

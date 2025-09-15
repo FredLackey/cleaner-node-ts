@@ -71,13 +71,11 @@ export function isArray(value: unknown): value is unknown[] {
 /**
  * Checks if a value is a plain JavaScript object (not null, not an array)
  */
-export function isObject(value: unknown): value is Record<string, unknown> {
+export function isObject(value: unknown): boolean {
   return (
-    value !== null &&
-    typeof value === 'object' &&
-    !Array.isArray(value) &&
-    !(value instanceof Date) &&
-    !(value instanceof RegExp)
+    typeof value === 'object' && 
+    value !== null && 
+    !(value instanceof Array)
   );
 }
 

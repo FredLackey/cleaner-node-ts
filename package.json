@@ -1,6 +1,6 @@
 {
   "name"       : "cleaner-node-ts",
-  "version"    : "1.0.1",
+  "version"    : "1.0.2",
   "description": "TypeScript-first utility library for Node.js projects - making code more legible and maintainable",
   "main"       : "./dist/cjs/index.js",
   "module"     : "./dist/esm/index.js",

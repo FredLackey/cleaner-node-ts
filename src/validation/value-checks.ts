@@ -8,33 +8,29 @@ import { isObject, isSet } from './type-checks';
 /**
  * Checks if a value is a string and optionally if it's non-empty after trimming
  */
-export function isValidString(value: unknown, checkTrimmed = true): value is string {
-  if (typeof value !== 'string') return false;
-  if (!checkTrimmed) return true;
-  return value.trim().length > 0;
+export function isValidString(value: unknown, isEmptyOkay = false): value is string {
+  return (typeof value === 'string') && (isEmptyOkay || value.trim().length > 0);
 }
 
 /**
  * Checks if a value is not set or is a valid string
  */
-export function isValidStringIfSet(value: unknown, checkTrimmed = true): boolean {
-  return value === null || value === undefined || isValidString(value, checkTrimmed);
+export function isValidStringIfSet(value: unknown, isEmptyOkay = false): boolean {
+  return value === null || value === undefined || isValidString(value, isEmptyOkay);
 }
 
 /**
  * Checks if a value is an array and optionally if it's non-empty
  */
-export function isValidArray(value: unknown, checkNonEmpty = false): value is unknown[] {
-  if (!Array.isArray(value)) return false;
-  if (!checkNonEmpty) return true;
-  return value.length > 0;
+export function isValidArray(value: unknown, isEmptyOkay = false): value is unknown[] {
+  return (typeof value === 'object') && (value instanceof Array) && (isEmptyOkay || value.length > 0);
 }
 
 /**
  * Checks if a value is not set or is a valid array
  */
-export function isValidArrayIfSet(value: unknown, checkNonEmpty = false): boolean {
-  return value === null || value === undefined || isValidArray(value, checkNonEmpty);
+export function isValidArrayIfSet(value: unknown, isEmptyOkay = false): boolean {
+  return value === null || value === undefined || isValidArray(value, isEmptyOkay);
 }
 
 /**

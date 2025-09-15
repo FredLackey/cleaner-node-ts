@@ -56,6 +56,21 @@ export const DEFAULT_HASH_ALGORITHM = 'md5';
 export const DEFAULT_HASH_ENCODING = 'hex';
 export const DEFAULT_SALT_LENGTH = 32;
 export const DEFAULT_CODE_LENGTH = 8;
+
+// Original cleaner-node constants for compatibility
+export const SALT_OPTION = 'base64';
+export const HMAC_OPTION = 'sha1';
+export const DIGEST_OPTION = 'hex';
+export const ENCODE_FORMAT = 'base64';
+export const DECODE_FORMAT = 'ascii';
+export const STRING_HMAC = 'md5';
+
+export const DEFAULTS = {
+  CODE: {
+    LENGTH: 6,
+    CHARS: CLEAR_CODE,
+  }
+};
 export const DEFAULT_TIMEOUT = 30000; // 30 seconds
 
 /**

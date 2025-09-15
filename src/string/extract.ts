@@ -177,14 +177,11 @@ export function getTokenizedSegments(
 /**
  * Checks if a string contains a target substring, with optional case sensitivity
  */
-export function hasString(source: unknown, target: unknown, caseSensitive = true): boolean {
-  if (!isValidString(source, false) || !isValidString(target, false)) return false;
-
-  if (caseSensitive) {
-    return source.includes(target);
-  } else {
-    return source.toLowerCase().includes(target.toLowerCase());
-  }
+export function hasString(value: unknown, target: unknown, isCaseSensitive = false): boolean {
+  if (typeof value !== 'string') return false;
+  if (typeof target !== 'string') return false;
+  return (isCaseSensitive && value.indexOf(target) >= 0) ||
+    (!isCaseSensitive && value.toUpperCase().indexOf(target.toUpperCase()) >= 0);
 }
 
 /**

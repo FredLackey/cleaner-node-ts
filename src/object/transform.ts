@@ -3,6 +3,7 @@
  */
 
 import { isObject } from '../validation';
+import { isValidObject, isValidArray } from '../validation/value-checks';
 import { isIsoDate } from '../validation/format-checks';
 
 /**
@@ -104,33 +105,23 @@ export function toRequest(req: unknown): any {
 /**
  * Formats a response based on the structure of the original input
  */
-export function toResponse(data: unknown, error?: unknown): any {
-  const response: any = {
-    success: !error,
-    timestamp: new Date().toISOString(),
-  };
+export function toResponse<T>(original: unknown, response: T): T | T[] | unknown {
+  const ALLOW_EMPTY = true;
 
-  if (error) {
-    response.error =
-      error instanceof Error
-        ? {
-            message: error.message,
-            name: error.name,
-            stack: error.stack,
-          }
-        : error;
+  if (!isValidObject(original) && !isValidArray(original, ALLOW_EMPTY)) {
+    return response;
   }
 
-  if (data !== undefined) {
-    response.data = data;
-
-    // Add metadata for arrays
-    if (Array.isArray(data)) {
-      response.count = data.length;
-    }
+  if (isValidArray(original, ALLOW_EMPTY)) {
+    return [].concat(response as any);
   }
-
-  return response;
+  if (isValidObject(response)) {
+    return response;
+  }
+  if (!isValidArray(response, ALLOW_EMPTY)) {
+    return undefined;
+  }
+  return (response as any)[0];
 }
 
 /**
@@ -176,14 +167,17 @@ export function getCircularReplacer(): (key: string, value: unknown) => unknown 
 /**
  * Safely parses a JSON string into a JavaScript object
  */
-export function parseJson(value: unknown): unknown {
-  if (typeof value !== 'string') return null;
-
+export function parseJson(rawJson: unknown, debugErrors: boolean = true): unknown {
+  let obj;
   try {
-    return JSON.parse(value);
-  } catch {
-    return null;
+    obj = JSON.parse(rawJson as string);
+  } catch (ex) {
+    if (debugErrors) {
+      console.debug(ex);
+    }
+    return undefined;
   }
+  return obj;
 }
 
 /**

@@ -3,36 +3,14 @@
  */
 
 import type { Nullable } from '../types/common';
+import { stringify } from '../string/transform';
 
 /**
  * Creates a deep copy of an object using JSON stringification and parsing
- * Note: This method has limitations - won't preserve functions, undefined values,
- * symbols, dates (converts to strings), etc.
+ * Note: This method does not handle non-JSON-serializable values like functions, Dates, or undefined
  */
-export function copyObject<T>(obj: T): Nullable<T> {
-  if (obj === null || obj === undefined) return null;
-
-  try {
-    // Handle primitives
-    if (typeof obj !== 'object') {
-      return obj;
-    }
-
-    // Handle arrays
-    if (Array.isArray(obj)) {
-      return JSON.parse(JSON.stringify(obj));
-    }
-
-    // Handle dates
-    if (obj instanceof Date) {
-      return new Date(obj.getTime()) as unknown as T;
-    }
-
-    // Handle regular objects
-    return JSON.parse(JSON.stringify(obj));
-  } catch {
-    return null;
-  }
+export function copyObject<T>(item: T): T {
+  return JSON.parse(stringify(item));
 }
 
 /**

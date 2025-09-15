@@ -5,37 +5,21 @@
 import { ALPHANUMERIC, DIGITS } from '../constants';
 import type { Optional, Nullable } from '../types/common';
 import { isValidString, isBracketted } from '../validation/value-checks';
-import { getBracket } from './extract';
+import { getBracket, hasString } from './extract';
 
 /**
  * Cleans a string by keeping only specified valid characters and removing specified invalid characters
  */
 export function cleanString(
   value: unknown,
-  validChars?: string,
-  invalidChars?: string,
+  valid: string = ALPHANUMERIC,
+  invalid: string = '',
+  isCaseSensitive: boolean = false
 ): Optional<string> {
-  if (!isValidString(value, false)) return undefined;
-
-  let result = value;
-
-  // Remove invalid characters first
-  if (invalidChars && invalidChars.length > 0) {
-    result = result
-      .split('')
-      .filter((char) => !invalidChars.includes(char))
-      .join('');
-  }
-
-  // Keep only valid characters
-  if (validChars && validChars.length > 0) {
-    result = result
-      .split('')
-      .filter((char) => validChars.includes(char))
-      .join('');
-  }
-
-  return result;
+  if (!isValidString(value, true)) return undefined;
+  return (value as string).split('').filter(ch => ((!valid || hasString(valid, ch, isCaseSensitive)) &&
+    (!invalid || !hasString(invalid, ch, isCaseSensitive))
+  )).join('');
 }
 
 /**

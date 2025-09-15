@@ -91,25 +91,17 @@ export function toKebabCase(value: unknown): Optional<string> {
 /**
  * Converts a JavaScript value to a JSON string, safely handling circular references
  */
-export function stringify(value: unknown, space?: string | number): Optional<string> {
-  try {
-    const seen = new WeakSet();
-    return JSON.stringify(
-      value,
-      (_key, val) => {
-        if (typeof val === 'object' && val !== null) {
-          if (seen.has(val)) {
-            return '[Circular]';
-          }
-          seen.add(val);
-        }
-        return val;
-      },
-      space,
-    );
-  } catch {
-    return undefined;
-  }
+export function stringify(value: unknown): string {
+  const seen = new WeakSet();
+  return JSON.stringify(value, (_key, val) => {
+    if (typeof val === 'object' && val !== null) {
+      if (seen.has(val)) {
+        return;
+      }
+      seen.add(val);
+    }
+    return val;
+  });
 }
 
 /**
